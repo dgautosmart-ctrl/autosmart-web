@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0a2440;
+
+  /* AutoSmart brand colors - taken from the logo */
+  --brand-navy: #0a2440;
+  --brand-navy-light: #123a5c;
+  --brand-blue: #2b93c9;
+  --brand-cyan: #6ec9e8;
+  --brand-offwhite: #f5fbfe;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-navy-light: var(--brand-navy-light);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-cyan: var(--brand-cyan);
+  --color-brand-offwhite: var(--brand-offwhite);
+  --font-sans: var(--font-rubik);
+  --font-mono: ui-monospace, monospace;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
