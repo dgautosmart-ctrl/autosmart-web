@@ -16,6 +16,10 @@ export default function ServicesSection() {
 
       <div className="relative mx-auto max-w-6xl px-4 py-16 sm:py-20">
         <Reveal className="mb-10 text-center">
+          <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-brand-blue/20 bg-brand-blue/5 px-4 py-1.5 text-xs font-semibold text-brand-blue">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-blue" />
+            התחומים שלנו
+          </span>
           <h2 className="text-2xl font-bold text-brand-navy sm:text-3xl">
             איך אנחנו יכולים לעזור
           </h2>

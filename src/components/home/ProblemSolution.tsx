@@ -26,8 +26,8 @@ export default function ProblemSolution() {
         className="pointer-events-none absolute -bottom-16 left-1/4 h-64 w-64 rounded-full bg-brand-cyan/10 blur-3xl"
       />
 
-      <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:py-20 md:grid-cols-2">
-        <Reveal className="space-y-4">
+      <div className="relative mx-auto grid max-w-6xl gap-6 px-4 pb-16 pt-32 sm:gap-8 sm:pb-20 sm:pt-40 md:grid-cols-2">
+        <Reveal className="space-y-4 rounded-3xl border border-brand-navy/10 bg-white p-6 shadow-sm sm:p-8">
           <h2 className="text-2xl font-bold text-brand-navy sm:text-3xl">
             מוכר לכם?
           </h2>
@@ -45,7 +45,10 @@ export default function ProblemSolution() {
             ))}
           </ul>
         </Reveal>
-        <Reveal delay={0.15} className="space-y-4">
+        <Reveal
+          delay={0.15}
+          className="space-y-4 rounded-3xl border border-brand-blue/15 bg-gradient-to-br from-brand-offwhite to-white p-6 shadow-sm sm:p-8"
+        >
           <h2 className="text-2xl font-bold text-brand-navy sm:text-3xl">
             ככה זה יכול להיראות
           </h2>

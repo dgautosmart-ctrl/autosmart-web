@@ -45,13 +45,17 @@ export default function ServiceCard({
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
       whileHover={{ y: -6 }}
-      className="group flex flex-col gap-3 rounded-2xl border border-brand-navy/10 bg-white p-6 shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-brand-blue/15"
+      className="group relative flex flex-col gap-3 overflow-hidden rounded-2xl border border-brand-navy/10 bg-white p-6 shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-brand-blue/15"
     >
-      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-blue to-brand-cyan text-white shadow-md shadow-brand-blue/30 transition-transform duration-300 group-hover:scale-110">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-10 -top-10 h-24 w-24 rounded-full bg-brand-cyan/0 blur-2xl transition-colors duration-500 group-hover:bg-brand-cyan/20"
+      />
+      <div className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-blue to-brand-cyan text-white shadow-md shadow-brand-blue/30 transition-transform duration-300 group-hover:scale-110">
         {ICONS[service.icon]}
       </div>
-      <h3 className="text-lg font-semibold text-brand-navy">{service.title}</h3>
-      <p className="text-sm leading-relaxed text-brand-navy/70">{service.description}</p>
+      <h3 className="relative text-lg font-semibold text-brand-navy">{service.title}</h3>
+      <p className="relative text-sm leading-relaxed text-brand-navy/70">{service.description}</p>
     </motion.div>
   );
 }

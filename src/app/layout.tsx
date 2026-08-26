@@ -53,7 +53,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         <ScrollProgressBar />
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 pt-[4.75rem] sm:pt-20">{children}</main>
         <Footer />
         <WhatsAppButton />
         {process.env.NEXT_PUBLIC_GA_ID && (

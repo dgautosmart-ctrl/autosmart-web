@@ -1,51 +1,54 @@
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
-import FloatingLogo from "@/components/home/FloatingLogo";
+import HeroMockup from "@/components/home/HeroMockup";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-brand-navy to-[#081b30] text-brand-offwhite">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-24 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-brand-blue/30 blur-3xl"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-brand-cyan/20 blur-3xl"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-20 -right-10 h-56 w-56 rounded-full bg-brand-blue/20 blur-3xl"
-      />
+    <section className="relative bg-gradient-to-b from-brand-navy to-[#081b30] text-brand-offwhite">
+      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute -top-24 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-brand-blue/30 blur-3xl" />
+        <div className="absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-brand-cyan/20 blur-3xl" />
+        <div className="absolute -bottom-20 -right-10 h-56 w-56 rounded-full bg-brand-blue/20 blur-3xl" />
+        <div className="absolute inset-0 bg-grid-glow" />
+      </div>
 
-      <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-8 px-4 py-16 text-center sm:py-24">
-        <FloatingLogo />
-        <Reveal delay={0.15} className="max-w-2xl space-y-4">
-          <h1 className="text-3xl font-bold leading-tight sm:text-5xl">
-            אוטומציה חכמה שמניעה את העסק שלך{" "}
-            <span className="bg-gradient-to-l from-brand-cyan to-brand-blue bg-clip-text text-transparent">
-              קדימה
+      <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-8 px-4 pt-16 pb-24 text-center sm:pt-24 sm:pb-32">
+        <Reveal className="flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold text-brand-cyan backdrop-blur-sm sm:text-sm">
+          <span className="h-2 w-2 rounded-full bg-brand-cyan animate-pulse-dot" />
+          אוטומציה חכמה לעסקים קטנים ובינוניים
+        </Reveal>
+
+        <Reveal delay={0.1} className="max-w-3xl space-y-4">
+          <h1 className="text-4xl font-bold leading-[1.15] sm:text-6xl">
+            אוטומציה חכמה שמניעה{" "}
+            <span className="block bg-gradient-to-l from-brand-cyan to-brand-blue bg-clip-text text-transparent sm:inline">
+              את העסק שלכם קדימה.
             </span>
           </h1>
-          <p className="text-base text-brand-offwhite/80 sm:text-lg">
+          <p className="mx-auto max-w-xl text-base text-brand-offwhite/75 sm:text-lg">
             עוזרים לעסקים קטנים ובינוניים לחסוך זמן, לצמצם טעויות ולשפר
             תהליכים - באמצעות אוטומציה מותאמת אישית לעסק שלכם.
           </p>
         </Reveal>
-        <Reveal delay={0.3} className="flex flex-col gap-3 sm:flex-row">
+
+        <Reveal delay={0.2} className="flex flex-col gap-3 sm:flex-row">
           <Link
             href="#contact"
-            className="rounded-full bg-brand-blue px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-blue/30 transition-all hover:scale-105 hover:bg-brand-cyan hover:text-brand-navy hover:shadow-brand-cyan/40 sm:text-base"
+            className="rounded-full bg-gradient-to-l from-brand-blue to-brand-cyan px-7 py-3.5 text-sm font-semibold text-brand-navy shadow-lg shadow-brand-blue/30 transition-all hover:scale-105 hover:shadow-brand-cyan/40 sm:text-base"
           >
             בואו נדבר על העסק שלכם
           </Link>
           <Link
             href="#services"
-            className="rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-brand-offwhite transition-all hover:scale-105 hover:border-brand-cyan hover:text-brand-cyan sm:text-base"
+            className="rounded-full border border-white/25 bg-white/5 px-7 py-3.5 text-sm font-semibold text-brand-offwhite backdrop-blur-sm transition-all hover:scale-105 hover:border-brand-cyan hover:text-brand-cyan sm:text-base"
           >
             מה אנחנו עושים
           </Link>
         </Reveal>
+      </div>
+
+      <div className="relative mx-auto -mb-20 max-w-4xl px-4 sm:-mb-28">
+        <HeroMockup />
       </div>
     </section>
   );
