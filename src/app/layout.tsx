@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CookieConsent from "@/components/CookieConsent";
+import LeadPopup from "@/components/LeadPopup";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { ContactModalProvider } from "@/components/contact/ContactModalContext";
 import ContactModal from "@/components/contact/ContactModal";
@@ -62,6 +63,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <WhatsAppButton />
           <CookieConsent />
           <ContactModal />
+          <LeadPopup />
         </ContactModalProvider>
         {process.env.NEXT_PUBLIC_GA_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />

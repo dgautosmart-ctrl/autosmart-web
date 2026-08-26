@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useState, type FormEvent } from "react";
+import { useId, useState, type FormEvent, type ReactNode } from "react";
 import { CONTACT } from "@/lib/site-config";
 
 const inputClasses =
@@ -10,11 +10,26 @@ const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? "";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
+const DEFAULT_SUCCESS_MESSAGE = "תודה! קיבלנו את הפנייה שלכם ונחזור אליכם בהקדם.";
+
 type ContactFormBodyProps = {
   onSuccess?: () => void;
+  /** Prefix used to build the email subject, e.g. "פנייה חדשה מהאתר" -> "... מ-<שם>" */
+  subjectPrefix?: string;
+  messageLabel?: string;
+  messagePlaceholder?: string;
+  submitLabel?: string;
+  successMessage?: ReactNode;
 };
 
-export default function ContactFormBody({ onSuccess }: ContactFormBodyProps) {
+export default function ContactFormBody({
+  onSuccess,
+  subjectPrefix = "פנייה חדשה מהאתר",
+  messageLabel = "קצת על העסק שלכם",
+  messagePlaceholder = "במה אתם עוסקים, ומה מעניין אתכם לייעל?",
+  submitLabel = "שליחה",
+  successMessage = DEFAULT_SUCCESS_MESSAGE,
+}: ContactFormBodyProps) {
   const [status, setStatus] = useState<Status>("idle");
   const idPrefix = useId();
 
@@ -25,7 +40,7 @@ export default function ContactFormBody({ onSuccess }: ContactFormBodyProps) {
     const form = event.currentTarget;
     const formData = new FormData(form);
     formData.append("access_key", WEB3FORMS_ACCESS_KEY);
-    formData.append("subject", `פנייה חדשה מהאתר מ-${formData.get("name")}`);
+    formData.append("subject", `${subjectPrefix} מ-${formData.get("name")}`);
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -49,7 +64,7 @@ export default function ContactFormBody({ onSuccess }: ContactFormBodyProps) {
   if (status === "success") {
     return (
       <p className="rounded-lg bg-white/10 px-6 py-8 text-center text-brand-cyan">
-        תודה! קיבלנו את הפנייה שלכם ונחזור אליכם בהקדם.
+        {successMessage}
       </p>
     );
   }
@@ -106,14 +121,14 @@ export default function ContactFormBody({ onSuccess }: ContactFormBodyProps) {
       </div>
       <div>
         <label htmlFor={`${idPrefix}-message`} className="mb-1 block text-sm font-medium">
-          קצת על העסק שלכם
+          {messageLabel}
         </label>
         <textarea
           id={`${idPrefix}-message`}
           name="message"
           rows={4}
           className={inputClasses}
-          placeholder="במה אתם עוסקים, ומה מעניין אתכם לייעל?"
+          placeholder={messagePlaceholder}
         />
       </div>
 
@@ -137,7 +152,7 @@ export default function ContactFormBody({ onSuccess }: ContactFormBodyProps) {
         disabled={status === "submitting"}
         className="w-full rounded-full bg-brand-blue px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-blue/30 transition-all hover:scale-[1.02] hover:bg-brand-cyan hover:text-brand-navy hover:shadow-brand-cyan/40 disabled:cursor-not-allowed disabled:scale-100 disabled:opacity-60 sm:text-base"
       >
-        {status === "submitting" ? "שולח..." : "שליחה"}
+        {status === "submitting" ? "שולח..." : submitLabel}
       </button>
     </form>
   );
