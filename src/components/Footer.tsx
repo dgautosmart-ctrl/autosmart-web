@@ -50,8 +50,14 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-white/10 py-4 text-center text-xs text-brand-offwhite/60">
-        © {year} AutoSmart. כל הזכויות שמורות.
+      <div className="flex flex-col items-center gap-1 border-t border-white/10 py-4 text-center text-xs text-brand-offwhite/60">
+        <p>© {year} AutoSmart. כל הזכויות שמורות.</p>
+        <Link
+          href="/privacy-policy"
+          className="underline underline-offset-2 transition-colors hover:text-brand-cyan"
+        >
+          מדיניות פרטיות
+        </Link>
       </div>
     </footer>
   );

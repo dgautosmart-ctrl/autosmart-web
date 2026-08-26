@@ -3,7 +3,7 @@ import { getArticleSlugs } from "@/lib/articles";
 import { SITE_URL } from "@/lib/site-config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes: MetadataRoute.Sitemap = ["", "/about", "/articles"].map((route) => ({
+  const staticRoutes: MetadataRoute.Sitemap = ["", "/about", "/articles", "/privacy-policy"].map((route) => ({
     url: `${SITE_URL}${route}`,
     lastModified: new Date(),
   }));
