@@ -1,6 +1,6 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
+import ContactModalTrigger from "@/components/contact/ContactModalTrigger";
 
 export const metadata: Metadata = {
   title: "אודות | AutoSmart",
@@ -107,12 +107,9 @@ export default function AboutPage() {
             ספרו לנו קצת על העסק שלכם ונבין ביחד איפה אוטומציה יכולה לחסוך
             לכם הכי הרבה זמן.
           </p>
-          <Link
-            href="/#contact"
-            className="rounded-full bg-brand-blue px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-blue/30 transition-all hover:scale-105 hover:bg-brand-cyan hover:text-brand-navy hover:shadow-brand-cyan/40 sm:text-base"
-          >
+          <ContactModalTrigger className="rounded-full bg-brand-blue px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-blue/30 transition-all hover:scale-105 hover:bg-brand-cyan hover:text-brand-navy hover:shadow-brand-cyan/40 sm:text-base">
             בואו נדבר
-          </Link>
+          </ContactModalTrigger>
         </Reveal>
       </section>
     </>

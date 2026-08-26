@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CookieConsent from "@/components/CookieConsent";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
+import { ContactModalProvider } from "@/components/contact/ContactModalContext";
+import ContactModal from "@/components/contact/ContactModal";
 import { CONTACT, SITE_URL } from "@/lib/site-config";
 import "./globals.css";
 
@@ -52,12 +54,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <ScrollProgressBar />
-        <Header />
-        <main className="flex-1 pt-[4.75rem] sm:pt-20">{children}</main>
-        <Footer />
-        <WhatsAppButton />
-        <CookieConsent />
+        <ContactModalProvider>
+          <ScrollProgressBar />
+          <Header />
+          <main className="flex-1 pt-[4.75rem] sm:pt-20">{children}</main>
+          <Footer />
+          <WhatsAppButton />
+          <CookieConsent />
+          <ContactModal />
+        </ContactModalProvider>
         {process.env.NEXT_PUBLIC_GA_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
         )}

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { useContactModal } from "@/components/contact/ContactModalContext";
 
 const NAV_LINKS = [
   { href: "/", label: "בית" },
@@ -14,6 +15,7 @@ const NAV_LINKS = [
 export default function Header() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { open: openContactModal } = useContactModal();
 
   return (
     <header className="fixed inset-x-0 top-3 z-50 px-3 sm:top-4 sm:px-4">
@@ -54,12 +56,13 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link
-            href="/#contact"
+          <button
+            type="button"
+            onClick={openContactModal}
             className="hidden rounded-full bg-gradient-to-l from-brand-blue to-brand-cyan px-4 py-2 text-sm font-semibold text-brand-navy shadow-md shadow-brand-blue/30 transition-transform hover:scale-105 sm:block"
           >
             צרו קשר
-          </Link>
+          </button>
 
           <button
             type="button"
@@ -98,13 +101,16 @@ export default function Header() {
               </Link>
             );
           })}
-          <Link
-            href="/#contact"
-            onClick={() => setIsMenuOpen(false)}
+          <button
+            type="button"
+            onClick={() => {
+              setIsMenuOpen(false);
+              openContactModal();
+            }}
             className="mt-2 rounded-full bg-gradient-to-l from-brand-blue to-brand-cyan px-4 py-3 text-center text-sm font-semibold text-brand-navy"
           >
             צרו קשר
-          </Link>
+          </button>
         </nav>
       )}
     </header>
