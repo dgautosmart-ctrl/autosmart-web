@@ -6,21 +6,16 @@ import { useContactModal } from "@/components/contact/ContactModalContext";
 import ContactFormBody from "@/components/contact/ContactFormBody";
 
 // --- ניתן לערוך כאן את הטקסטים, זמן ההופעה ותדירות ההצגה ---
-const SHOW_AFTER_MS = 25_000; // כמה זמן לחכות לפני הופעה (אם אין Exit Intent קודם)
+const SHOW_AFTER_MS = 10_000; // כמה זמן לחכות לפני הופעה (אם אין Exit Intent קודם)
 const REPEAT_AFTER_MS = 7 * 24 * 60 * 60 * 1000; // אחרי כמה זמן להציג שוב למשתמש שכבר ראה/סגר את הפופאפ
 
-const OFFER_TITLE = "איפה העסק שלך מאבד זמן ולידים?";
-const OFFER_BODY_LINES = [
+const TITLE = "איפה העסק שלך מאבד זמן ולידים?";
+const BODY_LINES = [
   "רוצה לגלות מה אפשר לייעל אצלך בעסק?",
   "אני עושה סקירה קצרה ללא עלות ומזהה איפה לידים נופלים, איפה מתבזבז זמן ומה אפשר להפוך לאוטומטי.",
 ];
-const OFFER_CTA_LABEL = "כן, תבדוק לי את העסק";
-
-const FORM_TITLE = "מעולה, בואו נכיר את העסק שלך";
-const FORM_MESSAGE_LABEL = "מה העסק שלך עושה?";
-const FORM_MESSAGE_PLACEHOLDER = "ספרו לי בקצרה במה העסק עוסק";
-const FORM_SUBMIT_LABEL = "שליחה";
-const FORM_SUBJECT_PREFIX = "בקשה לסקירה חינמית מהפופאפ";
+const SUBMIT_LABEL = "כן, תבדוק לי את העסק";
+const SUBJECT_PREFIX = "בקשה לסקירה חינמית מהפופאפ";
 const SUCCESS_MESSAGE = (
   <>
     מעולה, קיבלתי 👍
@@ -49,11 +44,9 @@ function markShown() {
   }
 }
 
-type Step = "closed" | "offer" | "form";
-
 export default function LeadPopup() {
   const { isOpen: contactModalOpen } = useContactModal();
-  const [step, setStep] = useState<Step>("closed");
+  const [isOpen, setIsOpen] = useState(false);
   const triggeredRef = useRef(false);
   // Kept in sync so the mount-only trigger effect below can read the latest
   // value from its timeout/event callbacks without re-subscribing.
@@ -63,7 +56,7 @@ export default function LeadPopup() {
   }, [contactModalOpen]);
 
   // Hide the popup whenever the contact modal is open, so the two never overlap.
-  const visible = step !== "closed" && !contactModalOpen;
+  const visible = isOpen && !contactModalOpen;
 
   useEffect(() => {
     if (isInCooldown()) return;
@@ -72,7 +65,7 @@ export default function LeadPopup() {
       if (triggeredRef.current || contactModalOpenRef.current) return;
       triggeredRef.current = true;
       markShown();
-      setStep("offer");
+      setIsOpen(true);
     }
 
     const timer = setTimeout(trigger, SHOW_AFTER_MS);
@@ -99,7 +92,7 @@ export default function LeadPopup() {
     if (!visible) return;
 
     function handleKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") setStep("closed");
+      if (event.key === "Escape") setIsOpen(false);
     }
 
     document.addEventListener("keydown", handleKeyDown);
@@ -113,7 +106,7 @@ export default function LeadPopup() {
   }, [visible]);
 
   function close() {
-    setStep("closed");
+    setIsOpen(false);
   }
 
   return (
@@ -160,38 +153,23 @@ export default function LeadPopup() {
             </button>
 
             <div className="relative p-6 pt-10 sm:p-8 sm:pt-10">
-              {step === "offer" ? (
-                <div className="text-center">
-                  <h2 id="lead-popup-heading" className="text-xl font-bold sm:text-2xl">
-                    {OFFER_TITLE}
-                  </h2>
-                  <div className="mt-3 space-y-2 text-brand-offwhite/70">
-                    {OFFER_BODY_LINES.map((line) => (
-                      <p key={line}>{line}</p>
-                    ))}
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => setStep("form")}
-                    className="mt-6 w-full rounded-full bg-brand-blue px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-blue/30 transition-all hover:scale-[1.02] hover:bg-brand-cyan hover:text-brand-navy hover:shadow-brand-cyan/40 sm:text-base"
-                  >
-                    {OFFER_CTA_LABEL}
-                  </button>
+              <div className="mb-6 text-center">
+                <h2 id="lead-popup-heading" className="text-xl font-bold sm:text-2xl">
+                  {TITLE}
+                </h2>
+                <div className="mt-3 space-y-2 text-brand-offwhite/70">
+                  {BODY_LINES.map((line) => (
+                    <p key={line}>{line}</p>
+                  ))}
                 </div>
-              ) : (
-                <>
-                  <h2 id="lead-popup-heading" className="mb-6 text-center text-xl font-bold sm:text-2xl">
-                    {FORM_TITLE}
-                  </h2>
-                  <ContactFormBody
-                    subjectPrefix={FORM_SUBJECT_PREFIX}
-                    messageLabel={FORM_MESSAGE_LABEL}
-                    messagePlaceholder={FORM_MESSAGE_PLACEHOLDER}
-                    submitLabel={FORM_SUBMIT_LABEL}
-                    successMessage={SUCCESS_MESSAGE}
-                  />
-                </>
-              )}
+              </div>
+
+              <ContactFormBody
+                subjectPrefix={SUBJECT_PREFIX}
+                submitLabel={SUBMIT_LABEL}
+                successMessage={SUCCESS_MESSAGE}
+                showMessageField={false}
+              />
             </div>
           </motion.div>
         </div>

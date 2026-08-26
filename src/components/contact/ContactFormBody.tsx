@@ -20,6 +20,7 @@ type ContactFormBodyProps = {
   messagePlaceholder?: string;
   submitLabel?: string;
   successMessage?: ReactNode;
+  showMessageField?: boolean;
 };
 
 export default function ContactFormBody({
@@ -29,6 +30,7 @@ export default function ContactFormBody({
   messagePlaceholder = "במה אתם עוסקים, ומה מעניין אתכם לייעל?",
   submitLabel = "שליחה",
   successMessage = DEFAULT_SUCCESS_MESSAGE,
+  showMessageField = true,
 }: ContactFormBodyProps) {
   const [status, setStatus] = useState<Status>("idle");
   const idPrefix = useId();
@@ -119,18 +121,20 @@ export default function ContactFormBody({
           />
         </div>
       </div>
-      <div>
-        <label htmlFor={`${idPrefix}-message`} className="mb-1 block text-sm font-medium">
-          {messageLabel}
-        </label>
-        <textarea
-          id={`${idPrefix}-message`}
-          name="message"
-          rows={4}
-          className={inputClasses}
-          placeholder={messagePlaceholder}
-        />
-      </div>
+      {showMessageField && (
+        <div>
+          <label htmlFor={`${idPrefix}-message`} className="mb-1 block text-sm font-medium">
+            {messageLabel}
+          </label>
+          <textarea
+            id={`${idPrefix}-message`}
+            name="message"
+            rows={4}
+            className={inputClasses}
+            placeholder={messagePlaceholder}
+          />
+        </div>
+      )}
 
       {status === "error" && (
         <p className="text-sm text-red-300">
