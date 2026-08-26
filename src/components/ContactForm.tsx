@@ -4,7 +4,7 @@ export default function ContactForm() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-gradient-to-br from-brand-navy to-brand-navy-light text-brand-offwhite"
+      className="relative scroll-mt-[4.75rem] overflow-hidden bg-gradient-to-br from-brand-navy to-brand-navy-light text-brand-offwhite sm:scroll-mt-20"
     >
       <div
         aria-hidden

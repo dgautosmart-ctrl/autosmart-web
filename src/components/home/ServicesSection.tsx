@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="relative overflow-hidden bg-gradient-to-b from-brand-offwhite to-white">
+    <section id="services" className="relative scroll-mt-[4.75rem] overflow-hidden bg-gradient-to-b from-brand-offwhite to-white sm:scroll-mt-20">
       <div
         aria-hidden
         className="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-full bg-brand-cyan/10 blur-3xl"

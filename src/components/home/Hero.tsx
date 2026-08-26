@@ -1,6 +1,6 @@
-import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import HeroMockup from "@/components/home/HeroMockup";
+import ScrollLink from "@/components/ScrollLink";
 
 export default function Hero() {
   return (
@@ -32,18 +32,18 @@ export default function Hero() {
         </Reveal>
 
         <Reveal delay={0.2} className="flex flex-col gap-3 sm:flex-row">
-          <Link
+          <ScrollLink
             href="#contact"
             className="rounded-full bg-gradient-to-l from-brand-blue to-brand-cyan px-7 py-3.5 text-sm font-semibold text-brand-navy shadow-lg shadow-brand-blue/30 transition-all hover:scale-105 hover:shadow-brand-cyan/40 sm:text-base"
           >
             בואו נדבר על העסק שלכם
-          </Link>
-          <Link
+          </ScrollLink>
+          <ScrollLink
             href="#services"
             className="rounded-full border border-white/25 bg-white/5 px-7 py-3.5 text-sm font-semibold text-brand-offwhite backdrop-blur-sm transition-all hover:scale-105 hover:border-brand-cyan hover:text-brand-cyan sm:text-base"
           >
             מה אנחנו עושים
-          </Link>
+          </ScrollLink>
         </Reveal>
       </div>
 
