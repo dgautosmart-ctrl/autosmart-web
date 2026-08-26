@@ -20,6 +20,7 @@ function readArticleFile(fileName: string): Article {
     date: data.date ?? "",
     excerpt: data.excerpt ?? "",
     category: data.category ?? "",
+    tags: Array.isArray(data.tags) ? data.tags : [],
     content,
   };
 }
@@ -32,11 +33,23 @@ export function getAllArticles(): ArticleMeta[] {
   const fileNames = fs.readdirSync(ARTICLES_DIRECTORY).filter((name) => name.endsWith(".md"));
 
   const articles: ArticleMeta[] = fileNames.map((fileName) => {
-    const { slug, title, date, excerpt, category } = readArticleFile(fileName);
-    return { slug, title, date, excerpt, category };
+    const { slug, title, date, excerpt, category, tags } = readArticleFile(fileName);
+    return { slug, title, date, excerpt, category, tags };
   });
 
   return articles.sort((a, b) => (a.date < b.date ? 1 : -1));
+}
+
+export function getAllTags(): string[] {
+  const tags = new Set<string>();
+  getAllArticles().forEach((article) => {
+    article.tags.forEach((tag) => tags.add(tag));
+  });
+  return Array.from(tags).sort((a, b) => a.localeCompare(b, "he"));
+}
+
+export function getArticlesByTag(tag: string): ArticleMeta[] {
+  return getAllArticles().filter((article) => article.tags.includes(tag));
 }
 
 export function getArticleSlugs(): string[] {
