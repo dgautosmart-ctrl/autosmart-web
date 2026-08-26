@@ -7,6 +7,29 @@ export const metadata: Metadata = {
   description: "קצת עלינו - מי אנחנו ולמה אנחנו עושים את מה שאנחנו עושים.",
 };
 
+const ROLES = [
+  {
+    title: "מערכות ואוטומציה",
+    description: "CRM, וואטסאפ, אינטגרציות בין מערכות וסקריפטים שרצים לבד.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} className="h-7 w-7">
+        <circle cx="12" cy="12" r="3" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.5M12 18.5V21M21 12h-2.5M5.5 12H3M18.4 5.6l-1.8 1.8M7.4 16.6l-1.8 1.8M18.4 18.4l-1.8-1.8M7.4 7.4 5.6 5.6" />
+      </svg>
+    ),
+  },
+  {
+    title: "שיווק ותוכן",
+    description: "דיוור, כתיבת תוכן ועיצוב שמדברים אל הלקוחות שלכם.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} className="h-7 w-7">
+        <rect x="3.5" y="5.5" width="17" height="13" rx="2" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4 7l8 6 8-6" />
+      </svg>
+    ),
+  },
+];
+
 const VALUES = [
   {
     title: "מקצועיות",
@@ -58,14 +81,55 @@ export default function AboutPage() {
             הסיפור שלנו
           </h2>
           <p>
-            [תוכן placeholder - כאן ייכנס הסיפור האמיתי שלך: איך AutoSmart
-            הוקמה, מה הרקע שלך, ומה הביא אותך לעולם האוטומציה העסקית.]
+            AutoSmart הוקם לפני כשנה, מתוך משהו פשוט: אחד מאיתנו למד שיווק
+            דיגיטלי ודיוור, והשני מגיע מעולם המערכות והאוטומציות. ככל
+            שדיברנו עם יותר בעלי עסקים, גילינו את אותו הדבר כמעט בכל שיחה -
+            יש עוד המון זמן וכסף שאפשר לחסוך, ותהליכים פשוטים שיכולים להביא
+            הרבה יותר לקוחות, בלי להעסיק עוד ידיים.
           </p>
           <p>
-            [פסקה נוספת - למשל דוגמה לעסק שעזרת לו, או הרגע שבו הבנת שיש כאן
-            צורך אמיתי בשוק.]
+            היום אנחנו זוג שעובד יחד: אחד דואג לכל מה שקשור למערכות, CRM,
+            וואטסאפ ואוטומציה - והשני לשיווק במייל, כתיבת תוכן ועיצוב. אנחנו
+            מלווים עסק מהרגע שבו ליד נכנס, דרך התהליך שמייצר לו אמון, ועד
+            שהוא הופך ללקוח חוזר.
+          </p>
+          <p>
+            אנחנו לא סוכנות גדולה ואנונימית. כל פרויקט מתחיל בהקשבה אמיתית
+            למה שהעסק שלכם צריך - לא בפתרון מדף.
           </p>
         </Reveal>
+      </section>
+
+      <section className="bg-brand-offwhite">
+        <div className="mx-auto max-w-4xl px-4 py-16 sm:py-20">
+          <Reveal className="mb-10 text-center">
+            <h2 className="text-2xl font-bold text-brand-navy sm:text-3xl">
+              מי מאחורי המסך
+            </h2>
+            <p className="mt-2 text-brand-navy/70">
+              זוג שעובד יחד - כל אחד עם התחום שלו
+            </p>
+          </Reveal>
+          <div className="grid gap-6 sm:grid-cols-2">
+            {ROLES.map((role, index) => (
+              <Reveal
+                key={role.title}
+                delay={index * 0.1}
+                className="flex flex-col items-center gap-3 rounded-2xl border border-brand-navy/10 bg-white p-6 text-center"
+              >
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-brand-blue to-brand-cyan text-white shadow-md shadow-brand-blue/30">
+                  {role.icon}
+                </div>
+                <h3 className="text-lg font-semibold text-brand-navy">
+                  {role.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-brand-navy/70">
+                  {role.description}
+                </p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section className="relative overflow-hidden bg-gradient-to-b from-brand-offwhite to-white">
