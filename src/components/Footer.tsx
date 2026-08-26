@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { CONTACT } from "@/lib/site-config";
+import CopyButton from "@/components/CopyButton";
 
 const NAV_LINKS = [
   { href: "/", label: "בית" },
@@ -36,17 +37,23 @@ export default function Footer() {
 
         <div className="flex flex-col items-center gap-2 text-center sm:items-start sm:text-right">
           <span className="text-sm font-semibold text-brand-cyan">צור קשר</span>
-          <a
-            href={`https://wa.me/${CONTACT.whatsappNumber}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-brand-offwhite/80 hover:text-brand-cyan"
-          >
-            וואטסאפ: {CONTACT.whatsappDisplay}
-          </a>
-          <a href={`mailto:${CONTACT.email}`} className="text-sm text-brand-offwhite/80 hover:text-brand-cyan">
-            {CONTACT.email}
-          </a>
+          <div className="flex items-center gap-1.5">
+            <a
+              href={`https://wa.me/${CONTACT.whatsappNumber}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-brand-offwhite/80 hover:text-brand-cyan"
+            >
+              וואטסאפ: {CONTACT.whatsappDisplay}
+            </a>
+            <CopyButton value={CONTACT.whatsappDisplay} label="העתקת מספר הטלפון" />
+          </div>
+          <div className="flex items-center gap-1.5">
+            <a href={`mailto:${CONTACT.email}`} className="text-sm text-brand-offwhite/80 hover:text-brand-cyan">
+              {CONTACT.email}
+            </a>
+            <CopyButton value={CONTACT.email} label="העתקת כתובת המייל" />
+          </div>
         </div>
       </div>
 
