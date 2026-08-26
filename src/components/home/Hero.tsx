@@ -47,7 +47,7 @@ export default function Hero() {
         </Reveal>
       </div>
 
-      <div className="relative mx-auto -mb-20 max-w-4xl px-4 sm:-mb-28">
+      <div className="relative mx-auto -mb-20 max-w-6xl px-4 sm:-mb-28">
         <HeroMockup />
       </div>
     </section>

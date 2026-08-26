@@ -45,8 +45,12 @@ export default function ServiceCard({
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
       whileHover={{ y: -6 }}
-      className="group relative flex flex-col gap-3 overflow-hidden rounded-2xl border border-brand-navy/10 bg-white p-6 shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-brand-blue/15"
+      className="group relative flex flex-col gap-3 overflow-hidden rounded-2xl border border-brand-navy/10 bg-gradient-to-b from-white to-brand-offwhite/50 p-6 shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-brand-blue/15"
     >
+      <span
+        aria-hidden
+        className="absolute inset-x-0 top-0 h-[3px] scale-x-0 bg-gradient-to-l from-brand-blue to-brand-cyan transition-transform duration-300 group-hover:scale-x-100"
+      />
       <div
         aria-hidden
         className="pointer-events-none absolute -left-10 -top-10 h-24 w-24 rounded-full bg-brand-cyan/0 blur-2xl transition-colors duration-500 group-hover:bg-brand-cyan/20"

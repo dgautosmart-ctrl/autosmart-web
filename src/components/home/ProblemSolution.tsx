@@ -27,7 +27,8 @@ export default function ProblemSolution() {
       />
 
       <div className="relative mx-auto grid max-w-6xl gap-6 px-4 pb-16 pt-32 sm:gap-8 sm:pb-20 sm:pt-40 md:grid-cols-2">
-        <Reveal className="space-y-4 rounded-3xl border border-brand-navy/10 bg-white p-6 shadow-sm sm:p-8">
+        <Reveal className="relative space-y-4 overflow-hidden rounded-3xl border border-brand-navy/10 bg-white p-6 shadow-sm sm:p-8">
+          <span aria-hidden className="absolute inset-x-0 top-0 h-1 bg-gradient-to-l from-red-400/70 via-red-400/30 to-transparent" />
           <h2 className="text-2xl font-bold text-brand-navy sm:text-3xl">
             מוכר לכם?
           </h2>
@@ -47,8 +48,9 @@ export default function ProblemSolution() {
         </Reveal>
         <Reveal
           delay={0.15}
-          className="space-y-4 rounded-3xl border border-brand-blue/15 bg-gradient-to-br from-brand-offwhite to-white p-6 shadow-sm sm:p-8"
+          className="relative space-y-4 overflow-hidden rounded-3xl border border-brand-blue/15 bg-gradient-to-br from-brand-offwhite to-white p-6 shadow-sm sm:translate-y-3 sm:p-8"
         >
+          <span aria-hidden className="absolute inset-x-0 top-0 h-1 bg-gradient-to-l from-brand-blue to-brand-cyan" />
           <h2 className="text-2xl font-bold text-brand-navy sm:text-3xl">
             ככה זה יכול להיראות
           </h2>

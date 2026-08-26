@@ -5,6 +5,7 @@ import Reveal from "@/components/Reveal";
 export default function ServicesSection() {
   return (
     <section id="services" className="relative scroll-mt-[4.75rem] overflow-hidden bg-gradient-to-b from-brand-offwhite to-white sm:scroll-mt-20">
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid-glow opacity-60" />
       <div
         aria-hidden
         className="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-full bg-brand-cyan/10 blur-3xl"
@@ -20,7 +21,7 @@ export default function ServicesSection() {
             <span className="h-1.5 w-1.5 rounded-full bg-brand-blue" />
             התחומים שלנו
           </span>
-          <h2 className="text-2xl font-bold text-brand-navy sm:text-3xl">
+          <h2 className="text-3xl font-bold text-brand-navy sm:text-4xl">
             איך אנחנו יכולים לעזור
           </h2>
           <p className="mt-2 text-brand-navy/70">
