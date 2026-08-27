@@ -2,6 +2,7 @@ import Reveal from "@/components/Reveal";
 import HeroMockup from "@/components/home/HeroMockup";
 import ScrollLink from "@/components/ScrollLink";
 import TechBackdrop from "@/components/TechBackdrop";
+import HandDrawnArrow from "@/components/HandDrawnArrow";
 
 export default function Hero() {
   return (
@@ -28,17 +29,7 @@ export default function Hero() {
               <span className="bg-gradient-to-l from-brand-cyan via-brand-cyan to-brand-blue bg-clip-text text-transparent">
                 קדימה
               </span>
-              <svg
-                aria-hidden
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2.25}
-                className="arrow-trend ms-2.5 inline-block h-[0.95em] w-[0.95em] align-[0.04em] text-brand-cyan"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21 17l-6-6-4 4-8-8" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 7H3v6" />
-              </svg>
+              <HandDrawnArrow className="ms-2 h-[1.05em] w-[1.05em] align-[0.06em] text-brand-cyan" />
             </span>
           </h1>
           <p className="mx-auto max-w-2xl text-base font-light leading-relaxed text-brand-offwhite/75 sm:text-lg">

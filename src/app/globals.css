@@ -187,23 +187,108 @@ h2 {
   animation: float-y 5s ease-in-out infinite;
 }
 
-/* Rising-trend arrow next to the hero headline - a subtle repeating nudge
-   along its own diagonal (up and to the left, in the reading direction). */
-@keyframes arrow-trend {
-  0%,
-  100% {
-    transform: translate(0, 0);
+/*
+ * Hand-drawn arrow next to the hero headline (<HandDrawnArrow />): the line
+ * sketches itself on with an uneven, hand-like pace, then the arrowhead is
+ * drawn, a nib dot rides along the line, and the whole thing fades and
+ * redraws on a loop. Paths use pathLength="1", so 1 = hidden, 0 = complete.
+ */
+.hd-line,
+.hd-head {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+.hd-line {
+  animation: hd-line 4.4s ease-in-out infinite;
+}
+.hd-head {
+  animation: hd-head 4.4s ease-in-out infinite;
+}
+.hd-nib {
+  opacity: 0;
+  offset-rotate: 0deg;
+  animation: hd-nib 4.4s linear infinite;
+}
+
+@keyframes hd-line {
+  0% {
+    stroke-dashoffset: 1;
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.3, 0.55, 0.5, 1);
+  }
+  7% {
+    stroke-dashoffset: 0.97;
+  }
+  28% {
+    stroke-dashoffset: 0.58;
+    animation-timing-function: cubic-bezier(0.5, 0, 0.75, 1);
   }
   50% {
-    transform: translate(-0.11em, -0.11em);
+    stroke-dashoffset: 0;
+  }
+  86% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  96% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+  100% {
+    stroke-dashoffset: 1;
+    opacity: 0;
   }
 }
-.arrow-trend {
-  animation: arrow-trend 1.9s ease-in-out infinite;
+
+@keyframes hd-head {
+  0%,
+  48% {
+    stroke-dashoffset: 1;
+    opacity: 1;
+  }
+  64% {
+    stroke-dashoffset: 0;
+  }
+  86% {
+    opacity: 1;
+  }
+  96% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+  100% {
+    stroke-dashoffset: 1;
+    opacity: 0;
+  }
+}
+
+@keyframes hd-nib {
+  0%,
+  5% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  9% {
+    opacity: 1;
+  }
+  48% {
+    offset-distance: 100%;
+    opacity: 1;
+  }
+  55%,
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .arrow-trend {
+  .hd-line,
+  .hd-head {
     animation: none;
+    stroke-dashoffset: 0;
+  }
+  .hd-nib {
+    display: none;
   }
 }
