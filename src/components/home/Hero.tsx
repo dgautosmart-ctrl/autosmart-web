@@ -6,10 +6,11 @@ export default function Hero() {
   return (
     <section className="relative bg-gradient-to-b from-brand-navy to-[#081b30] text-brand-offwhite">
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -top-24 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-brand-blue/30 blur-3xl" />
-        <div className="absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-brand-cyan/20 blur-3xl" />
-        <div className="absolute -bottom-20 -right-10 h-56 w-56 rounded-full bg-brand-blue/20 blur-3xl" />
         <div className="absolute inset-0 bg-aurora opacity-90" />
+        <div className="absolute inset-0 bg-beam opacity-70" />
+        <div className="absolute -top-24 left-1/2 h-80 w-80 rounded-full bg-brand-blue/30 blur-3xl animate-drift-a" />
+        <div className="absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-brand-cyan/25 blur-3xl animate-drift-b" />
+        <div className="absolute -bottom-20 -right-10 h-56 w-56 rounded-full bg-brand-blue/20 blur-3xl animate-drift-c" />
         <div className="absolute inset-0 bg-noise opacity-[0.12] mix-blend-soft-light" />
       </div>
 

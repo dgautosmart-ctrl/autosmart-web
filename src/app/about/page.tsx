@@ -52,13 +52,15 @@ export default function AboutPage() {
   return (
     <>
       <section className="relative overflow-hidden bg-gradient-to-b from-brand-navy to-[#081b30] text-brand-offwhite">
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-aurora opacity-70" />
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-noise opacity-[0.1] mix-blend-soft-light" />
         <div
           aria-hidden
-          className="pointer-events-none absolute -top-20 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-brand-blue/30 blur-3xl"
+          className="pointer-events-none absolute -top-20 left-1/2 h-72 w-72 rounded-full bg-brand-blue/30 blur-3xl animate-drift-a"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute -bottom-24 -right-16 h-64 w-64 rounded-full bg-brand-cyan/20 blur-3xl"
+          className="pointer-events-none absolute -bottom-24 -right-16 h-64 w-64 rounded-full bg-brand-cyan/20 blur-3xl animate-drift-b"
         />
         <Reveal className="relative mx-auto max-w-4xl px-4 py-16 text-center sm:py-20">
           <h1 className="text-3xl font-bold sm:text-5xl">

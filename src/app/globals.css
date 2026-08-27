@@ -22,7 +22,7 @@
   --color-brand-cyan: var(--brand-cyan);
   --color-brand-offwhite: var(--brand-offwhite);
   --font-sans: var(--font-ibm);
-  --font-display: var(--font-secular);
+  --font-display: var(--font-frank);
   --font-mono: ui-monospace, monospace;
 }
 
@@ -31,37 +31,107 @@ body {
   color: var(--foreground);
 }
 
-/* Headings use the display face for a distinctive, non-generic look */
+/*
+ * Headings use a high-contrast Hebrew serif display face - crafted and
+ * editorial, deliberately not the generic geometric-sans look.
+ */
 h1,
-h2,
+h2 {
+  font-family: var(--font-display), var(--font-sans), Georgia, serif;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
 h3 {
-  font-family: var(--font-display), var(--font-sans), sans-serif;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.01em;
 }
 
 /*
- * Modern "aurora" field that replaces the old square grid behind dark
- * hero-style sections: soft, slowly drifting colour blooms + conic sweep.
+ * "Aurora" field that replaces the old square grid behind dark hero-style
+ * sections: a slow-moving colour mesh + a rotating light beam + film grain.
+ * The colour blooms move via background-position (cheap to animate); the
+ * whole layer also breathes with a gentle scale.
  */
 .bg-aurora {
   background-image:
-    radial-gradient(38% 46% at 12% 18%, rgba(43, 147, 201, 0.42), transparent 72%),
-    radial-gradient(42% 42% at 88% 12%, rgba(110, 201, 232, 0.32), transparent 70%),
-    radial-gradient(46% 52% at 72% 88%, rgba(43, 147, 201, 0.3), transparent 72%),
-    conic-gradient(from 210deg at 50% 40%, rgba(110, 201, 232, 0.14), rgba(43, 147, 201, 0.04), rgba(110, 201, 232, 0.14));
-  filter: blur(14px) saturate(115%);
-  animation: aurora-drift 22s ease-in-out infinite alternate;
+    radial-gradient(35% 45% at 18% 22%, rgba(43, 147, 201, 0.5), transparent 70%),
+    radial-gradient(40% 40% at 84% 16%, rgba(110, 201, 232, 0.42), transparent 68%),
+    radial-gradient(46% 52% at 70% 84%, rgba(43, 147, 201, 0.38), transparent 72%),
+    radial-gradient(30% 34% at 46% 54%, rgba(150, 224, 255, 0.28), transparent 70%);
+  background-size: 200% 200%;
+  filter: blur(16px) saturate(120%);
+  animation: aurora-mesh 28s ease-in-out infinite alternate;
 }
 
-@keyframes aurora-drift {
+@keyframes aurora-mesh {
   0% {
-    transform: translate3d(-2%, -1%, 0) scale(1.06);
+    background-position: 0% 0%, 100% 0%, 50% 100%, 30% 40%;
+    transform: scale(1.05);
   }
   50% {
-    transform: translate3d(2%, 1.5%, 0) scale(1.14);
+    background-position: 25% 18%, 72% 14%, 40% 78%, 60% 52%;
+    transform: scale(1.13);
   }
   100% {
-    transform: translate3d(-1%, 2%, 0) scale(1.08);
+    background-position: 12% 34%, 90% 26%, 56% 92%, 42% 30%;
+    transform: scale(1.07);
+  }
+}
+
+/* Rotating light beam - a soft conic sweep, masked to a centred glow */
+.bg-beam {
+  background-image: conic-gradient(
+    from 0deg at 50% 32%,
+    rgba(110, 201, 232, 0) 0deg,
+    rgba(110, 201, 232, 0.18) 55deg,
+    rgba(43, 147, 201, 0) 130deg,
+    rgba(150, 224, 255, 0.14) 230deg,
+    rgba(110, 201, 232, 0) 360deg
+  );
+  -webkit-mask-image: radial-gradient(58% 58% at 50% 32%, #000 25%, transparent 78%);
+  mask-image: radial-gradient(58% 58% at 50% 32%, #000 25%, transparent 78%);
+  animation: beam-rotate 26s linear infinite;
+}
+
+@keyframes beam-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Independent slow drift for the blurred accent orbs in the hero */
+.animate-drift-a {
+  animation: drift-a 20s ease-in-out infinite alternate;
+}
+.animate-drift-b {
+  animation: drift-b 24s ease-in-out infinite alternate;
+}
+.animate-drift-c {
+  animation: drift-c 30s ease-in-out infinite alternate;
+}
+
+@keyframes drift-a {
+  from {
+    transform: translate3d(-50%, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(-42%, 34px, 0) scale(1.15);
+  }
+}
+@keyframes drift-b {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(40px, -28px, 0) scale(1.12);
+  }
+}
+@keyframes drift-c {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(-36px, 24px, 0) scale(0.9);
   }
 }
 
@@ -71,7 +141,11 @@ h3 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .bg-aurora {
+  .bg-aurora,
+  .bg-beam,
+  .animate-drift-a,
+  .animate-drift-b,
+  .animate-drift-c {
     animation: none;
   }
 }

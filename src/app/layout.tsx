@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans_Hebrew, Secular_One } from "next/font/google";
+import { IBM_Plex_Sans_Hebrew, Frank_Ruhl_Libre } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -18,10 +18,10 @@ const sans = IBM_Plex_Sans_Hebrew({
   weight: ["400", "500", "600", "700"],
 });
 
-const display = Secular_One({
-  variable: "--font-secular",
+const display = Frank_Ruhl_Libre({
+  variable: "--font-frank",
   subsets: ["hebrew", "latin"],
-  weight: ["400"],
+  weight: ["500", "700", "900"],
 });
 
 const SITE_TITLE = "AutoSmart - יותר לקוחות עם שיווק מדויק, מערכות חכמות ואוטומציה";
