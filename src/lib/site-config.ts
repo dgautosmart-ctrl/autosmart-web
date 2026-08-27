@@ -4,5 +4,6 @@ export const CONTACT = {
   email: "dgautosmart@gmail.com",
 };
 
-// כתובת האתר החי - הדומיין הרשמי (הראשי ב-Vercel הוא עם www)
-export const SITE_URL = "https://www.autosmartbiz.co.il";
+// כתובת האתר החי - זמנית חזרה ל-vercel.app עד ש-www.autosmartbiz.co.il יעלה.
+// כשהדומיין יהיה Valid ב-Vercel: להחזיר ל-"https://www.autosmartbiz.co.il".
+export const SITE_URL = "https://autosmart-web.vercel.app";

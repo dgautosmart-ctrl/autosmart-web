@@ -1,18 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  async redirects() {
-    return [
-      // הפניה קבועה (308) מהכתובת הישנה של Vercel לדומיין הרשמי,
-      // כולל כל נתיב פנימי. כתובות תצוגה מקדימה (preview) לא מושפעות.
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "autosmart-web.vercel.app" }],
-        destination: "https://www.autosmartbiz.co.il/:path*",
-        permanent: true,
-      },
-    ];
-  },
+  // הערה: הפניית 308 מהכתובת הישנה (autosmart-web.vercel.app) לדומיין הרשמי
+  // תתווסף בחזרה רק אחרי ש-www.autosmartbiz.co.il יעלה ויוגדר כ-Valid ב-Vercel.
+  // עד אז חייבים להשאיר את vercel.app עובד ישירות.
 };
 
 export default nextConfig;
