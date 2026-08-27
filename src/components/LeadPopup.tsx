@@ -5,9 +5,9 @@ import { AnimatePresence, motion } from "motion/react";
 import { useContactModal } from "@/components/contact/ContactModalContext";
 import ContactFormBody from "@/components/contact/ContactFormBody";
 
-// --- ניתן לערוך כאן את הטקסטים, זמן ההופעה ותדירות ההצגה ---
+// --- ניתן לערוך כאן את הטקסטים וזמן ההופעה ---
 const SHOW_AFTER_MS = 10_000; // כמה זמן לחכות לפני הופעה (אם אין Exit Intent קודם)
-const REPEAT_AFTER_MS = 7 * 24 * 60 * 60 * 1000; // אחרי כמה זמן להציג שוב למשתמש שכבר ראה/סגר את הפופאפ
+// הפופאפ מוצג בכל כניסה לאתר (טעינת עמוד), בלי תקופת המתנה בין הצגות.
 
 const TITLE = "איפה העסק שלך מאבד לקוחות ולידים?";
 const BODY_LINES = [
@@ -25,25 +25,6 @@ const SUCCESS_MESSAGE = (
 );
 // -----------------------------------------------------------
 
-const STORAGE_KEY = "autosmart-lead-popup-last-shown";
-
-function isInCooldown(): boolean {
-  try {
-    const lastShown = Number(localStorage.getItem(STORAGE_KEY) ?? 0);
-    return Date.now() - lastShown < REPEAT_AFTER_MS;
-  } catch {
-    return false;
-  }
-}
-
-function markShown() {
-  try {
-    localStorage.setItem(STORAGE_KEY, String(Date.now()));
-  } catch {
-    // localStorage לא זמין (למשל גלישה פרטית) - הפופאפ עלול להופיע שוב, וזה בסדר
-  }
-}
-
 export default function LeadPopup() {
   const { isOpen: contactModalOpen } = useContactModal();
   const [isOpen, setIsOpen] = useState(false);
@@ -59,12 +40,9 @@ export default function LeadPopup() {
   const visible = isOpen && !contactModalOpen;
 
   useEffect(() => {
-    if (isInCooldown()) return;
-
     function trigger() {
       if (triggeredRef.current || contactModalOpenRef.current) return;
       triggeredRef.current = true;
-      markShown();
       setIsOpen(true);
     }
 
