@@ -186,3 +186,24 @@ h2 {
 .animate-float-y {
   animation: float-y 5s ease-in-out infinite;
 }
+
+/* Rising-trend arrow next to the hero headline - a subtle repeating nudge
+   along its own diagonal (up and to the right). */
+@keyframes arrow-trend {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0.11em, -0.11em);
+  }
+}
+.arrow-trend {
+  animation: arrow-trend 1.9s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arrow-trend {
+    animation: none;
+  }
+}

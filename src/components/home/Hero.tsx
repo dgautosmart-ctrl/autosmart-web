@@ -24,8 +24,21 @@ export default function Hero() {
         <Reveal delay={0.08} className="max-w-3xl space-y-5">
           <h1 className="text-[2.6rem] leading-[1.03] sm:text-6xl lg:text-7xl">
             מניעים את העסק שלכם{" "}
-            <span className="bg-gradient-to-l from-brand-cyan via-brand-cyan to-brand-blue bg-clip-text text-transparent">
-              קדימה
+            <span className="whitespace-nowrap">
+              <span className="bg-gradient-to-l from-brand-cyan via-brand-cyan to-brand-blue bg-clip-text text-transparent">
+                קדימה
+              </span>
+              <svg
+                aria-hidden
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2.5}
+                className="arrow-trend ms-2 inline-block h-[0.72em] w-[0.72em] align-[0.1em] text-brand-cyan"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 17l6-6 4 4 8-8" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 7h6v6" />
+              </svg>
             </span>
           </h1>
           <p className="mx-auto max-w-2xl text-base font-light leading-relaxed text-brand-offwhite/75 sm:text-lg">
