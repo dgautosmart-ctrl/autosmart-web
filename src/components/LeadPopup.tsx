@@ -94,7 +94,7 @@ export default function LeadPopup() {
           role="dialog"
           aria-modal="true"
           aria-labelledby="lead-popup-heading"
-          className="fixed inset-0 z-[55] flex items-center justify-center overflow-y-auto p-4"
+          className="fixed inset-0 z-[55] flex items-center justify-center p-4"
         >
           <motion.div
             aria-hidden
@@ -111,7 +111,7 @@ export default function LeadPopup() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.97, y: 8 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="relative max-h-[calc(100vh-2rem)] w-full max-w-md overflow-y-auto rounded-2xl border border-white/10 bg-gradient-to-br from-brand-navy to-brand-navy-light text-brand-offwhite shadow-2xl shadow-brand-blue/20"
+            className="relative max-h-[calc(100dvh-2rem)] w-full max-w-md overflow-y-auto rounded-2xl border border-white/10 bg-gradient-to-br from-brand-navy to-brand-navy-light text-brand-offwhite shadow-2xl shadow-brand-blue/20"
           >
             <div
               aria-hidden
