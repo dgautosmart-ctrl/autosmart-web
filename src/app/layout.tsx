@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Rubik } from "next/font/google";
+import { IBM_Plex_Sans_Hebrew, Secular_One } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -12,14 +12,21 @@ import ContactModal from "@/components/contact/ContactModal";
 import { CONTACT, SITE_URL } from "@/lib/site-config";
 import "./globals.css";
 
-const rubik = Rubik({
-  variable: "--font-rubik",
+const sans = IBM_Plex_Sans_Hebrew({
+  variable: "--font-ibm",
   subsets: ["hebrew", "latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const SITE_TITLE = "AutoSmart - אוטומציה עסקית לעסקים קטנים ובינוניים";
+const display = Secular_One({
+  variable: "--font-secular",
+  subsets: ["hebrew", "latin"],
+  weight: ["400"],
+});
+
+const SITE_TITLE = "AutoSmart - יותר לקוחות עם שיווק מדויק, מערכות חכמות ואוטומציה";
 const SITE_DESCRIPTION =
-  "AutoSmart מסייעת לעסקים קטנים ובינוניים לחסוך זמן ולשפר תהליכים באמצעות אוטומציה חכמה.";
+  "AutoSmart עוזרת לעסקים קטנים ובינוניים להביא יותר לקוחות - בשילוב של שיווק דיגיטלי מדויק, מערכות חכמות ואוטומציה שעובדת בשבילכם.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -49,7 +56,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="he" dir="rtl" className={`${rubik.variable} h-full scroll-smooth antialiased`}>
+    <html lang="he" dir="rtl" className={`${sans.variable} ${display.variable} h-full scroll-smooth antialiased`}>
       <body className="flex min-h-full flex-col font-sans">
         <script
           type="application/ld+json"

@@ -18,7 +18,7 @@ export default function Footer() {
         <div className="flex flex-col items-center gap-3 text-center sm:items-start sm:text-right">
           <Image src="/logo.png" alt="AutoSmart" width={64} height={64} className="rounded-lg" />
           <p className="max-w-xs text-sm text-brand-offwhite/70">
-            אוטומציה חכמה שמניעה את העסק שלך קדימה.
+            שיווק מדויק, מערכות חכמות ואוטומציה - מניעים את העסק שלך קדימה.
           </p>
         </div>
 

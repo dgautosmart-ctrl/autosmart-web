@@ -9,10 +9,10 @@ import ContactFormBody from "@/components/contact/ContactFormBody";
 const SHOW_AFTER_MS = 10_000; // כמה זמן לחכות לפני הופעה (אם אין Exit Intent קודם)
 const REPEAT_AFTER_MS = 7 * 24 * 60 * 60 * 1000; // אחרי כמה זמן להציג שוב למשתמש שכבר ראה/סגר את הפופאפ
 
-const TITLE = "איפה העסק שלך מאבד זמן ולידים?";
+const TITLE = "איפה העסק שלך מאבד לקוחות ולידים?";
 const BODY_LINES = [
-  "רוצה לגלות מה אפשר לייעל אצלך בעסק?",
-  "אני עושה סקירה קצרה ללא עלות ומזהה איפה לידים נופלים, איפה מתבזבז זמן ומה אפשר להפוך לאוטומטי.",
+  "רוצה לגלות איפה אפשר להביא לעסק יותר לקוחות?",
+  "אני עושה סקירה קצרה ללא עלות ומזהה איפה לידים נופלים, מה בשיווק לא עובד ומה אפשר להפוך לאוטומטי.",
 ];
 const SUBMIT_LABEL = "כן, תבדוק לי את העסק";
 const SUBJECT_PREFIX = "בקשה לסקירה חינמית מהפופאפ";
@@ -20,7 +20,7 @@ const SUCCESS_MESSAGE = (
   <>
     מעולה, קיבלתי 👍
     <br />
-    אעבור על הפרטים ואחזור אליך כדי להבין איפה אפשר לייעל את העסק.
+    אעבור על הפרטים ואחזור אליך כדי להבין איפה אפשר להביא לעסק יותר לקוחות.
   </>
 );
 // -----------------------------------------------------------
@@ -139,7 +139,7 @@ export default function LeadPopup() {
               aria-hidden
               className="pointer-events-none absolute -top-16 left-1/2 h-56 w-56 -translate-x-1/2 rounded-full bg-brand-cyan/20 blur-3xl"
             />
-            <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid-glow" />
+            <div aria-hidden className="pointer-events-none absolute inset-0 bg-aurora opacity-40" />
 
             <button
               type="button"

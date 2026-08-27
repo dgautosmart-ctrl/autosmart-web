@@ -4,7 +4,7 @@ import ContactModalTrigger from "@/components/contact/ContactModalTrigger";
 
 export const metadata: Metadata = {
   title: "אודות | AutoSmart",
-  description: "קצת עלינו - מי אנחנו ולמה אנחנו עושים את מה שאנחנו עושים.",
+  description: "קצת עלינו - מי אנחנו, ולמה שילוב של שיווק, מערכות ואוטומציה עובד טוב יותר מכל אחד מהם לבד.",
 };
 
 const ROLES = [
@@ -34,7 +34,7 @@ const VALUES = [
   {
     title: "מקצועיות",
     description:
-      "כל פתרון אוטומציה נבנה מותאם אישית לתהליכים האמיתיים של העסק שלכם - לא פתרון גנרי מהמדף.",
+      "כל פתרון נבנה מותאם אישית לתהליכים האמיתיים של העסק שלכם - שיווק, מערכות ואוטומציה, לא פתרון גנרי מהמדף.",
   },
   {
     title: "שקיפות",
@@ -44,7 +44,7 @@ const VALUES = [
   {
     title: "תוצאות",
     description:
-      "המטרה היא זמן שחוזר אליכם וטעויות שנעלמות - לא טכנולוגיה בשביל הטכנולוגיה.",
+      "המטרה היא יותר לקוחות, זמן שחוזר אליכם וטעויות שנעלמות - לא טכנולוגיה בשביל הטכנולוגיה.",
   },
 ];
 
@@ -68,9 +68,9 @@ export default function AboutPage() {
             </span>
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-base text-brand-offwhite/80 sm:text-lg">
-            AutoSmart קמה מתוך אמונה אחת פשוטה: עסקים קטנים ובינוניים לא
-            צריכים לבזבז שעות על משימות שחוזרות על עצמן - הטכנולוגיה כבר כאן,
-            רק צריך להתאים אותה נכון.
+            AutoSmart קמה מתוך אמונה אחת פשוטה: עסקים קטנים ובינוניים יכולים
+            להביא יותר לקוחות בלי להעסיק עוד ידיים - כשהשיווק, המערכות
+            והאוטומציה עובדים יחד כמנוע אחד.
           </p>
         </Reveal>
       </section>
@@ -168,8 +168,8 @@ export default function AboutPage() {
             מוכנים להתחיל?
           </h2>
           <p className="max-w-xl text-brand-navy/70">
-            ספרו לנו קצת על העסק שלכם ונבין ביחד איפה אוטומציה יכולה לחסוך
-            לכם הכי הרבה זמן.
+            ספרו לנו קצת על העסק שלכם ונבין ביחד איפה השילוב של שיווק, מערכות
+            ואוטומציה יכול להביא לכם הכי הרבה לקוחות.
           </p>
           <ContactModalTrigger className="rounded-full bg-brand-blue px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-blue/30 transition-all hover:scale-105 hover:bg-brand-cyan hover:text-brand-navy hover:shadow-brand-cyan/40 sm:text-base">
             בואו נדבר

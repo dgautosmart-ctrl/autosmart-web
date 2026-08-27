@@ -9,25 +9,26 @@ export default function Hero() {
         <div className="absolute -top-24 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-brand-blue/30 blur-3xl" />
         <div className="absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-brand-cyan/20 blur-3xl" />
         <div className="absolute -bottom-20 -right-10 h-56 w-56 rounded-full bg-brand-blue/20 blur-3xl" />
-        <div className="absolute inset-0 bg-grid-glow" />
+        <div className="absolute inset-0 bg-aurora opacity-90" />
+        <div className="absolute inset-0 bg-noise opacity-[0.12] mix-blend-soft-light" />
       </div>
 
       <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-8 px-4 pt-16 pb-24 text-center sm:pt-24 sm:pb-32">
         <Reveal className="flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold text-brand-cyan backdrop-blur-sm sm:text-sm">
           <span className="h-2 w-2 rounded-full bg-brand-cyan animate-pulse-dot" />
-          אוטומציה חכמה לעסקים קטנים ובינוניים
+          שיווק מדויק · מערכות חכמות · אוטומציה
         </Reveal>
 
         <Reveal delay={0.1} className="max-w-3xl space-y-4">
           <h1 className="text-4xl font-bold leading-[1.15] sm:text-6xl">
-            אוטומציה חכמה שמניעה{" "}
+            מניעים את העסק שלכם{" "}
             <span className="block bg-gradient-to-l from-brand-cyan to-brand-blue bg-clip-text text-transparent sm:inline">
-              את העסק שלכם קדימה.
+              קדימה.
             </span>
           </h1>
-          <p className="mx-auto max-w-xl text-base text-brand-offwhite/75 sm:text-lg">
-            עוזרים לעסקים קטנים ובינוניים לחסוך זמן, לצמצם טעויות ולשפר
-            תהליכים - באמצעות אוטומציה מותאמת אישית לעסק שלכם.
+          <p className="mx-auto max-w-2xl text-base text-brand-offwhite/75 sm:text-lg">
+            בונים לעסק שלכם מנוע שמביא יותר לקוחות - עם שיווק מדויק, מערכות
+            חכמות ואוטומציה שעובדת בשבילכם.
           </p>
         </Reveal>
 

@@ -4,13 +4,13 @@ import type { ReactNode } from "react";
 import { motion } from "motion/react";
 
 const AUTOMATIONS = [
-  "טופס ליד חדש הוזן אוטומטית ל-CRM",
-  "תזכורת תור נשלחה בוואטסאפ ללקוח",
-  "דוח מכירות שבועי נשלח למייל",
+  "ליד חדש מהקמפיין נקלט אוטומטית ל-CRM",
+  "הודעת המשך נשלחה ללקוח בוואטסאפ",
+  "דוח מקורות לידים שבועי נשלח למייל",
 ];
 
 const STATS = [
-  { label: "משימות שרצו החודש", value: "412" },
+  { label: "לידים חדשים החודש", value: "128" },
   { label: "שעות עבודה שנחסכו", value: "72" },
 ];
 
@@ -64,7 +64,7 @@ const NODES: {
   vertical: "top" | "middle" | "bottom";
   delay: number;
 }[] = [
-  { id: "lead", label: "ליד חדש", icon: "lead", side: "left", vertical: "top", delay: 0.5 },
+  { id: "lead", label: "ליד מקמפיין", icon: "lead", side: "left", vertical: "top", delay: 0.5 },
   { id: "crm", label: "CRM", icon: "crm", side: "left", vertical: "middle", delay: 0.65 },
   { id: "sheet", label: "Sheets", icon: "sheet", side: "left", vertical: "bottom", delay: 0.8 },
   { id: "whatsapp", label: "WhatsApp", icon: "chat", side: "right", vertical: "top", delay: 0.55 },
@@ -136,7 +136,7 @@ export default function HeroMockup() {
           className="absolute -top-5 right-4 z-20 hidden items-center gap-2 rounded-full border border-white/15 bg-brand-navy/90 px-4 py-2 text-xs font-semibold text-brand-cyan shadow-lg shadow-brand-blue/20 backdrop-blur-xl sm:right-10 sm:flex"
         >
           <span className="h-2 w-2 rounded-full bg-brand-cyan animate-pulse-dot" />
-          אוטומציה בזמן אמת
+          המנוע פועל בזמן אמת
         </motion.div>
 
         <div className="animate-float-y rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.09] to-white/[0.02] p-2 shadow-2xl shadow-brand-blue/25 backdrop-blur-xl sm:p-3">
@@ -158,7 +158,7 @@ export default function HeroMockup() {
             <div className="mb-5 flex flex-wrap items-center justify-between gap-2">
               <div>
                 <p className="text-base font-bold text-brand-navy sm:text-lg">
-                  בוקר טוב 👋 הנה סקירת האוטומציות שלכם
+                  בוקר טוב 👋 הנה התמונה של העסק שלכם
                 </p>
                 <p className="text-xs text-brand-navy/60 sm:text-sm">7 הימים האחרונים</p>
               </div>
@@ -178,13 +178,13 @@ export default function HeroMockup() {
 
             <div className="mb-5 rounded-xl border border-brand-navy/10 bg-white px-4 py-3">
               <div className="mb-2 flex items-center justify-between text-xs text-brand-navy/70 sm:text-sm">
-                <span>צמצום עבודה ידנית</span>
-                <span className="font-semibold text-brand-navy">78%</span>
+                <span>לידים שקיבלו מענה תוך שעה</span>
+                <span className="font-semibold text-brand-navy">92%</span>
               </div>
               <div className="h-2 w-full overflow-hidden rounded-full bg-brand-navy/10">
                 <motion.div
                   initial={{ width: 0 }}
-                  whileInView={{ width: "78%" }}
+                  whileInView={{ width: "92%" }}
                   viewport={{ once: true }}
                   transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
                   className="h-full rounded-full bg-gradient-to-l from-brand-blue to-brand-cyan"

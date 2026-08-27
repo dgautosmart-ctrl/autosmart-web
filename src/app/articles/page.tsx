@@ -5,7 +5,7 @@ import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "מאמרים | AutoSmart",
-  description: "תובנות וטיפים על אוטומציה עסקית מהצוות של AutoSmart.",
+  description: "תובנות וטיפים על שיווק דיגיטלי, מערכות חכמות ואוטומציה מהצוות של AutoSmart.",
 };
 
 export default function ArticlesPage() {
@@ -28,7 +28,7 @@ export default function ArticlesPage() {
             מאמרים
           </h1>
           <p className="mt-2 text-brand-navy/70">
-            תובנות וטיפים על אוטומציה עסקית
+            תובנות וטיפים על שיווק, מערכות ואוטומציה לעסקים
           </p>
         </Reveal>
 

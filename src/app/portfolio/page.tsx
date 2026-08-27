@@ -6,7 +6,7 @@ import ContactModalTrigger from "@/components/contact/ContactModalTrigger";
 
 export const metadata: Metadata = {
   title: "תיק עבודות | AutoSmart",
-  description: "קייסים אמיתיים של עסקים קטנים שליווינו - הבעיה, הפתרון והתוצאה.",
+  description: "קייסים אמיתיים של עסקים קטנים שליווינו בשיווק, מערכות ואוטומציה - הבעיה, הפתרון והתוצאה.",
 };
 
 export default function PortfolioPage() {
@@ -47,8 +47,8 @@ export default function PortfolioPage() {
             רוצים תוצאה דומה בעסק שלכם?
           </h2>
           <p className="max-w-xl text-brand-navy/70">
-            ספרו לנו קצת על העסק שלכם ונבין ביחד איפה אוטומציה יכולה לחסוך
-            לכם הכי הרבה זמן.
+            ספרו לנו קצת על העסק שלכם ונבין ביחד איפה השילוב של שיווק, מערכות
+            ואוטומציה יכול להביא לכם הכי הרבה לקוחות.
           </p>
           <ContactModalTrigger className="rounded-full bg-brand-blue px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-blue/30 transition-all hover:scale-105 hover:bg-brand-cyan hover:text-brand-navy hover:shadow-brand-cyan/40 sm:text-base">
             בואו נדבר

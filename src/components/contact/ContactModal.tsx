@@ -55,7 +55,7 @@ export default function ContactModal() {
               aria-hidden
               className="pointer-events-none absolute -top-16 left-1/2 h-56 w-56 -translate-x-1/2 rounded-full bg-brand-cyan/20 blur-3xl"
             />
-            <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid-glow" />
+            <div aria-hidden className="pointer-events-none absolute inset-0 bg-aurora opacity-40" />
 
             <div className="relative flex items-center justify-between border-b border-white/10 px-4 py-2.5 sm:px-5">
               <div className="flex items-center gap-1.5" aria-hidden>

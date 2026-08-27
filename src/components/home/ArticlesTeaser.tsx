@@ -18,7 +18,7 @@ export default function ArticlesTeaser({ articles }: { articles: ArticleMeta[] }
               מהבלוג
             </h2>
             <p className="mt-2 text-brand-navy/70">
-              תובנות וטיפים על אוטומציה עסקית
+              תובנות וטיפים על שיווק, מערכות ואוטומציה לעסקים
             </p>
           </div>
           <Link

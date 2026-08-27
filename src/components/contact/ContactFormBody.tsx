@@ -27,7 +27,7 @@ export default function ContactFormBody({
   onSuccess,
   subjectPrefix = "פנייה חדשה מהאתר",
   messageLabel = "קצת על העסק שלכם",
-  messagePlaceholder = "במה אתם עוסקים, ומה מעניין אתכם לייעל?",
+  messagePlaceholder = "במה אתם עוסקים, ומה תרצו לשפר או לקדם?",
   submitLabel = "שליחה",
   successMessage = DEFAULT_SUCCESS_MESSAGE,
   showMessageField = true,

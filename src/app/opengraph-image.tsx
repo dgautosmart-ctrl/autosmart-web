@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import fs from "fs";
 import path from "path";
 
-export const alt = "AutoSmart - אוטומציה חכמה שמניעה את העסק שלך קדימה";
+export const alt = "AutoSmart - מניעים את העסק שלכם קדימה";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

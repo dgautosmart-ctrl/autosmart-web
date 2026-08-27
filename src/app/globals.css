@@ -21,7 +21,8 @@
   --color-brand-blue: var(--brand-blue);
   --color-brand-cyan: var(--brand-cyan);
   --color-brand-offwhite: var(--brand-offwhite);
-  --font-sans: var(--font-rubik);
+  --font-sans: var(--font-ibm);
+  --font-display: var(--font-secular);
   --font-mono: ui-monospace, monospace;
 }
 
@@ -30,13 +31,49 @@ body {
   color: var(--foreground);
 }
 
-/* Subtle animated grid used behind dark hero-style sections */
-.bg-grid-glow {
+/* Headings use the display face for a distinctive, non-generic look */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display), var(--font-sans), sans-serif;
+  letter-spacing: -0.015em;
+}
+
+/*
+ * Modern "aurora" field that replaces the old square grid behind dark
+ * hero-style sections: soft, slowly drifting colour blooms + conic sweep.
+ */
+.bg-aurora {
   background-image:
-    linear-gradient(to bottom, rgba(110, 201, 232, 0.09) 1px, transparent 1px),
-    linear-gradient(to right, rgba(110, 201, 232, 0.09) 1px, transparent 1px);
-  background-size: 44px 44px;
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+    radial-gradient(38% 46% at 12% 18%, rgba(43, 147, 201, 0.42), transparent 72%),
+    radial-gradient(42% 42% at 88% 12%, rgba(110, 201, 232, 0.32), transparent 70%),
+    radial-gradient(46% 52% at 72% 88%, rgba(43, 147, 201, 0.3), transparent 72%),
+    conic-gradient(from 210deg at 50% 40%, rgba(110, 201, 232, 0.14), rgba(43, 147, 201, 0.04), rgba(110, 201, 232, 0.14));
+  filter: blur(14px) saturate(115%);
+  animation: aurora-drift 22s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-drift {
+  0% {
+    transform: translate3d(-2%, -1%, 0) scale(1.06);
+  }
+  50% {
+    transform: translate3d(2%, 1.5%, 0) scale(1.14);
+  }
+  100% {
+    transform: translate3d(-1%, 2%, 0) scale(1.08);
+  }
+}
+
+/* Fine film grain for texture - keeps large gradient fills from looking flat */
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-aurora {
+    animation: none;
+  }
 }
 
 @keyframes pulse-dot {
