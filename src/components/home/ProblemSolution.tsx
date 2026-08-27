@@ -16,73 +16,59 @@ const SOLUTIONS = [
 
 export default function ProblemSolution() {
   return (
-    <section className="relative overflow-hidden bg-white">
+    <section className="relative overflow-hidden border-t border-brand-navy/[0.06] bg-white">
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-16 right-1/4 h-64 w-64 rounded-full bg-brand-blue/5 blur-3xl"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-16 left-1/4 h-64 w-64 rounded-full bg-brand-cyan/10 blur-3xl"
+        className="pointer-events-none absolute -bottom-24 left-1/2 h-72 w-[40rem] -translate-x-1/2 rounded-full bg-brand-cyan/[0.06] blur-3xl"
       />
 
-      <div className="relative mx-auto max-w-6xl px-4 pb-16 pt-32 sm:pb-20 sm:pt-40">
-        <Reveal className="mx-auto mb-10 max-w-2xl text-center sm:mb-12">
-          <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-brand-blue/20 bg-brand-blue/5 px-4 py-1.5 text-xs font-semibold text-brand-blue">
-            <span className="h-1.5 w-1.5 rounded-full bg-brand-blue" />
-            מה אנחנו עושים
-          </span>
-          <h2 className="text-2xl font-bold text-brand-navy sm:text-3xl">
-            לא רק מייעלים - עוזרים לכם להביא יותר לקוחות
+      <div className="relative mx-auto max-w-6xl px-4 py-20 sm:py-24">
+        <Reveal className="mx-auto mb-12 max-w-2xl text-center">
+          <h2 className="text-3xl text-brand-navy sm:text-4xl">
+            מהיום-יום הכאוטי לתהליך שעובד
           </h2>
-          <p className="mt-3 text-brand-navy/70">
-            AutoSmart משלבת שיווק מדויק, מערכות חכמות ואוטומציה למנוע צמיחה
-            אחד - שמביא פניות, מטפל בהן ומחבר את כל הפעילות בעסק.
+          <p className="mx-auto mt-4 text-brand-navy/70">
+            אותם כאבים חוזרים כמעט בכל עסק - וכך זה נראה אחרי שהמנוע במקום.
           </p>
         </Reveal>
 
-        <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
-        <Reveal className="relative space-y-4 overflow-hidden rounded-3xl border border-brand-navy/10 bg-white p-6 shadow-sm sm:p-8">
-          <span aria-hidden className="absolute inset-x-0 top-0 h-1 bg-gradient-to-l from-red-400/70 via-red-400/30 to-transparent" />
-          <h3 className="text-2xl font-bold text-brand-navy sm:text-3xl">
-            מוכר לכם?
-          </h3>
-          <ul className="space-y-3">
-            {PROBLEMS.map((item) => (
-              <li key={item} className="flex items-start gap-3 text-brand-navy/80">
-                <span
-                  aria-hidden
-                  className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-red-500/10 text-xs text-red-500"
-                >
-                  ✕
-                </span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </Reveal>
-        <Reveal
-          delay={0.15}
-          className="relative space-y-4 overflow-hidden rounded-3xl border border-brand-blue/15 bg-gradient-to-br from-brand-offwhite to-white p-6 shadow-sm sm:translate-y-3 sm:p-8"
-        >
-          <span aria-hidden className="absolute inset-x-0 top-0 h-1 bg-gradient-to-l from-brand-blue to-brand-cyan" />
-          <h3 className="text-2xl font-bold text-brand-navy sm:text-3xl">
-            ככה זה יכול להיראות
-          </h3>
-          <ul className="space-y-3">
-            {SOLUTIONS.map((item) => (
-              <li key={item} className="flex items-start gap-3 text-brand-navy/80">
-                <span
-                  aria-hidden
-                  className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-brand-blue/10 text-xs text-brand-blue"
-                >
-                  ✓
-                </span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </Reveal>
+        <div className="grid gap-5 md:grid-cols-2">
+          <Reveal className="relative overflow-hidden rounded-2xl bg-white p-6 ring-1 ring-brand-navy/[0.07] sm:p-8">
+            <span aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-l from-red-400/60 via-red-400/20 to-transparent" />
+            <h3 className="text-lg text-brand-navy/80">מוכר לכם?</h3>
+            <ul className="mt-4 space-y-3">
+              {PROBLEMS.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-sm font-light leading-relaxed text-brand-navy/70">
+                  <span
+                    aria-hidden
+                    className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-red-400/70"
+                  />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+
+          <Reveal
+            delay={0.12}
+            className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-brand-offwhite to-white p-6 ring-1 ring-brand-blue/15 sm:p-8"
+          >
+            <span aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-l from-brand-blue via-brand-cyan/40 to-transparent" />
+            <h3 className="text-lg text-brand-navy">ככה זה נראה איתנו</h3>
+            <ul className="mt-4 space-y-3">
+              {SOLUTIONS.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-sm font-light leading-relaxed text-brand-navy/75">
+                  <span
+                    aria-hidden
+                    className="mt-0.5 flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full bg-brand-blue/10 text-[10px] text-brand-blue"
+                  >
+                    ✓
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </div>
       </div>
     </section>

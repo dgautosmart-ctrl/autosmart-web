@@ -22,92 +22,69 @@
   --color-brand-cyan: var(--brand-cyan);
   --color-brand-offwhite: var(--brand-offwhite);
   --font-sans: var(--font-ibm);
-  --font-display: var(--font-frank);
   --font-mono: ui-monospace, monospace;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 /*
- * Headings use a high-contrast Hebrew serif display face - crafted and
- * editorial, deliberately not the generic geometric-sans look.
+ * Typography: one clean, modern Hebrew sans (IBM Plex Sans Hebrew).
+ * Headings get their presence from scale and tight tracking rather than
+ * heavy weight - deliberately not loud, not the generic geometric look.
  */
 h1,
-h2 {
-  font-family: var(--font-display), var(--font-sans), Georgia, serif;
-  font-weight: 900;
-  letter-spacing: -0.02em;
+h2,
+h3,
+h4 {
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  line-height: 1.15;
 }
-
-h3 {
-  letter-spacing: -0.01em;
+h1 {
+  letter-spacing: -0.04em;
+  line-height: 1.03;
+}
+h2 {
+  letter-spacing: -0.03em;
 }
 
 /*
- * "Aurora" field that replaces the old square grid behind dark hero-style
- * sections: a slow-moving colour mesh + a rotating light beam + film grain.
- * The colour blooms move via background-position (cheap to animate); the
- * whole layer also breathes with a gentle scale.
+ * Soft radial colour glow behind dark, tech-style sections. Gentle and
+ * slow - it adds depth without competing with the content.
  */
-.bg-aurora {
+.bg-glow {
   background-image:
-    radial-gradient(35% 45% at 18% 22%, rgba(43, 147, 201, 0.5), transparent 70%),
-    radial-gradient(40% 40% at 84% 16%, rgba(110, 201, 232, 0.42), transparent 68%),
-    radial-gradient(46% 52% at 70% 84%, rgba(43, 147, 201, 0.38), transparent 72%),
-    radial-gradient(30% 34% at 46% 54%, rgba(150, 224, 255, 0.28), transparent 70%);
-  background-size: 200% 200%;
-  filter: blur(16px) saturate(120%);
-  animation: aurora-mesh 28s ease-in-out infinite alternate;
+    radial-gradient(42% 55% at 20% 16%, rgba(43, 147, 201, 0.32), transparent 72%),
+    radial-gradient(38% 46% at 86% 12%, rgba(110, 201, 232, 0.22), transparent 70%),
+    radial-gradient(52% 60% at 72% 90%, rgba(43, 147, 201, 0.2), transparent 76%);
+  animation: glow-breathe 26s ease-in-out infinite alternate;
 }
 
-@keyframes aurora-mesh {
-  0% {
-    background-position: 0% 0%, 100% 0%, 50% 100%, 30% 40%;
-    transform: scale(1.05);
+@keyframes glow-breathe {
+  from {
+    transform: scale(1);
+    opacity: 0.85;
   }
-  50% {
-    background-position: 25% 18%, 72% 14%, 40% 78%, 60% 52%;
-    transform: scale(1.13);
-  }
-  100% {
-    background-position: 12% 34%, 90% 26%, 56% 92%, 42% 30%;
-    transform: scale(1.07);
-  }
-}
-
-/* Rotating light beam - a soft conic sweep, masked to a centred glow */
-.bg-beam {
-  background-image: conic-gradient(
-    from 0deg at 50% 32%,
-    rgba(110, 201, 232, 0) 0deg,
-    rgba(110, 201, 232, 0.18) 55deg,
-    rgba(43, 147, 201, 0) 130deg,
-    rgba(150, 224, 255, 0.14) 230deg,
-    rgba(110, 201, 232, 0) 360deg
-  );
-  -webkit-mask-image: radial-gradient(58% 58% at 50% 32%, #000 25%, transparent 78%);
-  mask-image: radial-gradient(58% 58% at 50% 32%, #000 25%, transparent 78%);
-  animation: beam-rotate 26s linear infinite;
-}
-
-@keyframes beam-rotate {
   to {
-    transform: rotate(360deg);
+    transform: scale(1.1);
+    opacity: 1;
   }
 }
 
-/* Independent slow drift for the blurred accent orbs in the hero */
+/* Independent slow drift for blurred accent orbs */
 .animate-drift-a {
-  animation: drift-a 20s ease-in-out infinite alternate;
+  animation: drift-a 22s ease-in-out infinite alternate;
 }
 .animate-drift-b {
-  animation: drift-b 24s ease-in-out infinite alternate;
+  animation: drift-b 26s ease-in-out infinite alternate;
 }
 .animate-drift-c {
-  animation: drift-c 30s ease-in-out infinite alternate;
+  animation: drift-c 32s ease-in-out infinite alternate;
 }
 
 @keyframes drift-a {
@@ -115,7 +92,7 @@ h3 {
     transform: translate3d(-50%, 0, 0) scale(1);
   }
   to {
-    transform: translate3d(-42%, 34px, 0) scale(1.15);
+    transform: translate3d(-45%, 26px, 0) scale(1.1);
   }
 }
 @keyframes drift-b {
@@ -123,7 +100,7 @@ h3 {
     transform: translate3d(0, 0, 0) scale(1);
   }
   to {
-    transform: translate3d(40px, -28px, 0) scale(1.12);
+    transform: translate3d(28px, -22px, 0) scale(1.08);
   }
 }
 @keyframes drift-c {
@@ -131,21 +108,51 @@ h3 {
     transform: translate3d(0, 0, 0) scale(1);
   }
   to {
-    transform: translate3d(-36px, 24px, 0) scale(0.9);
+    transform: translate3d(-26px, 18px, 0) scale(0.94);
   }
 }
 
-/* Fine film grain for texture - keeps large gradient fills from looking flat */
+/*
+ * Abstract "flow of information" network: nodes softly pulse and the
+ * connecting lines have a slow travelling dash - a hint of systems and
+ * automation moving data around. Used by <TechBackdrop />.
+ */
+@keyframes net-node {
+  0%,
+  100% {
+    opacity: 0.35;
+    r: 2;
+  }
+  50% {
+    opacity: 1;
+    r: 3.1;
+  }
+}
+@keyframes net-line {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+.tech-node {
+  animation: net-node 4.5s ease-in-out infinite;
+}
+.tech-line {
+  stroke-dasharray: 4 8;
+  animation: net-line 3.2s linear infinite;
+}
+
+/* Fine film grain - keeps large gradient fills from looking flat */
 .bg-noise {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .bg-aurora,
-  .bg-beam,
+  .bg-glow,
   .animate-drift-a,
   .animate-drift-b,
-  .animate-drift-c {
+  .animate-drift-c,
+  .tech-node,
+  .tech-line {
     animation: none;
   }
 }

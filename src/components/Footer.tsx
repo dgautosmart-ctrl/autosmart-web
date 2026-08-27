@@ -5,7 +5,7 @@ import CopyButton from "@/components/CopyButton";
 
 const NAV_LINKS = [
   { href: "/", label: "בית" },
-  { href: "/about", label: "אודות" },
+  { href: "/portfolio", label: "תיק עבודות" },
   { href: "/articles", label: "מאמרים" },
 ];
 

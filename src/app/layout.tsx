@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans_Hebrew, Frank_Ruhl_Libre } from "next/font/google";
+import { IBM_Plex_Sans_Hebrew } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -15,13 +15,7 @@ import "./globals.css";
 const sans = IBM_Plex_Sans_Hebrew({
   variable: "--font-ibm",
   subsets: ["hebrew", "latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const display = Frank_Ruhl_Libre({
-  variable: "--font-frank",
-  subsets: ["hebrew", "latin"],
-  weight: ["500", "700", "900"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const SITE_TITLE = "AutoSmart - יותר לקוחות עם שיווק מדויק, מערכות חכמות ואוטומציה";
@@ -56,7 +50,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="he" dir="rtl" className={`${sans.variable} ${display.variable} h-full scroll-smooth antialiased`}>
+    <html lang="he" dir="rtl" className={`${sans.variable} h-full scroll-smooth antialiased`}>
       <body className="flex min-h-full flex-col font-sans">
         <script
           type="application/ld+json"

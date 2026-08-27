@@ -139,7 +139,7 @@ export default function LeadPopup() {
               aria-hidden
               className="pointer-events-none absolute -top-16 left-1/2 h-56 w-56 -translate-x-1/2 rounded-full bg-brand-cyan/20 blur-3xl"
             />
-            <div aria-hidden className="pointer-events-none absolute inset-0 bg-aurora opacity-40" />
+            <div aria-hidden className="pointer-events-none absolute inset-0 bg-glow opacity-40" />
 
             <button
               type="button"

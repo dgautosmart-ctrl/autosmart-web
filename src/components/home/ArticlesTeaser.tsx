@@ -11,13 +11,11 @@ export default function ArticlesTeaser({ articles }: { articles: ArticleMeta[] }
         className="pointer-events-none absolute top-1/2 left-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-cyan/5 blur-3xl"
       />
 
-      <div className="relative mx-auto max-w-6xl px-4 py-16 sm:py-20">
+      <div className="relative mx-auto max-w-6xl px-4 py-20 sm:py-24">
         <Reveal className="mb-10 flex items-end justify-between">
           <div>
-            <h2 className="text-3xl font-bold text-brand-navy sm:text-4xl">
-              מהבלוג
-            </h2>
-            <p className="mt-2 text-brand-navy/70">
+            <h2 className="text-3xl text-brand-navy sm:text-4xl">מהבלוג</h2>
+            <p className="mt-2 font-light text-brand-navy/70">
               תובנות וטיפים על שיווק, מערכות ואוטומציה לעסקים
             </p>
           </div>
