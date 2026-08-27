@@ -33,11 +33,11 @@ export default function Hero() {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth={2.5}
-                className="arrow-trend ms-2 inline-block h-[0.72em] w-[0.72em] align-[0.1em] text-brand-cyan"
+                strokeWidth={2.25}
+                className="arrow-trend ms-2.5 inline-block h-[0.95em] w-[0.95em] align-[0.04em] text-brand-cyan"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3 17l6-6 4 4 8-8" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 7h6v6" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 17l-6-6-4 4-8-8" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 7H3v6" />
               </svg>
             </span>
           </h1>

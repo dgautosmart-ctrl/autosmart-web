@@ -188,14 +188,14 @@ h2 {
 }
 
 /* Rising-trend arrow next to the hero headline - a subtle repeating nudge
-   along its own diagonal (up and to the right). */
+   along its own diagonal (up and to the left, in the reading direction). */
 @keyframes arrow-trend {
   0%,
   100% {
     transform: translate(0, 0);
   }
   50% {
-    transform: translate(0.11em, -0.11em);
+    transform: translate(-0.11em, -0.11em);
   }
 }
 .arrow-trend {
