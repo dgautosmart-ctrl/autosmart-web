@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
       {
         source: "/:path*",
         has: [{ type: "host", value: "autosmart-web.vercel.app" }],
-        destination: "https://autosmartbiz.co.il/:path*",
+        destination: "https://www.autosmartbiz.co.il/:path*",
         permanent: true,
       },
     ];
