@@ -4,5 +4,5 @@ export const CONTACT = {
   email: "dgautosmart@gmail.com",
 };
 
-// כתובת האתר החי - לעדכן כשמחברים דומיין אישי
-export const SITE_URL = "https://autosmart-web.vercel.app";
+// כתובת האתר החי - הדומיין הרשמי
+export const SITE_URL = "https://autosmartbiz.co.il";
