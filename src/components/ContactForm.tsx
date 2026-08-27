@@ -8,7 +8,7 @@ export default function ContactForm() {
       className="relative scroll-mt-[4.75rem] overflow-hidden bg-gradient-to-br from-brand-navy to-[#06182b] text-brand-offwhite sm:scroll-mt-20"
     >
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-glow opacity-60" />
-      <TechBackdrop tone="dark" className="opacity-40" />
+      <TechBackdrop tone="dark" className="opacity-50" />
       <div
         aria-hidden
         className="pointer-events-none absolute -top-20 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-brand-cyan/15 blur-3xl animate-drift-b"

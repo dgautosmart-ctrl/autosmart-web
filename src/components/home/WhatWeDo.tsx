@@ -62,7 +62,7 @@ export default function WhatWeDo() {
       id="services"
       className="relative scroll-mt-[4.75rem] overflow-hidden bg-gradient-to-b from-brand-offwhite to-white sm:scroll-mt-20"
     >
-      <TechBackdrop tone="light" className="opacity-[0.4]" />
+      <TechBackdrop tone="light" className="opacity-[0.3]" />
       <div
         aria-hidden
         className="pointer-events-none absolute -bottom-32 left-1/2 h-72 w-[42rem] -translate-x-1/2 rounded-full bg-brand-blue/[0.06] blur-3xl"

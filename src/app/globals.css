@@ -113,32 +113,38 @@ h2 {
 }
 
 /*
- * Abstract "flow of information" network: nodes softly pulse and the
- * connecting lines have a slow travelling dash - a hint of systems and
- * automation moving data around. Used by <TechBackdrop />.
+ * Abstract "digital machinery" backdrop (<TechBackdrop />): a field of
+ * scattered data cells with a few flickering, faint rotating gears and
+ * stray binary digits - a hint of systems working, kept very low contrast.
  */
-@keyframes net-node {
+@keyframes cell-flicker {
   0%,
   100% {
-    opacity: 0.35;
-    r: 2;
+    opacity: var(--o, 0.1);
   }
   50% {
-    opacity: 1;
-    r: 3.1;
+    opacity: calc(var(--o, 0.1) * 2.6);
   }
 }
-@keyframes net-line {
+.cell-flicker {
+  animation: cell-flicker 4.5s ease-in-out infinite;
+}
+
+@keyframes gear-spin {
   to {
-    stroke-dashoffset: -24;
+    transform: rotate(360deg);
   }
 }
-.tech-node {
-  animation: net-node 4.5s ease-in-out infinite;
+@keyframes gear-spin-rev {
+  to {
+    transform: rotate(-360deg);
+  }
 }
-.tech-line {
-  stroke-dasharray: 4 8;
-  animation: net-line 3.2s linear infinite;
+.gear-spin {
+  animation: gear-spin 95s linear infinite;
+}
+.gear-spin-rev {
+  animation: gear-spin-rev 130s linear infinite;
 }
 
 /* Fine film grain - keeps large gradient fills from looking flat */
@@ -151,8 +157,9 @@ h2 {
   .animate-drift-a,
   .animate-drift-b,
   .animate-drift-c,
-  .tech-node,
-  .tech-line {
+  .cell-flicker,
+  .gear-spin,
+  .gear-spin-rev {
     animation: none;
   }
 }

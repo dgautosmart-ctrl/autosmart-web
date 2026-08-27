@@ -1,66 +1,94 @@
+import type { CSSProperties } from "react";
+
 /**
- * Abstract "flow of information" backdrop: a light constellation of nodes
- * and connecting lines that hints at systems, connections and automation
- * moving data around - without any literal imagery. Purely decorative.
+ * Abstract "digital machinery" backdrop - takes its cue from data-mosaic /
+ * circuitry visuals: a scattered field of small data cells, a few stray
+ * binary digits, and two very faint rotating gears. Deliberately low
+ * contrast and masked to a soft vignette so it never competes with content.
+ * No literal imagery.
+ *
+ * The cell field is generated once at module load from a fixed seed, so the
+ * server and client render identical markup (no hydration mismatch).
  */
 
-type Point = readonly [number, number];
+function mulberry32(seed: number) {
+  let a = seed;
+  return () => {
+    a |= 0;
+    a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
 
-const NODES: Point[] = [
-  [80, 120],
-  [210, 60],
-  [330, 180],
-  [180, 300],
-  [60, 430],
-  [420, 340],
-  [520, 120],
-  [640, 260],
-  [560, 470],
-  [740, 80],
-  [860, 220],
-  [980, 140],
-  [1080, 300],
-  [900, 420],
-  [760, 520],
-  [1120, 470],
-  [300, 520],
-  [470, 610],
-  [650, 620],
-  [1010, 560],
-];
+const VW = 1200;
+const VH = 680;
 
-const EDGES: Point[] = [
-  [0, 1],
-  [1, 2],
-  [2, 3],
-  [3, 4],
-  [0, 3],
-  [2, 5],
-  [5, 6],
-  [6, 7],
-  [5, 8],
-  [7, 8],
-  [6, 9],
-  [9, 10],
-  [10, 11],
-  [11, 12],
-  [10, 13],
-  [7, 10],
-  [8, 14],
-  [13, 14],
-  [13, 15],
-  [12, 15],
-  [3, 16],
-  [16, 17],
-  [5, 17],
-  [17, 18],
-  [8, 18],
-  [14, 18],
-  [18, 19],
-  [19, 15],
-];
+type Cell = {
+  x: number;
+  y: number;
+  s: number;
+  o: number;
+  round: boolean;
+  bright: boolean;
+  flick: boolean;
+  delay: string;
+  digit: string | null;
+};
 
-const ACCENT = new Set([5, 10, 14]);
+const CELLS: Cell[] = (() => {
+  const rand = mulberry32(20260827);
+  const cols = 40;
+  const rows = 23;
+  const gw = VW / cols;
+  const gh = VH / rows;
+  const out: Cell[] = [];
+
+  for (let row = 0; row < rows; row++) {
+    for (let col = 0; col < cols; col++) {
+      if (rand() > 0.24) continue;
+      const jx = (rand() - 0.5) * gw * 0.7;
+      const jy = (rand() - 0.5) * gh * 0.7;
+      const s = 4 + rand() * 12;
+      const bright = rand() > 0.91;
+      const base = 0.035 + rand() * 0.14;
+      const digit = rand() > 0.93 ? (rand() > 0.5 ? "1" : "0") : null;
+      out.push({
+        x: col * gw + gw / 2 + jx - s / 2,
+        y: row * gh + gh / 2 + jy - s / 2,
+        s,
+        o: bright ? base + 0.16 : base,
+        round: rand() > 0.72,
+        bright,
+        flick: rand() > 0.9,
+        delay: `-${(rand() * 6).toFixed(2)}s`,
+        digit,
+      });
+    }
+  }
+  return out;
+})();
+
+function gearPath(cx: number, cy: number, ro: number, ri: number, teeth: number) {
+  const step = (Math.PI * 2) / teeth;
+  let d = "";
+  for (let t = 0; t < teeth; t++) {
+    const a = t * step;
+    const pts: [number, number][] = [
+      [a, ro],
+      [a + step * 0.36, ro],
+      [a + step * 0.5, ri],
+      [a + step * 0.86, ri],
+    ];
+    pts.forEach(([ang, r], i) => {
+      const px = cx + Math.cos(ang) * r;
+      const py = cy + Math.sin(ang) * r;
+      d += `${t === 0 && i === 0 ? "M" : "L"}${px.toFixed(1)} ${py.toFixed(1)} `;
+    });
+  }
+  return `${d}Z`;
+}
 
 export default function TechBackdrop({
   tone = "dark",
@@ -69,9 +97,9 @@ export default function TechBackdrop({
   tone?: "dark" | "light";
   className?: string;
 }) {
-  const line = tone === "dark" ? "rgba(110,201,232,0.45)" : "rgba(43,147,201,0.28)";
-  const node = tone === "dark" ? "rgba(150,224,255,0.9)" : "rgba(43,147,201,0.55)";
-  const shape = tone === "dark" ? "rgba(110,201,232,0.16)" : "rgba(43,147,201,0.1)";
+  const cellBase = tone === "dark" ? "150, 210, 245" : "43, 147, 201";
+  const cellBright = tone === "dark" ? "225, 242, 255" : "20, 90, 150";
+  const gear = tone === "dark" ? "rgba(130, 195, 240, 0.13)" : "rgba(43, 147, 201, 0.08)";
 
   return (
     <div
@@ -79,62 +107,80 @@ export default function TechBackdrop({
       className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}
     >
       <svg
-        viewBox="0 0 1200 680"
+        viewBox={`0 0 ${VW} ${VH}`}
         preserveAspectRatio="xMidYMid slice"
         className="h-full w-full"
         style={{
           maskImage:
-            "radial-gradient(120% 90% at 50% 30%, #000 35%, transparent 82%)",
+            "radial-gradient(125% 95% at 50% 25%, #000 30%, transparent 85%)",
           WebkitMaskImage:
-            "radial-gradient(120% 90% at 50% 30%, #000 35%, transparent 82%)",
+            "radial-gradient(125% 95% at 50% 25%, #000 30%, transparent 85%)",
         }}
       >
-        {/* faint geometric shapes for depth */}
-        <circle cx="1010" cy="120" r="230" fill="none" stroke={shape} strokeWidth="1.5" />
-        <circle cx="120" cy="560" r="180" fill="none" stroke={shape} strokeWidth="1.5" />
-        <rect
-          x="560"
-          y="-40"
-          width="180"
-          height="180"
-          rx="24"
-          fill="none"
-          stroke={shape}
-          strokeWidth="1.5"
-          transform="rotate(18 650 50)"
-        />
-
-        {/* connections */}
-        <g stroke={line} strokeWidth="1" fill="none">
-          {EDGES.map(([a, b], i) => (
-            <line
-              key={`e${i}`}
-              className="tech-line"
-              x1={NODES[a][0]}
-              y1={NODES[a][1]}
-              x2={NODES[b][0]}
-              y2={NODES[b][1]}
-              style={{ animationDelay: `${(i % 7) * -0.45}s` }}
-            />
-          ))}
+        {/* faint rotating gears - machinery, kept abstract as thin outlines */}
+        <g
+          className="gear-spin"
+          style={{ transformBox: "view-box", transformOrigin: "985px 70px" } as CSSProperties}
+        >
+          <path d={gearPath(985, 70, 250, 212, 16)} fill="none" stroke={gear} strokeWidth={2} />
+          <circle cx={985} cy={70} r={118} fill="none" stroke={gear} strokeWidth={2} />
+          <circle cx={985} cy={70} r={14} fill={gear} />
+        </g>
+        <g
+          className="gear-spin-rev"
+          style={{ transformBox: "view-box", transformOrigin: "150px 585px" } as CSSProperties}
+        >
+          <path d={gearPath(150, 585, 196, 165, 13)} fill="none" stroke={gear} strokeWidth={2} />
+          <circle cx={150} cy={585} r={92} fill="none" stroke={gear} strokeWidth={2} />
+          <circle cx={150} cy={585} r={12} fill={gear} />
         </g>
 
-        {/* nodes */}
-        <g fill={node}>
-          {NODES.map(([x, y], i) => (
-            <g key={`n${i}`}>
-              {ACCENT.has(i) && (
-                <circle cx={x} cy={y} r="9" fill={node} opacity="0.14" />
-              )}
-              <circle
-                cx={x}
-                cy={y}
-                r={ACCENT.has(i) ? 3.4 : 2}
-                className="tech-node"
-                style={{ animationDelay: `${(i % 9) * -0.5}s` }}
+        {/* scattered data cells + stray binary digits */}
+        <g>
+          {CELLS.map((c, i) => {
+            const color = c.bright ? cellBright : cellBase;
+            if (c.digit) {
+              const o = c.o + 0.06;
+              return (
+                <text
+                  key={i}
+                  x={c.x + c.s / 2}
+                  y={c.y + c.s}
+                  textAnchor="middle"
+                  fontFamily="ui-monospace, monospace"
+                  fontSize={c.s * 1.6}
+                  fill={`rgb(${color})`}
+                  opacity={o}
+                  className={c.flick ? "cell-flicker" : undefined}
+                  style={
+                    c.flick
+                      ? ({ "--o": o, animationDelay: c.delay } as CSSProperties)
+                      : undefined
+                  }
+                >
+                  {c.digit}
+                </text>
+              );
+            }
+            return (
+              <rect
+                key={i}
+                x={c.x}
+                y={c.y}
+                width={c.s}
+                height={c.s}
+                rx={c.round ? 1.5 : 0}
+                fill={`rgb(${color})`}
+                opacity={c.o}
+                className={c.flick ? "cell-flicker" : undefined}
+                style={
+                  c.flick
+                    ? ({ "--o": c.o, animationDelay: c.delay } as CSSProperties)
+                    : undefined
+                }
               />
-            </g>
-          ))}
+            );
+          })}
         </g>
       </svg>
     </div>

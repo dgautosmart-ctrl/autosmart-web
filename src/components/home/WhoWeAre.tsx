@@ -6,7 +6,7 @@ const PARTS = ["שיווק שמביא לקוחות", "מערכות שמנהלו�
 export default function WhoWeAre() {
   return (
     <section className="relative overflow-hidden border-t border-brand-navy/[0.06] bg-white">
-      <TechBackdrop tone="light" className="opacity-[0.5]" />
+      <TechBackdrop tone="light" className="opacity-[0.35]" />
       <div
         aria-hidden
         className="pointer-events-none absolute -top-24 left-1/2 h-72 w-[36rem] -translate-x-1/2 rounded-full bg-brand-cyan/[0.07] blur-3xl"
