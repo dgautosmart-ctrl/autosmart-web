@@ -19,19 +19,15 @@ export default function ContactModal() {
 
     // Lock scrolling while the modal is open. On this site the scroll container
     // is <html>, so setting overflow on <body> alone leaves the page scrollbar
-    // visible behind the backdrop - lock <html> and pad for the reclaimed
-    // scrollbar width so the page underneath doesn't shift.
+    // visible behind the backdrop - lock <html> instead. `overflow` (shorthand)
+    // hides both axes, so no stray vertical or horizontal bar shows through.
     const root = document.documentElement;
-    const scrollbarWidth = window.innerWidth - root.clientWidth;
     const previousOverflow = root.style.overflow;
-    const previousPaddingRight = root.style.paddingRight;
     root.style.overflow = "hidden";
-    if (scrollbarWidth > 0) root.style.paddingRight = `${scrollbarWidth}px`;
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       root.style.overflow = previousOverflow;
-      root.style.paddingRight = previousPaddingRight;
     };
   }, [isOpen, close]);
 
