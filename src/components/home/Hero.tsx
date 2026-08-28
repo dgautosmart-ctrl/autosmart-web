@@ -15,13 +15,8 @@ export default function Hero() {
         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-[#06182b]" />
       </div>
 
-      <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-7 px-4 pt-10 pb-24 text-center sm:pt-16 sm:pb-32">
-        <Reveal className="flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-medium tracking-wide text-brand-cyan backdrop-blur-sm sm:text-sm">
-          <span className="h-1.5 w-1.5 rounded-full bg-brand-cyan animate-pulse-dot" />
-          שיווק מדויק · מערכות חכמות · אוטומציה
-        </Reveal>
-
-        <Reveal delay={0.08} className="max-w-3xl space-y-5">
+      <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-7 px-4 pt-16 pb-24 text-center sm:pt-24 sm:pb-32">
+        <Reveal className="max-w-3xl space-y-5">
           <h1 className="text-[2.6rem] leading-[1.03] sm:text-6xl lg:text-7xl">
             מניעים את העסק שלכם{" "}
             <span className="whitespace-nowrap">
