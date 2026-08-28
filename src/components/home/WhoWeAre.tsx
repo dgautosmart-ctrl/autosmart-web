@@ -34,11 +34,11 @@ export default function WhoWeAre() {
           {PARTS.map((part, i) => (
             <div key={part} className="flex items-center gap-3">
               {i > 0 && (
-                <span aria-hidden className="text-lg font-light text-brand-blue/50">
+                <span aria-hidden className="text-lg text-brand-blue/70">
                   +
                 </span>
               )}
-              <span className="rounded-full border border-brand-navy/10 bg-brand-offwhite px-4 py-2 text-sm font-medium text-brand-navy/80">
+              <span className="rounded-full bg-brand-navy px-4 py-2 text-sm font-medium text-brand-offwhite shadow-md shadow-brand-navy/15">
                 {part}
               </span>
             </div>
