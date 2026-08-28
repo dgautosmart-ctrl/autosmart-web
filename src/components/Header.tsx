@@ -9,7 +9,7 @@ import { useContactModal } from "@/components/contact/ContactModalContext";
 const NAV_LINKS = [
   { href: "/", label: "בית" },
   { href: "/#about", label: "אודות" },
-  { href: "/portfolio", label: "תיק עבודות" },
+  { href: "/portfolio", label: "פרויקטים" },
   { href: "/articles", label: "מאמרים" },
 ];
 
