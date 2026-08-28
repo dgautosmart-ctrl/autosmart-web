@@ -77,7 +77,7 @@ export default function WhatWeDo() {
           <h2 className="text-3xl text-brand-navy sm:text-4xl">
             שלושה חלקים, מנוע אחד
           </h2>
-          <p className="mx-auto mt-4 text-brand-navy/70">
+          <p className="mx-auto mt-4 text-brand-navy/85">
             לא שלוש מחלקות נפרדות - שלושה חלקים של אותו מנוע: מביאים לקוחות,
             עושים סדר ומחברים את הכול כך שהעסק עובד חכם יותר.
           </p>
@@ -113,7 +113,7 @@ export default function WhatWeDo() {
                 {pillar.n}
               </span>
               <h3 className="mt-1.5 text-lg text-brand-navy">{pillar.title}</h3>
-              <p className="mt-2.5 text-sm font-light leading-relaxed text-brand-navy/65">
+              <p className="mt-2.5 text-[0.95rem] font-normal leading-relaxed text-brand-navy/80">
                 {pillar.description}
               </p>
             </motion.div>

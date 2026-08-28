@@ -27,7 +27,7 @@ export default function ProblemSolution() {
           <h2 className="text-3xl text-brand-navy sm:text-4xl">
             יותר לקוחות, פחות עבודה ידנית, עסק שעובד בשבילכם!
           </h2>
-          <p className="mx-auto mt-4 text-brand-navy/70">
+          <p className="mx-auto mt-4 text-brand-navy/85">
             אנחנו מחברים בין שיווק מדויק, מערכות חכמות ואוטומציה — כדי להביא
             יותר לקוחות ולגרום לעסק לעבוד בצורה יעילה יותר.
           </p>

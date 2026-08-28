@@ -141,7 +141,7 @@ export default function LeadPopup() {
                 <h2 id="lead-popup-heading" className="text-xl font-bold sm:text-2xl">
                   {TITLE}
                 </h2>
-                <div className="mt-3 space-y-2 text-brand-offwhite/70">
+                <div className="mt-3 space-y-2 text-brand-offwhite/85">
                   {BODY_LINES.map((line) => (
                     <p key={line}>{line}</p>
                   ))}

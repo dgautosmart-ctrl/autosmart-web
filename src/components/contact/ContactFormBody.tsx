@@ -4,7 +4,7 @@ import { useId, useState, type FormEvent, type ReactNode } from "react";
 import { CONTACT } from "@/lib/site-config";
 
 const inputClasses =
-  "w-full rounded-lg border border-white/20 bg-white/5 px-4 py-2 text-brand-offwhite placeholder:text-brand-offwhite/40 focus:border-brand-cyan focus:outline-none";
+  "w-full rounded-lg border border-white/20 bg-white/5 px-4 py-2.5 text-brand-offwhite placeholder:text-brand-offwhite/55 focus:border-brand-cyan focus:outline-none";
 
 const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? "";
 
@@ -90,7 +90,6 @@ export default function ContactFormBody({
           type="text"
           required
           className={inputClasses}
-          placeholder="איך קוראים לכם?"
         />
       </div>
       <div className="grid gap-4 sm:grid-cols-2">

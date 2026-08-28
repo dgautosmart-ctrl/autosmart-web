@@ -90,7 +90,7 @@ export default function ContactModal() {
                 <h2 id="contact-modal-heading" className="text-2xl font-bold">
                   בואו נדבר
                 </h2>
-                <p className="mt-2 text-brand-offwhite/70">
+                <p className="mt-2 text-brand-offwhite/85">
                   ספרו לנו קצת על העסק שלכם ונחזור אליכם בהקדם
                 </p>
               </div>

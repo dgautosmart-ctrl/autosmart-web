@@ -34,11 +34,11 @@ export default function ArticleCard({
               </span>
             )}
             {article.date && (
-              <span className="text-brand-navy/50">{formatArticleDate(article.date)}</span>
+              <span className="text-brand-navy/65">{formatArticleDate(article.date)}</span>
             )}
           </div>
           <h3 className="text-lg font-semibold text-brand-navy">{article.title}</h3>
-          <p className="text-sm text-brand-navy/70">{article.excerpt}</p>
+          <p className="text-[0.95rem] leading-relaxed text-brand-navy/80">{article.excerpt}</p>
         </Link>
         {article.tags.length > 0 && (
           <div className="flex flex-wrap gap-2 text-xs font-medium">

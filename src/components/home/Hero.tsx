@@ -5,7 +5,7 @@ import HeroNetwork from "@/components/HeroNetwork";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-brand-navy via-brand-navy to-[#06182b] text-brand-offwhite">
+    <section className="relative -mt-[4.75rem] overflow-hidden bg-gradient-to-b from-brand-navy via-brand-navy to-[#06182b] pt-[4.75rem] text-brand-offwhite sm:-mt-20 sm:pt-20">
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-glow opacity-90" />
         <HeroNetwork className="opacity-90" />
@@ -15,7 +15,7 @@ export default function Hero() {
         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-[#06182b]" />
       </div>
 
-      <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-7 px-4 pt-20 pb-24 text-center sm:pt-28 sm:pb-32">
+      <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-7 px-4 pt-10 pb-24 text-center sm:pt-16 sm:pb-32">
         <Reveal className="flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-medium tracking-wide text-brand-cyan backdrop-blur-sm sm:text-sm">
           <span className="h-1.5 w-1.5 rounded-full bg-brand-cyan animate-pulse-dot" />
           שיווק מדויק · מערכות חכמות · אוטומציה
@@ -31,7 +31,7 @@ export default function Hero() {
               .
             </span>
           </h1>
-          <p className="mx-auto max-w-2xl text-base font-light leading-relaxed text-brand-offwhite/75 sm:text-lg">
+          <p className="mx-auto max-w-2xl text-base font-normal leading-relaxed text-brand-offwhite/90 sm:text-lg">
             בונים לעסק שלכם מנוע שמביא יותר לקוחות - עם שיווק מדויק, מערכות
             חכמות ואוטומציה שעובדת בשבילכם.
           </p>

@@ -15,7 +15,7 @@ export default function ArticlesTeaser({ articles }: { articles: ArticleMeta[] }
         <Reveal className="mb-10 flex items-end justify-between">
           <div>
             <h2 className="text-3xl text-brand-navy sm:text-4xl">מהבלוג</h2>
-            <p className="mt-2 font-light text-brand-navy/70">
+            <p className="mt-2 text-brand-navy/85">
               תובנות וטיפים על שיווק, מערכות ואוטומציה לעסקים
             </p>
           </div>
@@ -28,7 +28,7 @@ export default function ArticlesTeaser({ articles }: { articles: ArticleMeta[] }
         </Reveal>
 
         {articles.length === 0 ? (
-          <p className="text-center text-brand-navy/60">
+          <p className="text-center text-brand-navy/80">
             מאמרים ראשונים בדרך - חזרו בקרוב.
           </p>
         ) : (

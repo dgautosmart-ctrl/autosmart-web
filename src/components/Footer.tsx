@@ -5,7 +5,8 @@ import CopyButton from "@/components/CopyButton";
 
 const NAV_LINKS = [
   { href: "/", label: "בית" },
-  { href: "/portfolio", label: "תיק עבודות" },
+  { href: "/#about", label: "אודות" },
+  { href: "/portfolio", label: "פרויקטים" },
   { href: "/articles", label: "מאמרים" },
 ];
 
@@ -17,22 +18,27 @@ export default function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-10 sm:flex-row sm:justify-between">
         <div className="flex flex-col items-center gap-3 text-center sm:items-start sm:text-right">
           <Image src="/logo.png" alt="AutoSmart" width={64} height={64} className="rounded-lg" />
-          <p className="max-w-xs text-sm text-brand-offwhite/70">
+          <p className="max-w-xs text-sm text-brand-offwhite/80">
             שיווק מדויק, מערכות חכמות ואוטומציה - מניעים את העסק שלך קדימה.
           </p>
         </div>
 
         <nav className="flex flex-col items-center gap-2 text-center sm:items-start sm:text-right">
           <span className="text-sm font-semibold text-brand-cyan">ניווט</span>
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm text-brand-offwhite/80 transition-colors hover:text-brand-cyan"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const className =
+              "text-sm text-brand-offwhite/80 transition-colors hover:text-brand-cyan";
+            // hash links need the browser's native scroll, not next/link
+            return link.href.includes("#") ? (
+              <a key={link.href} href={link.href} className={className}>
+                {link.label}
+              </a>
+            ) : (
+              <Link key={link.href} href={link.href} className={className}>
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="flex flex-col items-center gap-2 text-center sm:items-start sm:text-right">
@@ -57,7 +63,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="flex flex-col items-center gap-1 border-t border-white/10 py-4 text-center text-xs text-brand-offwhite/60">
+      <div className="flex flex-col items-center gap-1 border-t border-white/10 py-4 text-center text-xs text-brand-offwhite/75">
         <p>© {year} AutoSmart. כל הזכויות שמורות.</p>
         <Link
           href="/privacy-policy"

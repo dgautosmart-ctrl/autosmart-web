@@ -71,7 +71,7 @@ export default function CookieConsent() {
         </h2>
 
         <div className="flex flex-wrap items-center gap-3 pl-8 sm:block sm:pl-0">
-          <p className="text-xs leading-relaxed text-brand-navy/70 sm:mt-2">
+          <p className="text-xs leading-relaxed text-brand-navy/80 sm:mt-2">
             באתר נעשה שימוש בעוגיות (Cookies) וכלים דומים לשיפור חוויית
             הגלישה, התאמת תוכן וביצוע ניתוח סטטיסטי. לפרטים ראו{" "}
             <Link

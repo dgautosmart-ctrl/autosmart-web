@@ -73,7 +73,7 @@ export default function PortfolioCard({
         {item.title}
       </h3>
 
-      <div className="relative mt-4 space-y-4 text-sm leading-relaxed text-brand-navy/70">
+      <div className="relative mt-4 space-y-4 text-[0.95rem] leading-relaxed text-brand-navy/80">
         <div>
           <p className="mb-1 text-xs font-semibold text-brand-navy/45">האתגר</p>
           <p>{item.challenge}</p>
