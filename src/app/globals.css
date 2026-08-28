@@ -289,3 +289,80 @@ h2 {
     display: none;
   }
 }
+
+/*
+ * Hero "connected system" sketch (<HeroMockup />): the central engine glow
+ * breathes, a dashed ring turns slowly, node halos pulse, and data points
+ * drift along the links. Links draw in and nodes pop in via motion/react.
+ */
+.hm-glow {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hm-glow 6s ease-in-out infinite;
+}
+@keyframes hm-glow {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(0.94);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+.hm-ring {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: gear-spin 46s linear infinite;
+}
+
+.hm-nodeglow {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hm-nodeglow 5s ease-in-out infinite;
+}
+@keyframes hm-nodeglow {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+.hm-pulse {
+  offset-rotate: 0deg;
+  opacity: 0;
+  animation: hm-pulse var(--d, 4s) linear infinite;
+  animation-delay: var(--delay, 0s);
+}
+@keyframes hm-pulse {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  84% {
+    opacity: 1;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hm-glow,
+  .hm-ring,
+  .hm-nodeglow {
+    animation: none;
+  }
+  .hm-pulse {
+    display: none;
+  }
+}
