@@ -248,7 +248,8 @@ const DIAL_ORIGIN = {
 export default function HeroNetwork({ className = "" }: { className?: string }) {
   const line = "150, 210, 245";
   const bright = "205, 238, 255";
-  const dial = "rgba(130, 195, 240, 0.14)";
+  const dial = "rgba(140, 202, 245, 0.26)";
+  const dialHub = "rgba(160, 215, 248, 0.42)";
 
   return (
     <div
@@ -268,8 +269,9 @@ export default function HeroNetwork({ className = "" }: { className?: string }) 
       >
         <defs>
           <radialGradient id="hn-dial-glow" cx="0.5" cy="0.5" r="0.5">
-            <stop offset="0" stopColor="rgba(43, 147, 201, 0.22)" />
-            <stop offset="1" stopColor="rgba(43, 147, 201, 0)" />
+            <stop offset="0" stopColor="rgba(52, 155, 210, 0.36)" />
+            <stop offset="0.55" stopColor="rgba(52, 155, 210, 0.12)" />
+            <stop offset="1" stopColor="rgba(52, 155, 210, 0)" />
           </radialGradient>
           <radialGradient id="hn-glow-a" cx="0.5" cy="0.5" r="0.5">
             <stop offset="0" stopColor="rgba(110, 201, 232, 0.12)" />
@@ -303,7 +305,14 @@ export default function HeroNetwork({ className = "" }: { className?: string }) 
         <rect width={VW} height={VH} fill="url(#hn-grid)" opacity={0.75} />
 
         {/* radial depth glows spread across the field */}
-        <rect x={DIAL.cx - 300} y={DIAL.cy - 300} width={600} height={600} fill="url(#hn-dial-glow)" />
+        <rect
+          className="hn-dial-halo"
+          x={DIAL.cx - 360}
+          y={DIAL.cy - 360}
+          width={720}
+          height={720}
+          fill="url(#hn-dial-glow)"
+        />
         <rect x={-140} y={280} width={620} height={620} fill="url(#hn-glow-a)" />
         <rect x={640} y={300} width={720} height={720} fill="url(#hn-glow-b)" />
         <rect x={180} y={-200} width={560} height={560} fill="url(#hn-glow-b)" />
@@ -439,21 +448,28 @@ export default function HeroNetwork({ className = "" }: { className?: string }) 
           ))}
         </g>
 
-        {/* right-hand HUD dial - the circular element, kept and enhanced */}
+        {/* right-hand HUD dial - part of the backdrop, given more presence */}
         <g className="hn-dial" style={DIAL_ORIGIN}>
-          <path d={dialTeeth(250, 212, 16)} fill="none" stroke={dial} strokeWidth={2} />
-          <circle cx={DIAL.cx} cy={DIAL.cy} r={118} fill="none" stroke={dial} strokeWidth={2} />
-          <circle cx={DIAL.cx} cy={DIAL.cy} r={14} fill={dial} />
+          <path d={dialTeeth(250, 212, 16)} fill="none" stroke={dial} strokeWidth={2.6} />
+          <circle
+            cx={DIAL.cx}
+            cy={DIAL.cy}
+            r={150}
+            fill="none"
+            stroke={`rgba(${line}, 0.12)`}
+            strokeWidth={1.2}
+          />
+          <circle cx={DIAL.cx} cy={DIAL.cy} r={118} fill="none" stroke={dial} strokeWidth={2.6} />
+          <circle cx={DIAL.cx} cy={DIAL.cy} r={14} fill={dialHub} />
           {[0, 1, 2, 3].map((k) => {
             const ang = (Math.PI / 2) * k + 0.4;
+            const nx = DIAL.cx + Math.cos(ang) * 118;
+            const ny = DIAL.cy + Math.sin(ang) * 118;
             return (
-              <circle
-                key={`dn${k}`}
-                cx={DIAL.cx + Math.cos(ang) * 118}
-                cy={DIAL.cy + Math.sin(ang) * 118}
-                r={2.4}
-                fill={`rgba(${bright}, 0.5)`}
-              />
+              <g key={`dn${k}`}>
+                <circle cx={nx} cy={ny} r={9} fill="url(#hn-hub)" />
+                <circle cx={nx} cy={ny} r={2.8} fill={`rgba(${bright}, 0.75)`} />
+              </g>
             );
           })}
         </g>
@@ -463,8 +479,8 @@ export default function HeroNetwork({ className = "" }: { className?: string }) 
             cy={DIAL.cy}
             r={88}
             fill="none"
-            stroke={`rgba(${line}, 0.12)`}
-            strokeWidth={1.5}
+            stroke={`rgba(${line}, 0.22)`}
+            strokeWidth={1.8}
             strokeDasharray="2 12"
           />
         </g>

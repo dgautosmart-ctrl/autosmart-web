@@ -25,7 +25,7 @@ export default function ProblemSolution() {
       <div className="relative mx-auto max-w-6xl px-4 py-20 sm:py-24">
         <Reveal className="mx-auto mb-12 max-w-2xl text-center">
           <h2 className="text-3xl text-brand-navy sm:text-4xl">
-            יותר לקוחות. פחות עבודה ידנית. עסק שעובד חכם.
+            יותר לקוחות, פחות עבודה ידנית, עסק שעובד בשבילכם!
           </h2>
           <p className="mx-auto mt-4 text-brand-navy/70">
             אנחנו מחברים בין שיווק מדויק, מערכות חכמות ואוטומציה — כדי להביא

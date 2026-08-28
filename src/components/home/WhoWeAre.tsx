@@ -1,11 +1,14 @@
 import Reveal from "@/components/Reveal";
 import TechBackdrop from "@/components/TechBackdrop";
 
-const PARTS = ["שיווק שמביא לקוחות", "מערכות שמנהלות את הפעילות", "אוטומציה שמחברת ומייעלת"];
+const PARTS = ["שיווק שמביא לקוחות", "מערכות שמנהלות את העסק", "אוטומציה שמניעה הכל"];
 
 export default function WhoWeAre() {
   return (
-    <section className="relative overflow-hidden border-t border-brand-navy/[0.06] bg-white">
+    <section
+      id="about"
+      className="relative scroll-mt-[4.75rem] overflow-hidden border-t border-brand-navy/[0.06] bg-white sm:scroll-mt-20"
+    >
       <TechBackdrop tone="light" className="opacity-[0.35]" />
       <div
         aria-hidden

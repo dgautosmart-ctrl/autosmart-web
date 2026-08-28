@@ -8,9 +8,38 @@ import { useContactModal } from "@/components/contact/ContactModalContext";
 
 const NAV_LINKS = [
   { href: "/", label: "בית" },
+  { href: "/#about", label: "אודות" },
   { href: "/portfolio", label: "תיק עבודות" },
   { href: "/articles", label: "מאמרים" },
 ];
+
+function NavItem({
+  href,
+  label,
+  isActive,
+  className,
+  onClick,
+}: {
+  href: string;
+  label: string;
+  isActive: boolean;
+  className: string;
+  onClick?: () => void;
+}) {
+  const cls = `${className} ${isActive ? "text-brand-cyan" : "text-brand-offwhite/90"}`;
+  // Same-page anchor links (e.g. "/#about") rely on the browser's native
+  // fragment scroll, which next/link doesn't reliably trigger for a hash on
+  // the current route - so render those as a plain <a>.
+  return href.includes("#") ? (
+    <a href={href} onClick={onClick} className={cls}>
+      {label}
+    </a>
+  ) : (
+    <Link href={href} onClick={onClick} className={cls}>
+      {label}
+    </Link>
+  );
+}
 
 export default function Header() {
   const pathname = usePathname();
@@ -39,20 +68,15 @@ export default function Header() {
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">
-          {NAV_LINKS.map((link) => {
-            const isActive = pathname === link.href;
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-brand-cyan ${
-                  isActive ? "text-brand-cyan" : "text-brand-offwhite/90"
-                }`}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
+          {NAV_LINKS.map((link) => (
+            <NavItem
+              key={link.href}
+              href={link.href}
+              label={link.label}
+              isActive={pathname === link.href}
+              className="text-sm font-medium transition-colors hover:text-brand-cyan"
+            />
+          ))}
         </nav>
 
         <div className="flex items-center gap-2">
@@ -86,21 +110,16 @@ export default function Header() {
 
       {isMenuOpen && (
         <nav className="mx-auto mt-2 flex max-w-5xl flex-col gap-1 rounded-3xl border border-white/10 bg-brand-navy/95 px-4 py-3 text-brand-offwhite shadow-lg backdrop-blur-xl md:hidden">
-          {NAV_LINKS.map((link) => {
-            const isActive = pathname === link.href;
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsMenuOpen(false)}
-                className={`rounded-md px-2 py-3 text-sm font-medium ${
-                  isActive ? "text-brand-cyan" : "text-brand-offwhite/90"
-                }`}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
+          {NAV_LINKS.map((link) => (
+            <NavItem
+              key={link.href}
+              href={link.href}
+              label={link.label}
+              isActive={pathname === link.href}
+              onClick={() => setIsMenuOpen(false)}
+              className="rounded-md px-2 py-3 text-sm font-medium"
+            />
+          ))}
           <button
             type="button"
             onClick={() => {
