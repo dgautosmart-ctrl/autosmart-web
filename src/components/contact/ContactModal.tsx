@@ -69,10 +69,6 @@ export default function ContactModal() {
                 <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
                 <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
               </div>
-              <span className="flex items-center gap-1.5 text-xs font-medium text-brand-offwhite/60">
-                <span className="h-2 w-2 rounded-full bg-brand-cyan animate-pulse-dot" />
-                טופס פנייה מאובטח
-              </span>
               <button
                 type="button"
                 onClick={close}
