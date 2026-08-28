@@ -22,13 +22,11 @@ export default function WhoWeAre() {
             מי אנחנו
           </span>
           <h2 className="text-3xl text-brand-navy sm:text-[2.6rem]">
-            פתרון אחד שמביא לקוחות ומניע את כל העסק
+            מביאים לקוחות. מחברים מערכות. מניעים את העסק קדימה.
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base font-light leading-relaxed text-brand-navy/70 sm:text-lg">
-            AutoSmart עוזרת לעסקים להביא יותר לקוחות ולהפעיל את העסק בצורה
-            חכמה יותר - בשילוב של שיווק דיגיטלי מדויק, מערכות חכמות
-            ואוטומציה. לא רק אוטומציה, וגם לא עוד משרד פרסום: הבידול הוא
-            החיבור בין הבאת לקוחות לבין התשתית החכמה שמניעה את הפעילות.
+          <p className="mx-auto mt-5 max-w-2xl text-base font-normal leading-relaxed text-brand-navy/90 sm:text-lg">
+            AutoSmart משלבת שיווק, מערכות ואוטומציה לפתרון אחד שעוזר לעסק
+            למכור יותר, לעבוד טוב יותר ולא לאבד הזדמנויות בדרך.
           </p>
         </Reveal>
 
