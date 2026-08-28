@@ -5,17 +5,17 @@ import { motion } from "motion/react";
 import Reveal from "@/components/Reveal";
 
 /**
- * A small "connected system" sketch for the hero: one central engine with
+ * A compact "connected system" sketch for the hero: one central engine with
  * campaigns, CRM, WhatsApp, Email, Sheets and AI arranged around it and
  * curved links between them. Links draw themselves in, nodes pop in, and a
  * few data points drift along the links - it stands in for "one solution
  * that ties everything together" without a literal dashboard screenshot.
  */
 
-const VW = 720;
-const VH = 480;
-const CX = 360;
-const CY = 240;
+const VW = 800;
+const VH = 380;
+const CX = 400;
+const CY = 188;
 
 type Cat = {
   id: string;
@@ -65,15 +65,15 @@ const ICONS: Record<string, ReactNode> = {
 };
 
 const CATS: Cat[] = [
-  { id: "leads", label: "לידים", x: 620, y: 240, icon: ICONS.leads, flowIn: true },
-  { id: "whatsapp", label: "WhatsApp", x: 494, y: 94, icon: ICONS.whatsapp },
-  { id: "email", label: "Email", x: 226, y: 94, icon: ICONS.email },
-  { id: "crm", label: "CRM", x: 100, y: 240, icon: ICONS.crm },
-  { id: "sheets", label: "Sheets", x: 226, y: 386, icon: ICONS.sheets },
-  { id: "ai", label: "AI", x: 494, y: 386, icon: ICONS.ai },
+  { id: "leads", label: "לידים", x: 716, y: 188, icon: ICONS.leads, flowIn: true },
+  { id: "whatsapp", label: "WhatsApp", x: 578, y: 74, icon: ICONS.whatsapp },
+  { id: "email", label: "Email", x: 222, y: 74, icon: ICONS.email },
+  { id: "crm", label: "CRM", x: 84, y: 188, icon: ICONS.crm },
+  { id: "sheets", label: "Sheets", x: 222, y: 302, icon: ICONS.sheets },
+  { id: "ai", label: "AI", x: 578, y: 302, icon: ICONS.ai },
 ];
 
-const NODE_R = 30;
+const NODE_R = 26;
 
 function linkPath(x: number, y: number, bow: number, reverse = false) {
   const dx = x - CX;
@@ -94,11 +94,12 @@ function linkPath(x: number, y: number, bow: number, reverse = false) {
     : `M${a} C ${cp1}, ${cp2}, ${b}`;
 }
 
-const HEX_R = 46;
-const HEX = Array.from({ length: 6 }, (_, i) => {
+const HEX_R = 44;
+const HEX_PTS = Array.from({ length: 6 }, (_, i) => {
   const a = Math.PI / 6 + (i * Math.PI) / 3;
-  return `${(CX + Math.cos(a) * HEX_R).toFixed(1)},${(CY + Math.sin(a) * HEX_R).toFixed(1)}`;
-}).join(" ");
+  return [CX + Math.cos(a) * HEX_R, CY + Math.sin(a) * HEX_R] as const;
+});
+const HEX = HEX_PTS.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(" ");
 
 export default function HeroMockup() {
   return (
@@ -106,22 +107,10 @@ export default function HeroMockup() {
       {/* layered card behind, for depth */}
       <div
         aria-hidden
-        className="absolute inset-x-6 -bottom-3 top-5 -z-10 rotate-1 rounded-[2rem] border border-white/10 bg-white/[0.03]"
+        className="absolute inset-x-8 -bottom-2 top-4 -z-10 rotate-1 rounded-[2rem] border border-white/10 bg-white/[0.03]"
       />
 
-      {/* floating status pill */}
-      <motion.div
-        initial={{ opacity: 0, y: -10, rotate: -5 }}
-        whileInView={{ opacity: 1, y: 0, rotate: -5 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.5 }}
-        className="absolute -top-4 right-5 z-10 hidden items-center gap-2 rounded-full border border-white/15 bg-brand-navy/90 px-4 py-2 text-xs font-semibold text-brand-cyan shadow-lg shadow-brand-blue/20 backdrop-blur-xl sm:flex"
-      >
-        <span className="h-2 w-2 rounded-full bg-brand-cyan animate-pulse-dot" />
-        המנוע פועל בזמן אמת
-      </motion.div>
-
-      <div className="animate-float-y rounded-[2rem] border border-white/10 bg-gradient-to-b from-white/[0.07] to-white/[0.02] p-4 shadow-2xl shadow-brand-blue/25 backdrop-blur-xl sm:p-6">
+      <div className="rounded-[2rem] border border-white/10 bg-gradient-to-b from-white/[0.08] to-white/[0.02] p-5 shadow-2xl shadow-brand-blue/25 backdrop-blur-xl sm:p-7">
         <svg
           viewBox={`0 0 ${VW} ${VH}`}
           className="w-full"
@@ -134,22 +123,22 @@ export default function HeroMockup() {
               <stop offset="1" stopColor="#6ec9e8" />
             </linearGradient>
             <linearGradient id="hm-engine" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stopColor="#6ec9e8" />
+              <stop offset="0" stopColor="#7fd3ee" />
               <stop offset="1" stopColor="#2b93c9" />
             </linearGradient>
             <radialGradient id="hm-glow" cx="0.5" cy="0.5" r="0.5">
-              <stop offset="0" stopColor="rgba(110, 201, 232, 0.5)" />
+              <stop offset="0" stopColor="rgba(110, 201, 232, 0.55)" />
               <stop offset="1" stopColor="rgba(110, 201, 232, 0)" />
             </radialGradient>
             <radialGradient id="hm-nodeglow" cx="0.5" cy="0.5" r="0.5">
-              <stop offset="0" stopColor="rgba(110, 201, 232, 0.35)" />
+              <stop offset="0" stopColor="rgba(110, 201, 232, 0.4)" />
               <stop offset="1" stopColor="rgba(110, 201, 232, 0)" />
             </radialGradient>
           </defs>
 
           {/* links */}
           {CATS.map((c, i) => {
-            const bow = i % 2 === 0 ? 20 : -20;
+            const bow = i % 2 === 0 ? 18 : -18;
             const d = linkPath(c.x, c.y, bow);
             return (
               <motion.path
@@ -157,9 +146,9 @@ export default function HeroMockup() {
                 d={d}
                 fill="none"
                 stroke="url(#hm-link)"
-                strokeWidth={2}
+                strokeWidth={2.2}
                 strokeLinecap="round"
-                strokeOpacity={0.6}
+                strokeOpacity={0.75}
                 initial={{ pathLength: 0, opacity: 0 }}
                 whileInView={{ pathLength: 1, opacity: 1 }}
                 viewport={{ once: true }}
@@ -170,7 +159,7 @@ export default function HeroMockup() {
 
           {/* data points travelling along the links */}
           {CATS.map((c, i) => {
-            const bow = i % 2 === 0 ? 20 : -20;
+            const bow = i % 2 === 0 ? 18 : -18;
             const d = linkPath(c.x, c.y, bow, c.flowIn);
             return (
               <circle
@@ -178,7 +167,7 @@ export default function HeroMockup() {
                 r={3}
                 cx={0}
                 cy={0}
-                fill="#dff4ff"
+                fill="#e4f6ff"
                 className="hm-pulse"
                 style={
                   {
@@ -191,6 +180,11 @@ export default function HeroMockup() {
             );
           })}
 
+          {/* connection ports on the engine */}
+          {HEX_PTS.map(([x, y], i) => (
+            <circle key={`port-${i}`} cx={x} cy={y} r={2.4} fill="rgba(223, 244, 255, 0.7)" />
+          ))}
+
           {/* centre engine */}
           <motion.g
             initial={{ opacity: 0, scale: 0.4 }}
@@ -199,13 +193,13 @@ export default function HeroMockup() {
             transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.05 }}
             style={{ transformBox: "fill-box", transformOrigin: "center" } as CSSProperties}
           >
-            <circle cx={CX} cy={CY} r={72} fill="url(#hm-glow)" className="hm-glow" />
+            <circle cx={CX} cy={CY} r={68} fill="url(#hm-glow)" className="hm-glow" />
             <circle
               cx={CX}
               cy={CY}
-              r={58}
+              r={56}
               fill="none"
-              stroke="rgba(110, 201, 232, 0.35)"
+              stroke="rgba(110, 201, 232, 0.4)"
               strokeWidth={1.2}
               strokeDasharray="2 9"
               className="hm-ring"
@@ -213,11 +207,11 @@ export default function HeroMockup() {
             <polygon
               points={HEX}
               fill="url(#hm-engine)"
-              stroke="rgba(255,255,255,0.3)"
+              stroke="rgba(255,255,255,0.35)"
               strokeWidth={1.5}
             />
             <g
-              transform={`translate(${CX} ${CY}) scale(1.55) translate(-12 -12)`}
+              transform={`translate(${CX} ${CY}) scale(1.5) translate(-12 -12)`}
               fill="#ffffff"
             >
               {ICONS.ai}
@@ -245,11 +239,11 @@ export default function HeroMockup() {
                 cy={c.y}
                 r={NODE_R}
                 fill="#0e2a45"
-                stroke="rgba(255,255,255,0.16)"
+                stroke="rgba(255,255,255,0.18)"
                 strokeWidth={1.5}
               />
               <g
-                transform={`translate(${c.x - 11.5} ${c.y - 11.5})`}
+                transform={`translate(${c.x - 11} ${c.y - 11})`}
                 fill="none"
                 stroke="#6ec9e8"
                 strokeWidth={1.9}
@@ -260,9 +254,9 @@ export default function HeroMockup() {
               </g>
               <text
                 x={c.x}
-                y={c.y + NODE_R + 20}
+                y={c.y + NODE_R + 19}
                 textAnchor="middle"
-                fontSize={17}
+                fontSize={16}
                 fontWeight={600}
                 fill="rgba(245,251,254,0.95)"
                 stroke="#0a2440"
