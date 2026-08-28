@@ -195,35 +195,11 @@ h2 {
 }
 
 /*
- * Brand growth mark next to the hero headline (<TrendArrow />): the trend line
- * and its chevron head draw themselves on once as the page loads, then rest.
- * Paths use pathLength="1", so 1 = hidden, 0 = fully drawn.
- */
-.tg-line,
-.tg-head {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: tg-draw 0.75s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
-}
-.tg-line {
-  animation-delay: 0.35s;
-}
-.tg-head {
-  animation-delay: 1s;
-  animation-duration: 0.32s;
-}
-
-@keyframes tg-draw {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-/*
- * Hero connected-systems backdrop (<HeroNetwork />): a faint mesh of nodes and
- * links with a slow HUD dial on the right. Bright nodes breathe, a few data
- * points drift along the links, and the dial turns almost imperceptibly. All
- * very low contrast - it frames the headline, never competes with it.
+ * Hero connected-systems backdrop (<HeroNetwork />): a dense but fine mesh of
+ * nodes and links across the whole hero, a slow HUD dial on the right, glowing
+ * hub nodes that breathe, and data points that drift along links and workflow
+ * paths. All low contrast and masked dim behind the headline - present, never
+ * competing with the text.
  */
 .hn-node {
   animation-name: hn-node-breathe;
@@ -270,15 +246,26 @@ h2 {
   animation: gear-spin-rev 112s linear infinite;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .tg-line,
-  .tg-head {
-    animation: none;
-    stroke-dashoffset: 0;
+/* very slow drift of the out-of-focus layer, for a living feel */
+.hn-far {
+  animation: hn-far-drift 42s ease-in-out infinite alternate;
+  transform-box: view-box;
+  transform-origin: center;
+}
+@keyframes hn-far-drift {
+  from {
+    transform: translate3d(-8px, 4px, 0) scale(1);
   }
+  to {
+    transform: translate3d(10px, -6px, 0) scale(1.03);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
   .hn-node,
   .hn-dial,
-  .hn-dial-inner {
+  .hn-dial-inner,
+  .hn-far {
     animation: none;
   }
   .hn-pulse {
