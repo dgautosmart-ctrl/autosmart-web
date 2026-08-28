@@ -32,6 +32,33 @@ const VW = 1200;
 const VH = 680;
 const DIAL = { cx: 985, cy: 70 };
 
+/*
+ * The dial is the lead element on the right, so the mesh keeps its distance:
+ * inside DIAL_CLEAR_INNER the network is almost gone, from there out to
+ * DIAL_CLEAR_OUTER it ramps back (smoothstep) to full density. A tiny floor
+ * keeps a few faint specks in the gap so it reads as breathing room, not a
+ * punched hole.
+ */
+const DIAL_CLEAR_INNER = 240;
+const DIAL_CLEAR_OUTER = 448;
+
+function dialDensity(x: number, y: number) {
+  const d = Math.hypot(x - DIAL.cx, y - DIAL.cy);
+  if (d <= DIAL_CLEAR_INNER) return 0.05;
+  if (d >= DIAL_CLEAR_OUTER) return 1;
+  const t = (d - DIAL_CLEAR_INNER) / (DIAL_CLEAR_OUTER - DIAL_CLEAR_INNER);
+  return 0.05 + (1 - 0.05) * (t * t * (3 - 2 * t));
+}
+
+function segDistToDial(ax: number, ay: number, bx: number, by: number) {
+  const dx = bx - ax;
+  const dy = by - ay;
+  const len2 = dx * dx + dy * dy || 1;
+  let t = ((DIAL.cx - ax) * dx + (DIAL.cy - ay) * dy) / len2;
+  t = Math.max(0, Math.min(1, t));
+  return Math.hypot(DIAL.cx - (ax + t * dx), DIAL.cy - (ay + t * dy));
+}
+
 type Node = {
   x: number;
   y: number;
@@ -60,13 +87,16 @@ const { NODES, EDGES, BACKBONE, CHAINS, PULSES, CHAIN_PULSES, FAR } = (() => {
       if (rand() > 0.88) continue;
       const x = c * cw + cw / 2 + (rand() - 0.5) * cw * 0.9;
       const y = r * chh + chh / 2 + (rand() - 0.5) * chh * 0.9;
+      const dens = dialDensity(x, y);
+      if (rand() > dens) continue;
       const hub = rand() > 0.82;
       const far = !hub && rand() > 0.58;
+      const fade = 0.4 + 0.6 * dens;
       nodes.push({
         x: Math.max(10, Math.min(VW - 10, x)),
         y: Math.max(10, Math.min(VH - 10, y)),
         r: hub ? 2.3 + rand() * 1.5 : far ? 1 + rand() * 1.1 : 1.4 + rand() * 1.3,
-        o: hub ? 0.3 + rand() * 0.14 : far ? 0.06 + rand() * 0.07 : 0.12 + rand() * 0.12,
+        o: (hub ? 0.3 + rand() * 0.14 : far ? 0.06 + rand() * 0.07 : 0.12 + rand() * 0.12) * fade,
         hub,
         far,
         dur: `${(4 + rand() * 4.5).toFixed(2)}s`,
@@ -75,14 +105,15 @@ const { NODES, EDGES, BACKBONE, CHAINS, PULSES, CHAIN_PULSES, FAR } = (() => {
     }
   }
 
-  // Anchors that tie the right-hand dial into the mesh.
-  ([[858, 152], [948, 238], [1058, 150], [902, 300]] as [number, number][]).forEach(
+  // A soft ring of anchors just outside the dial's clear zone, so the mesh
+  // meets it gently instead of tangling through it.
+  ([[690, 300], [772, 470], [1088, 372], [640, 150]] as [number, number][]).forEach(
     ([x, y]) => {
       nodes.push({
         x,
         y,
-        r: 2.6 + rand() * 1,
-        o: 0.32,
+        r: 2.4 + rand() * 1,
+        o: 0.26,
         hub: true,
         far: false,
         dur: `${(5 + rand() * 3).toFixed(2)}s`,
@@ -112,9 +143,24 @@ const { NODES, EDGES, BACKBONE, CHAINS, PULSES, CHAIN_PULSES, FAR } = (() => {
       const b = Math.max(i, j);
       const key = `${a}-${b}`;
       if (seen.has(key)) continue;
+      // Never run a link across (or hard against) the dial.
+      if (segDistToDial(nodes[a].x, nodes[a].y, nodes[b].x, nodes[b].y) < DIAL_CLEAR_INNER + 24) {
+        continue;
+      }
+      const dens = Math.min(
+        dialDensity(nodes[a].x, nodes[a].y),
+        dialDensity(nodes[b].x, nodes[b].y),
+        dialDensity((nodes[a].x + nodes[b].x) / 2, (nodes[a].y + nodes[b].y) / 2),
+      );
+      if (rand() > dens) continue;
       seen.add(key);
       const far = nodes[a].far || nodes[b].far;
-      edges.push({ a, b, o: (0.17 * (1 - l / 258) + 0.055) * (far ? 0.62 : 1), far });
+      edges.push({
+        a,
+        b,
+        o: (0.17 * (1 - l / 258) + 0.055) * (far ? 0.62 : 1) * (0.4 + 0.6 * dens),
+        far,
+      });
     }
   }
 
@@ -128,14 +174,19 @@ const { NODES, EDGES, BACKBONE, CHAINS, PULSES, CHAIN_PULSES, FAR } = (() => {
     if (l < 280 || l > 640) continue;
     const key = `${Math.min(a, b)}-${Math.max(a, b)}`;
     if (seen.has(key)) continue;
+    if (segDistToDial(nodes[a].x, nodes[a].y, nodes[b].x, nodes[b].y) < DIAL_CLEAR_INNER + 40) {
+      continue;
+    }
     seen.add(key);
     backbone.push({ a, b, o: 0.035, far: true });
   }
 
   // Workflow paths: walk node-to-node, then branch off a midpoint.
   const chains: Chain[] = [];
-  for (let t = 0; t < 9 && chains.length < 7; t++) {
+  for (let t = 0; t < 12 && chains.length < 7; t++) {
     let cur = Math.floor(rand() * count);
+    // keep workflow paths clear of the dial
+    if (dialDensity(nodes[cur].x, nodes[cur].y) < 0.7) continue;
     const pts: Node[] = [nodes[cur]];
     const steps = 4 + Math.floor(rand() * 3);
     for (let s = 0; s < steps; s++) {
@@ -143,6 +194,7 @@ const { NODES, EDGES, BACKBONE, CHAINS, PULSES, CHAIN_PULSES, FAR } = (() => {
       let bl = Infinity;
       for (let j = 0; j < count; j++) {
         if (j === cur || pts.includes(nodes[j])) continue;
+        if (dialDensity(nodes[j].x, nodes[j].y) < 0.7) continue;
         const l = Math.hypot(nodes[j].x - nodes[cur].x, nodes[j].y - nodes[cur].y);
         if (l > 45 && l < 240 && l < bl) {
           bl = l;
@@ -164,6 +216,7 @@ const { NODES, EDGES, BACKBONE, CHAINS, PULSES, CHAIN_PULSES, FAR } = (() => {
     let bl = Infinity;
     for (let j = 0; j < count; j++) {
       if (pts.includes(nodes[j])) continue;
+      if (dialDensity(nodes[j].x, nodes[j].y) < 0.7) continue;
       const l = Math.hypot(nodes[j].x - mid.x, nodes[j].y - mid.y);
       if (l > 45 && l < 210 && l < bl) {
         bl = l;
@@ -201,13 +254,14 @@ const { NODES, EDGES, BACKBONE, CHAINS, PULSES, CHAIN_PULSES, FAR } = (() => {
     delay: `-${(i * 1.7).toFixed(2)}s`,
   }));
 
-  // Out-of-focus bokeh behind everything, for depth.
-  const far = Array.from({ length: 7 }, () => ({
-    x: 60 + rand() * (VW - 120),
-    y: 40 + rand() * (VH - 80),
-    r: 12 + rand() * 26,
-    o: 0.04 + rand() * 0.05,
-  }));
+  // Out-of-focus bokeh behind everything, for depth - kept out of the dial.
+  const far: { x: number; y: number; r: number; o: number }[] = [];
+  for (let t = 0; t < 16 && far.length < 7; t++) {
+    const x = 60 + rand() * (VW - 120);
+    const y = 40 + rand() * (VH - 80);
+    if (rand() > dialDensity(x, y)) continue;
+    far.push({ x, y, r: 12 + rand() * 26, o: 0.04 + rand() * 0.05 });
+  }
 
   return {
     NODES: nodes,
