@@ -195,107 +195,93 @@ h2 {
 }
 
 /*
- * Hand-drawn arrow next to the hero headline (<HandDrawnArrow />): the line
- * sketches itself on with an uneven, hand-like pace, then the arrowhead is
- * drawn, a nib dot rides along the line, and the whole thing fades and
- * redraws on a loop. Paths use pathLength="1", so 1 = hidden, 0 = complete.
+ * Brand growth mark next to the hero headline (<TrendArrow />): the trend line
+ * and its chevron head draw themselves on once as the page loads, then rest.
+ * Paths use pathLength="1", so 1 = hidden, 0 = fully drawn.
  */
-.hd-line,
-.hd-head {
+.tg-line,
+.tg-head {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
+  animation: tg-draw 0.75s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 }
-.hd-line {
-  animation: hd-line 4.4s ease-in-out infinite;
+.tg-line {
+  animation-delay: 0.35s;
 }
-.hd-head {
-  animation: hd-head 4.4s ease-in-out infinite;
-}
-.hd-nib {
-  opacity: 0;
-  offset-rotate: 0deg;
-  animation: hd-nib 4.4s linear infinite;
+.tg-head {
+  animation-delay: 1s;
+  animation-duration: 0.32s;
 }
 
-@keyframes hd-line {
-  0% {
-    stroke-dashoffset: 1;
-    opacity: 1;
-    animation-timing-function: cubic-bezier(0.3, 0.55, 0.5, 1);
+@keyframes tg-draw {
+  to {
+    stroke-dashoffset: 0;
   }
-  7% {
-    stroke-dashoffset: 0.97;
-  }
-  28% {
-    stroke-dashoffset: 0.58;
-    animation-timing-function: cubic-bezier(0.5, 0, 0.75, 1);
+}
+
+/*
+ * Hero connected-systems backdrop (<HeroNetwork />): a faint mesh of nodes and
+ * links with a slow HUD dial on the right. Bright nodes breathe, a few data
+ * points drift along the links, and the dial turns almost imperceptibly. All
+ * very low contrast - it frames the headline, never competes with it.
+ */
+.hn-node {
+  animation-name: hn-node-breathe;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+@keyframes hn-node-breathe {
+  0%,
+  100% {
+    opacity: var(--o, 0.4);
   }
   50% {
-    stroke-dashoffset: 0;
-  }
-  86% {
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
-  96% {
-    stroke-dashoffset: 0;
-    opacity: 0;
-  }
-  100% {
-    stroke-dashoffset: 1;
-    opacity: 0;
+    opacity: calc(var(--o, 0.4) * 2.1);
   }
 }
 
-@keyframes hd-head {
-  0%,
-  48% {
-    stroke-dashoffset: 1;
-    opacity: 1;
-  }
-  64% {
-    stroke-dashoffset: 0;
-  }
-  86% {
-    opacity: 1;
-  }
-  96% {
-    stroke-dashoffset: 0;
-    opacity: 0;
-  }
-  100% {
-    stroke-dashoffset: 1;
-    opacity: 0;
-  }
+.hn-pulse {
+  offset-rotate: 0deg;
+  opacity: 0;
+  animation: hn-pulse-move var(--dur, 5s) linear infinite;
+  animation-delay: var(--delay, 0s);
 }
-
-@keyframes hd-nib {
-  0%,
-  5% {
+@keyframes hn-pulse-move {
+  0% {
     offset-distance: 0%;
     opacity: 0;
   }
-  9% {
+  14% {
     opacity: 1;
   }
-  48% {
-    offset-distance: 100%;
+  82% {
     opacity: 1;
   }
-  55%,
   100% {
     offset-distance: 100%;
     opacity: 0;
   }
 }
 
+.hn-dial {
+  animation: gear-spin 150s linear infinite;
+}
+.hn-dial-inner {
+  animation: gear-spin-rev 112s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .hd-line,
-  .hd-head {
+  .tg-line,
+  .tg-head {
     animation: none;
     stroke-dashoffset: 0;
   }
-  .hd-nib {
+  .hn-node,
+  .hn-dial,
+  .hn-dial-inner {
+    animation: none;
+  }
+  .hn-pulse {
     display: none;
   }
 }

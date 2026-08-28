@@ -1,15 +1,15 @@
 import Reveal from "@/components/Reveal";
 import HeroMockup from "@/components/home/HeroMockup";
 import ScrollLink from "@/components/ScrollLink";
-import TechBackdrop from "@/components/TechBackdrop";
-import HandDrawnArrow from "@/components/HandDrawnArrow";
+import HeroNetwork from "@/components/HeroNetwork";
+import TrendArrow from "@/components/TrendArrow";
 
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-brand-navy via-brand-navy to-[#06182b] text-brand-offwhite">
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-glow opacity-90" />
-        <TechBackdrop tone="dark" className="opacity-[0.6]" />
+        <HeroNetwork className="opacity-80" />
         <div className="absolute -top-24 left-1/2 h-80 w-80 rounded-full bg-brand-blue/25 blur-3xl animate-drift-a" />
         <div className="absolute -bottom-28 -left-16 h-72 w-72 rounded-full bg-brand-cyan/20 blur-3xl animate-drift-b" />
         <div className="absolute inset-0 bg-noise opacity-[0.1] mix-blend-soft-light" />
@@ -29,7 +29,8 @@ export default function Hero() {
               <span className="bg-gradient-to-l from-brand-cyan via-brand-cyan to-brand-blue bg-clip-text text-transparent">
                 קדימה
               </span>
-              <HandDrawnArrow className="ms-2 h-[1.05em] w-[1.05em] align-[0.06em] text-brand-cyan" />
+              .
+              <TrendArrow className="ms-2 h-[0.8em] w-[1.4em] align-[0.04em]" />
             </span>
           </h1>
           <p className="mx-auto max-w-2xl text-base font-light leading-relaxed text-brand-offwhite/75 sm:text-lg">
