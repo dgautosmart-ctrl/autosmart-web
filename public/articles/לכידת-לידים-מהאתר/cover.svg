@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="לכידת לידים מהאתר: מה קורה לפנייה מהרגע שהיא נשלחת">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a2440"/>
+      <stop offset="0.55" stop-color="#123a5c"/>
+      <stop offset="1" stop-color="#2b93c9"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2b93c9"/>
+      <stop offset="1" stop-color="#6ec9e8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g><line x1="254" y1="310" x2="296" y2="390" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.112"/><line x1="254" y1="310" x2="166" y2="566" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.016"/><line x1="254" y1="310" x2="339" y2="127" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.052"/><line x1="254" y1="310" x2="477" y2="405" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.031"/><line x1="953" y1="328" x2="705" y2="479" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.005"/><line x1="953" y1="328" x2="823" y2="83" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.012"/><line x1="953" y1="328" x2="1076" y2="229" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.076"/><line x1="953" y1="328" x2="829" y2="487" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.052"/><line x1="953" y1="328" x2="1089" y2="115" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.025"/><line x1="414" y1="570" x2="296" y2="390" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.045"/><line x1="414" y1="570" x2="166" y2="566" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.028"/><line x1="414" y1="570" x2="477" y2="405" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.066"/><line x1="705" y1="479" x2="829" y2="487" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.094"/><line x1="705" y1="479" x2="646" y2="200" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.008"/><line x1="705" y1="479" x2="477" y2="405" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.032"/><line x1="823" y1="83" x2="1076" y2="229" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.004"/><line x1="823" y1="83" x2="646" y2="200" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.047"/><line x1="823" y1="83" x2="666" y2="67" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.076"/><line x1="823" y1="83" x2="1089" y2="115" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.017"/><line x1="1076" y1="229" x2="1089" y2="115" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.099"/><line x1="296" y1="390" x2="166" y2="566" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.043"/><line x1="296" y1="390" x2="339" y2="127" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.018"/><line x1="296" y1="390" x2="477" y2="405" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.063"/><line x1="646" y1="200" x2="666" y2="67" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.088"/><line x1="646" y1="200" x2="477" y2="405" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.018"/><circle cx="254" cy="310" r="4" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="953" cy="328" r="4" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="414" cy="570" r="3" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="705" cy="479" r="5" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="823" cy="83" r="3" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="1076" cy="229" r="3" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="296" cy="390" r="5" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="166" cy="566" r="5" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="339" cy="127" r="3" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="829" cy="487" r="2" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="646" cy="200" r="5" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="666" cy="67" r="5" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="1089" cy="115" r="2" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="477" cy="405" r="3" fill="#6ec9e8" fill-opacity="0.28"/></g>
+
+  <rect x="80" y="498" width="132" height="6" rx="3" fill="url(#accent)"/>
+
+  <text x="80" y="82" font-family="'IBM Plex Sans Hebrew','Rubik','Segoe UI',Arial,sans-serif" font-size="30" font-weight="700" letter-spacing="0.5" fill="#ffffff">AutoSmart</text>
+
+  <g>
+      <rect x="836" y="86" rx="20" ry="20" width="284" height="40" fill="#6ec9e8" fill-opacity="0.16"/>
+      <text x="1098" y="112" text-anchor="end" font-family="'IBM Plex Sans Hebrew','Rubik','Segoe UI',Arial,sans-serif" font-size="22" fill="#dff2fb">שיווק ולידים</text>
+    </g>
+
+  <text text-anchor="end" font-family="'IBM Plex Sans Hebrew','Rubik','Segoe UI',Arial,sans-serif" font-size="66" font-weight="700" fill="#ffffff">
+    <tspan x="1120" y="255">לכידת לידים מהאתר: מה</tspan><tspan x="1120" y="337">קורה לפנייה מהרגע שהיא</tspan><tspan x="1120" y="419">נשלחת</tspan>
+  </text>
+</svg>
