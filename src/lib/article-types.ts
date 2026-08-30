@@ -5,6 +5,7 @@ export type ArticleMeta = {
   excerpt: string;
   category: string;
   tags: string[];
+  image: string;
 };
 
 export type Article = ArticleMeta & {

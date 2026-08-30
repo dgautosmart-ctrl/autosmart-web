@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="דוחות שמתעדכנים לבד: המדריך לניהול נתונים בלי כאב ראש">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a2440"/>
+      <stop offset="0.55" stop-color="#123a5c"/>
+      <stop offset="1" stop-color="#2b93c9"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2b93c9"/>
+      <stop offset="1" stop-color="#6ec9e8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g><line x1="337" y1="5" x2="474" y2="259" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.006"/><line x1="1149" y1="244" x2="957" y2="363" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.040"/><line x1="409" y1="344" x2="474" y2="259" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.103"/><line x1="409" y1="344" x2="536" y2="299" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.088"/><line x1="409" y1="344" x2="426" y2="402" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.128"/><line x1="855" y1="46" x2="718" y2="126" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.075"/><line x1="855" y1="46" x2="885" y2="71" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.139"/><line x1="957" y1="363" x2="806" y2="503" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.050"/><line x1="474" y1="259" x2="718" y2="126" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.012"/><line x1="474" y1="259" x2="536" y2="299" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.121"/><line x1="474" y1="259" x2="426" y2="402" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.080"/><line x1="102" y1="202" x2="86" y2="171" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.141"/><line x1="718" y1="126" x2="536" y2="299" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.026"/><line x1="718" y1="126" x2="885" y2="71" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.066"/><line x1="651" y1="568" x2="536" y2="299" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.004"/><line x1="651" y1="568" x2="426" y2="402" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.011"/><line x1="651" y1="568" x2="806" y2="503" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.070"/><line x1="536" y1="299" x2="426" y2="402" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.080"/><circle cx="337" cy="5" r="3" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="1149" cy="244" r="6" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="409" cy="344" r="4" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="855" cy="46" r="3" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="957" cy="363" r="5" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="474" cy="259" r="3" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="102" cy="202" r="4" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="718" cy="126" r="5" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="651" cy="568" r="3" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="86" cy="171" r="3" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="536" cy="299" r="2" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="426" cy="402" r="2" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="806" cy="503" r="5" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="885" cy="71" r="4" fill="#6ec9e8" fill-opacity="0.28"/></g>
+
+  <rect x="80" y="498" width="132" height="6" rx="3" fill="url(#accent)"/>
+
+  <text x="80" y="82" font-family="'IBM Plex Sans Hebrew','Rubik','Segoe UI',Arial,sans-serif" font-size="30" font-weight="700" letter-spacing="0.5" fill="#ffffff">AutoSmart</text>
+
+  <g>
+      <rect x="816" y="86" rx="20" ry="20" width="304" height="40" fill="#6ec9e8" fill-opacity="0.16"/>
+      <text x="1098" y="112" text-anchor="end" font-family="'IBM Plex Sans Hebrew','Rubik','Segoe UI',Arial,sans-serif" font-size="22" fill="#dff2fb">דוחות ונתונים</text>
+    </g>
+
+  <text text-anchor="end" font-family="'IBM Plex Sans Hebrew','Rubik','Segoe UI',Arial,sans-serif" font-size="66" font-weight="700" fill="#ffffff">
+    <tspan x="1120" y="255">דוחות שמתעדכנים לבד:</tspan><tspan x="1120" y="337">המדריך לניהול נתונים בלי</tspan><tspan x="1120" y="419">כאב ראש</tspan>
+  </text>
+</svg>

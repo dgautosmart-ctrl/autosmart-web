@@ -63,8 +63,16 @@ export default function RelatedArticles({
           >
             <span
               aria-hidden
-              className="absolute inset-x-0 top-0 h-[3px] scale-x-0 bg-gradient-to-l from-brand-blue to-brand-cyan transition-transform duration-300 group-hover:scale-x-100"
+              className="absolute inset-x-0 top-0 z-10 h-[3px] scale-x-0 bg-gradient-to-l from-brand-blue to-brand-cyan transition-transform duration-300 group-hover:scale-x-100"
             />
+            {item.image && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={item.image}
+                alt={item.title}
+                className="-mx-7 -mt-7 mb-1 aspect-[1200/630] w-[calc(100%+3.5rem)] max-w-none object-cover sm:-mx-8 sm:-mt-8 sm:w-[calc(100%+4rem)]"
+              />
+            )}
             <div className="flex flex-wrap items-center gap-2 text-xs font-medium">
               {item.category && (
                 <span className="rounded-full bg-brand-blue/10 px-2.5 py-1 text-brand-blue">

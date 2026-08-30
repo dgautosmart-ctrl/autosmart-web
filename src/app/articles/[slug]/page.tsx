@@ -11,6 +11,7 @@ import {
 import { getRelatedArticles } from "@/lib/related-articles";
 import Reveal from "@/components/Reveal";
 import RelatedArticles from "@/components/RelatedArticles";
+import ArticleSignature from "@/components/ArticleSignature";
 import TagPill from "@/components/TagPill";
 
 export function generateStaticParams() {
@@ -31,6 +32,12 @@ export async function generateMetadata({
     title: `${article.title} | AutoSmart`,
     description: article.excerpt,
     keywords: article.tags.length > 0 ? article.tags : undefined,
+    openGraph: {
+      title: `${article.title} | AutoSmart`,
+      description: article.excerpt,
+      type: "article",
+      images: article.image ? [article.image] : undefined,
+    },
   };
 }
 
@@ -75,9 +82,20 @@ export default async function ArticlePage({ params }: PageProps<"/articles/[slug
           )}
         </Reveal>
 
+        {article.image && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={article.image}
+            alt={article.title}
+            className="mb-10 aspect-[1200/630] w-full rounded-2xl border border-brand-navy/10 object-cover"
+          />
+        )}
+
         <div className="prose prose-neutral max-w-none prose-headings:text-brand-navy prose-a:text-brand-blue">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>{article.content}</ReactMarkdown>
         </div>
+
+        <ArticleSignature fromSlug={article.slug} />
       </div>
 
       {related.length > 0 && (

@@ -21,6 +21,7 @@ function readArticleFile(fileName: string): Article {
     excerpt: data.excerpt ?? "",
     category: data.category ?? "",
     tags: Array.isArray(data.tags) ? data.tags : [],
+    image: data.image ?? "",
     content,
   };
 }
@@ -33,8 +34,8 @@ export function getAllArticles(): ArticleMeta[] {
   const fileNames = fs.readdirSync(ARTICLES_DIRECTORY).filter((name) => name.endsWith(".md"));
 
   const articles: ArticleMeta[] = fileNames.map((fileName) => {
-    const { slug, title, date, excerpt, category, tags } = readArticleFile(fileName);
-    return { slug, title, date, excerpt, category, tags };
+    const { slug, title, date, excerpt, category, tags, image } = readArticleFile(fileName);
+    return { slug, title, date, excerpt, category, tags, image };
   });
 
   return articles.sort((a, b) => (a.date < b.date ? 1 : -1));

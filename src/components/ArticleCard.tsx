@@ -24,9 +24,17 @@ export default function ArticleCard({
       <div className="group relative flex h-full flex-col gap-2 overflow-hidden rounded-2xl border border-brand-navy/10 bg-gradient-to-b from-white to-brand-offwhite/50 p-6 shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-brand-blue/15">
         <span
           aria-hidden
-          className="absolute inset-x-0 top-0 h-[3px] scale-x-0 bg-gradient-to-l from-brand-blue to-brand-cyan transition-transform duration-300 group-hover:scale-x-100"
+          className="absolute inset-x-0 top-0 z-10 h-[3px] scale-x-0 bg-gradient-to-l from-brand-blue to-brand-cyan transition-transform duration-300 group-hover:scale-x-100"
         />
         <Link href={`/articles/${article.slug}`} className="flex flex-1 flex-col gap-2">
+          {article.image && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={article.image}
+              alt={article.title}
+              className="-mx-6 -mt-6 mb-1 aspect-[1200/630] w-[calc(100%+3rem)] max-w-none object-cover"
+            />
+          )}
           <div className="flex flex-wrap items-center gap-2 text-xs font-medium">
             {article.category && (
               <span className="rounded-full bg-brand-blue/10 px-2.5 py-1 text-brand-blue">

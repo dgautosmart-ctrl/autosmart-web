@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="אוטומציה בשירות לקוחות: איך לענות מהר בלי לאבד את המגע האישי">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a2440"/>
+      <stop offset="0.55" stop-color="#123a5c"/>
+      <stop offset="1" stop-color="#2b93c9"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2b93c9"/>
+      <stop offset="1" stop-color="#6ec9e8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g><line x1="408" y1="124" x2="283" y2="100" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.092"/><line x1="408" y1="124" x2="545" y2="252" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.060"/><line x1="408" y1="124" x2="509" y2="262" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.069"/><line x1="408" y1="124" x2="450" y2="347" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.039"/><line x1="754" y1="78" x2="545" y2="252" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.015"/><line x1="157" y1="343" x2="283" y2="100" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.014"/><line x1="157" y1="343" x2="81" y2="268" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.103"/><line x1="157" y1="343" x2="375" y2="539" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.004"/><line x1="157" y1="343" x2="450" y2="347" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.004"/><line x1="1026" y1="341" x2="861" y2="498" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.039"/><line x1="283" y1="100" x2="81" y2="268" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.020"/><line x1="283" y1="100" x2="509" y2="262" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.012"/><line x1="283" y1="100" x2="450" y2="347" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.001"/><line x1="545" y1="252" x2="509" y2="262" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.140"/><line x1="545" y1="252" x2="450" y2="347" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.088"/><line x1="545" y1="252" x2="469" y2="530" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.006"/><line x1="418" y1="623" x2="375" y2="539" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.110"/><line x1="418" y1="623" x2="450" y2="347" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.012"/><line x1="418" y1="623" x2="469" y2="530" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.103"/><line x1="375" y1="539" x2="450" y2="347" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.050"/><line x1="375" y1="539" x2="469" y2="530" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.110"/><line x1="509" y1="262" x2="450" y2="347" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.105"/><line x1="509" y1="262" x2="469" y2="530" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.015"/><line x1="450" y1="347" x2="469" y2="530" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.062"/><circle cx="408" cy="124" r="2" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="754" cy="78" r="3" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="157" cy="343" r="4" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="1026" cy="341" r="5" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="283" cy="100" r="3" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="545" cy="252" r="2" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="418" cy="623" r="4" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="81" cy="268" r="4" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="375" cy="539" r="5" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="509" cy="262" r="6" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="450" cy="347" r="4" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="861" cy="498" r="6" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="1196" cy="62" r="6" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="469" cy="530" r="4" fill="#6ec9e8" fill-opacity="0.28"/></g>
+
+  <rect x="80" y="498" width="132" height="6" rx="3" fill="url(#accent)"/>
+
+  <text x="80" y="82" font-family="'IBM Plex Sans Hebrew','Rubik','Segoe UI',Arial,sans-serif" font-size="30" font-weight="700" letter-spacing="0.5" fill="#ffffff">AutoSmart</text>
+
+  <g>
+      <rect x="836" y="86" rx="20" ry="20" width="284" height="40" fill="#6ec9e8" fill-opacity="0.16"/>
+      <text x="1098" y="112" text-anchor="end" font-family="'IBM Plex Sans Hebrew','Rubik','Segoe UI',Arial,sans-serif" font-size="22" fill="#dff2fb">שירות לקוחות</text>
+    </g>
+
+  <text text-anchor="end" font-family="'IBM Plex Sans Hebrew','Rubik','Segoe UI',Arial,sans-serif" font-size="66" font-weight="700" fill="#ffffff">
+    <tspan x="1120" y="255">אוטומציה בשירות לקוחות:</tspan><tspan x="1120" y="337">איך לענות מהר בלי לאבד</tspan><tspan x="1120" y="419">את המגע האישי</tspan>
+  </text>
+</svg>
