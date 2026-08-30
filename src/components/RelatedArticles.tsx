@@ -45,9 +45,9 @@ export default function RelatedArticles({
   if (items.length === 0) return null;
 
   return (
-    <section ref={sectionRef} className="mt-16 border-t border-brand-navy/10 pt-10">
-      <h2 className="text-xl font-bold text-brand-navy sm:text-2xl">אולי יעניין אותך גם –</h2>
-      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <section ref={sectionRef} className="mt-16 border-t border-brand-navy/10 pt-12">
+      <h2 className="text-2xl font-bold text-brand-navy sm:text-3xl">אולי יעניין אותך גם –</h2>
+      <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((item, idx) => (
           <Link
             key={item.slug}
@@ -59,8 +59,12 @@ export default function RelatedArticles({
                 position: idx + 1,
               })
             }
-            className="group flex h-full flex-col gap-2 rounded-2xl border border-brand-navy/10 bg-gradient-to-b from-white to-brand-offwhite/50 p-5 shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-brand-blue/15"
+            className="group relative flex h-full flex-col gap-3 overflow-hidden rounded-2xl border border-brand-navy/10 bg-gradient-to-b from-white to-brand-offwhite/50 p-7 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-brand-blue/15 sm:p-8"
           >
+            <span
+              aria-hidden
+              className="absolute inset-x-0 top-0 h-[3px] scale-x-0 bg-gradient-to-l from-brand-blue to-brand-cyan transition-transform duration-300 group-hover:scale-x-100"
+            />
             <div className="flex flex-wrap items-center gap-2 text-xs font-medium">
               {item.category && (
                 <span className="rounded-full bg-brand-blue/10 px-2.5 py-1 text-brand-blue">
@@ -71,11 +75,13 @@ export default function RelatedArticles({
                 <span className="text-brand-navy/65">{formatArticleDate(item.date)}</span>
               )}
             </div>
-            <h3 className="text-base font-semibold text-brand-navy group-hover:text-brand-blue">
+            <h3 className="text-lg font-semibold text-brand-navy group-hover:text-brand-blue sm:text-xl">
               {item.title}
             </h3>
             {item.excerpt && (
-              <p className="text-[0.9rem] leading-relaxed text-brand-navy/80">{item.excerpt}</p>
+              <p className="text-[0.95rem] leading-relaxed text-brand-navy/80 sm:text-base">
+                {item.excerpt}
+              </p>
             )}
           </Link>
         ))}

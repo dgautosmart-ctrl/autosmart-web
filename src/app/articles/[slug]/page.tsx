@@ -78,13 +78,15 @@ export default async function ArticlePage({ params }: PageProps<"/articles/[slug
         <div className="prose prose-neutral max-w-none prose-headings:text-brand-navy prose-a:text-brand-blue">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>{article.content}</ReactMarkdown>
         </div>
+      </div>
 
-        {related.length > 0 && (
+      {related.length > 0 && (
+        <div className="relative mx-auto max-w-5xl px-4 pb-16 sm:pb-24">
           <Reveal>
             <RelatedArticles items={related} fromSlug={article.slug} />
           </Reveal>
-        )}
-      </div>
+        </div>
+      )}
     </article>
   );
 }
