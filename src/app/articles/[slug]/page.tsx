@@ -2,8 +2,15 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { getArticleBySlug, getArticleSlugs, formatArticleDate } from "@/lib/articles";
+import {
+  getAllArticles,
+  getArticleBySlug,
+  getArticleSlugs,
+  formatArticleDate,
+} from "@/lib/articles";
+import { getRelatedArticles } from "@/lib/related-articles";
 import Reveal from "@/components/Reveal";
+import RelatedArticles from "@/components/RelatedArticles";
 import TagPill from "@/components/TagPill";
 
 export function generateStaticParams() {
@@ -34,6 +41,8 @@ export default async function ArticlePage({ params }: PageProps<"/articles/[slug
   if (!article) {
     notFound();
   }
+
+  const related = getRelatedArticles(article, getAllArticles());
 
   return (
     <article className="relative overflow-hidden bg-white">
@@ -69,6 +78,12 @@ export default async function ArticlePage({ params }: PageProps<"/articles/[slug
         <div className="prose prose-neutral max-w-none prose-headings:text-brand-navy prose-a:text-brand-blue">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>{article.content}</ReactMarkdown>
         </div>
+
+        {related.length > 0 && (
+          <Reveal>
+            <RelatedArticles items={related} fromSlug={article.slug} />
+          </Reveal>
+        )}
       </div>
     </article>
   );
