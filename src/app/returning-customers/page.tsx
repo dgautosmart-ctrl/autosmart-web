@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import LpHeader from "@/components/lp/Header";
-import LpFooter from "@/components/lp/Footer";
 import MobileStickyCta from "@/components/lp/MobileStickyCta";
 import Hero from "@/components/lp/sections/Hero";
 import JourneySection from "@/components/lp/sections/JourneySection";
@@ -39,7 +38,6 @@ export default function ReturningCustomersLanding() {
         <AlreadyKnowsYouSection />
         <FormSection />
       </main>
-      <LpFooter />
       <MobileStickyCta />
     </div>
   );

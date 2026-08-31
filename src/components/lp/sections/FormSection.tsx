@@ -28,6 +28,12 @@ export default function FormSection() {
               השאר פרטים ונבדוק יחד האם יש אצלך בסיס למערכת שתעזור לשמור על קשר
               עם לקוחות קיימים ולהחזיר אותם לעבוד איתך שוב.
             </p>
+            <p className="mt-6 inline-flex items-center gap-2.5 rounded-xl border border-accent-bright/45 bg-accent/10 px-4 py-3 text-[0.95rem] font-semibold text-accent-bright">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.9} className="h-4 w-4 shrink-0">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 7v5l3 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              </svg>
+              לסוגרים עד ראש השנה — תינתן הנחה משמעותית!
+            </p>
           </Reveal>
 
           {/* card */}

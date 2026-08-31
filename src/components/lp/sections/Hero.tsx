@@ -48,6 +48,14 @@ export default function Hero() {
           />
           <CtaButton size="xl">אני רוצה לבדוק את רשימת הלקוחות שלי</CtaButton>
         </div>
+
+        <p
+          className="stage mt-6 inline-flex items-center gap-2 rounded-full border border-accent-bright/45 bg-accent/10 px-4 py-2 text-sm font-semibold text-accent-bright sm:text-[0.95rem]"
+          style={s("1.85s")}
+        >
+          <span aria-hidden className="pulse-ring h-1.5 w-1.5 rounded-full bg-accent-bright" />
+          לסוגרים עד ראש השנה — תינתן הנחה משמעותית!
+        </p>
       </div>
     </section>
   );
