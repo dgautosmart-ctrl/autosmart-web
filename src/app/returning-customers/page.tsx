@@ -7,7 +7,6 @@ import JourneySection from "@/components/lp/sections/JourneySection";
 import ProblemSection from "@/components/lp/sections/ProblemSection";
 import CoreMessageSection from "@/components/lp/sections/CoreMessageSection";
 import AlreadyKnowsYouSection from "@/components/lp/sections/AlreadyKnowsYouSection";
-import FinalCtaSection from "@/components/lp/sections/FinalCtaSection";
 import FormSection from "@/components/lp/sections/FormSection";
 
 const TITLE = "החזרת לקוחות ומכירות חוזרות | AutoSmart";
@@ -38,7 +37,6 @@ export default function ReturningCustomersLanding() {
         <ProblemSection />
         <CoreMessageSection />
         <AlreadyKnowsYouSection />
-        <FinalCtaSection />
         <FormSection />
       </main>
       <LpFooter />

@@ -9,10 +9,11 @@ export default function AlreadyKnowsYouSection() {
         <Reveal className="flex flex-col items-center text-center">
           <Marker />
           <h2 className="mt-6 text-4xl sm:text-6xl lg:text-[4rem] lg:leading-[1.08]">
-            הלקוחות שכבר קנו ממך הם האנשים שכבר מכירים את העסק שלך.
+            מי שכבר קנה ממך{" "}
+            <span className="lit-soft">כבר מכיר את העסק שלך.</span>
           </h2>
           <p className="mt-7 max-w-2xl text-xl text-text-soft sm:text-2xl">
-            הם כבר נתנו בך אמון — והרבה יותר קל ונכון לשמור איתם על קשר ולהחזיר
+            הם כבר נתנו בך אמון — הרבה יותר קל ונכון לשמור איתם על קשר ולהחזיר
             אותם לקנייה נוספת.
           </p>
         </Reveal>

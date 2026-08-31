@@ -374,27 +374,26 @@ h2 {
  * ========================================================================= */
 
 :root {
-  /* A living blue navy — clearly coloured, not near-black. */
-  --bg: #122941;
-  --bg-2: #17324e;
-  --navy: #1f4269;
-  --navy-2: #295783;
+  /* Sleek near-black — modern, high-contrast, the accent does the colour. */
+  --bg: #08090c;
+  --bg-2: #0d0f14;
+  --navy: #141821;
+  --navy-2: #1b202b;
 
-  /* blue-tinted surfaces/lines rather than flat white alpha */
-  --surface: rgba(120, 190, 235, 0.06);
-  --surface-2: rgba(120, 190, 235, 0.11);
-  --hairline: rgba(150, 205, 240, 0.18);
-  --hairline-bright: rgba(150, 205, 240, 0.32);
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-2: rgba(255, 255, 255, 0.07);
+  --hairline: rgba(255, 255, 255, 0.11);
+  --hairline-bright: rgba(255, 255, 255, 0.2);
 
   --text: #f7fafe;
-  --text-soft: #e6eef8;
-  --text-dim: rgba(224, 234, 246, 0.8);
-  --text-faint: rgba(224, 234, 246, 0.56);
+  --text-soft: #e4ebf3;
+  --text-dim: rgba(226, 234, 244, 0.74);
+  --text-faint: rgba(226, 234, 244, 0.48);
 
   --accent: #2b93c9;
   --accent-bright: #6ec9e8;
   --accent-deep: #1c5075;
-  --accent-glow: rgba(60, 165, 220, 0.6);
+  --accent-glow: rgba(60, 165, 220, 0.55);
 }
 
 @theme inline {
@@ -416,10 +415,11 @@ h2 {
 }
 
 .lp-root {
-  /* coloured field: cyan-lit top, deep blue body, indigo base */
-  background:
-    radial-gradient(120% 70% at 50% -10%, rgba(60, 165, 220, 0.16), transparent 60%),
-    linear-gradient(180deg, #173a5c 0%, #122941 42%, #0f2036 100%);
+  /* near-black field with a restrained accent glow up top */
+  background-color: #08090c;
+  background-image:
+    radial-gradient(120% 55% at 50% -10%, rgba(60, 165, 220, 0.1), transparent 60%),
+    linear-gradient(180deg, #0c0e13 0%, #08090c 55%, #050608 100%);
   color: var(--text);
   min-height: 100dvh;
   overflow-x: clip;
@@ -473,9 +473,9 @@ h2 {
 }
 .bg-radial {
   background-image:
-    radial-gradient(46% 55% at 20% 16%, rgba(60, 165, 220, 0.34), transparent 72%),
-    radial-gradient(42% 48% at 85% 8%, rgba(110, 201, 232, 0.26), transparent 70%),
-    radial-gradient(62% 66% at 72% 94%, rgba(43, 120, 180, 0.34), transparent 78%);
+    radial-gradient(46% 55% at 20% 16%, rgba(60, 165, 220, 0.18), transparent 72%),
+    radial-gradient(42% 48% at 85% 8%, rgba(110, 201, 232, 0.12), transparent 70%),
+    radial-gradient(62% 66% at 72% 94%, rgba(43, 120, 180, 0.16), transparent 78%);
 }
 .beam {
   background: conic-gradient(
