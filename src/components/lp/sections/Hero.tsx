@@ -13,14 +13,7 @@ export default function Hero() {
       <HeroBackdrop />
 
       <div className="relative z-10 mx-auto w-full max-w-4xl px-4 text-center sm:px-8">
-        <p className="stage" style={s("0.15s")}>
-          <span className="inline-flex items-center gap-2.5 rounded-full border border-hairline bg-surface px-4 py-1.5 text-xs text-text-dim sm:text-sm">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent-bright pulse-ring" />
-            לקוחות קיימים. הזדמנויות חדשות.
-          </span>
-        </p>
-
-        <h1 className="display mt-7 text-[2.6rem] leading-[1.02] sm:text-6xl lg:text-[5.5rem]">
+        <h1 className="display text-[2.6rem] leading-[1.02] sm:text-6xl lg:text-[5.5rem]">
           <span className="stage block" style={s("0.5s")}>
             עברו אצלך בעסק
           </span>
