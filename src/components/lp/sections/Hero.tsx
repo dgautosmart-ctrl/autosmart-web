@@ -11,6 +11,12 @@ export default function Hero() {
     >
       <HeroBackdrop />
 
+      {/* gentle darkening of the area below the headline */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 top-[44%] z-0 bg-gradient-to-b from-transparent to-black/25"
+      />
+
       <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-4 text-center sm:px-8">
         <h1
           className="stage-zoom display text-[2.7rem] leading-[1.05] [text-shadow:0_0_70px_rgba(60,165,220,0.35)] sm:text-6xl lg:text-[5rem] lg:leading-[1.04]"
