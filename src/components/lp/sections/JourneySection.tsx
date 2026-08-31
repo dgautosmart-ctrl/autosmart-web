@@ -20,7 +20,7 @@ export default function JourneySection() {
         {LINES.map((line, i) => (
           <div
             key={line}
-            className="flex min-h-[62vh] items-center justify-center px-4 sm:min-h-[70vh]"
+            className="flex min-h-[24vh] items-center justify-center px-4 sm:min-h-[30vh]"
           >
             <Reveal>
               <p
@@ -35,7 +35,7 @@ export default function JourneySection() {
         ))}
 
         {/* the beat where it all thins out and disappears */}
-        <div className="flex min-h-[92vh] flex-col items-center justify-center px-4">
+        <div className="flex min-h-[36vh] flex-col items-center justify-center px-4 pb-8">
           <Reveal>
             <p className="display text-center text-5xl text-text sm:text-7xl lg:text-8xl">
               ואז מה?

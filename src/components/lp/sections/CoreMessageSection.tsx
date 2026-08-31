@@ -5,7 +5,7 @@ import OrbitingWords from "@/components/lp/visuals/OrbitingWords";
 /** Section 4 — המסר המרכזי. Very dark, minimal. */
 export default function CoreMessageSection() {
   return (
-    <section className="relative flex min-h-[90vh] items-center overflow-hidden py-28">
+    <section className="relative flex min-h-[50vh] items-center overflow-hidden py-16 sm:py-20">
       <OrbitingWords />
       <div aria-hidden className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(43,147,201,0.14),transparent_60%)]" />
       <Container size="narrow" className="relative text-center">

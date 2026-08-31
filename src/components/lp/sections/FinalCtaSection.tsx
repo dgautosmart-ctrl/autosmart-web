@@ -6,7 +6,7 @@ import { AUTOSMART_SITE } from "@/lib/lp-config";
 /** Section 16 — dramatic closing CTA. */
 export default function FinalCtaSection() {
   return (
-    <section className="relative flex min-h-[92vh] items-center overflow-hidden py-28">
+    <section className="relative flex min-h-[60vh] items-center overflow-hidden py-16 sm:py-24">
       <div aria-hidden className="absolute inset-0 -z-10 bg-grid bg-grid-fade opacity-30" />
       <div
         aria-hidden

@@ -17,7 +17,7 @@ export function Section({
   return (
     <Tag
       id={id}
-      className={`relative isolate ${flush ? "" : "py-24 sm:py-32 lg:py-40"} ${className}`}
+      className={`relative isolate ${flush ? "" : "py-16 sm:py-20 lg:py-24"} ${className}`}
     >
       {children}
     </Tag>
