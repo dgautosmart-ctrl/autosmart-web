@@ -12,29 +12,29 @@ export default function Hero() {
       <HeroBackdrop />
 
       <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-4 text-center sm:px-8">
-        {/* offer ribbon — first thing the eye lands on */}
+        <h1
+          className="stage-zoom display text-[2.7rem] leading-[1.05] [text-shadow:0_0_70px_rgba(60,165,220,0.35)] sm:text-6xl lg:text-[5rem] lg:leading-[1.04]"
+          style={s("0.3s")}
+        >
+          עברו אצלך בעסק{" "}
+          <span className="whitespace-nowrap">
+            יותר מ־<span className="lit blink-glow">100</span>{" "}
+            <span className="lit-soft">לקוחות?</span>
+          </span>
+        </h1>
+
+        {/* limited-time offer, right after the headline */}
         <p
-          className="stage inline-flex items-center gap-2.5 rounded-full border border-accent-bright/60 bg-accent/15 px-5 py-2 text-sm font-semibold text-accent-bright shadow-[0_0_35px_-8px_var(--accent-glow)] sm:text-[0.95rem]"
-          style={s("0.15s")}
+          className="stage mt-7 inline-flex items-center gap-2.5 rounded-full border border-accent-bright/60 bg-accent/15 px-5 py-2 text-sm font-semibold text-accent-bright shadow-[0_0_35px_-8px_var(--accent-glow)] sm:text-[0.95rem]"
+          style={s("0.9s")}
         >
           <span aria-hidden className="pulse-ring h-2 w-2 rounded-full bg-accent-bright" />
           לסוגרים עד ראש השנה — הנחה משמעותית
         </p>
 
-        <h1
-          className="stage-zoom display mt-8 text-[2.7rem] leading-[1.05] [text-shadow:0_0_70px_rgba(60,165,220,0.35)] sm:text-6xl lg:text-[5rem] lg:leading-[1.04]"
-          style={s("0.45s")}
-        >
-          עברו אצלך בעסק{" "}
-          <span className="whitespace-nowrap">
-            יותר מ־<span className="lit">100</span>{" "}
-            <span className="lit-soft">לקוחות?</span>
-          </span>
-        </h1>
-
         <p
-          className="stage mt-9 max-w-2xl text-xl text-text-soft sm:text-[1.6rem] sm:leading-snug"
-          style={s("1s")}
+          className="stage mt-8 max-w-2xl text-xl text-text-soft sm:text-[1.6rem] sm:leading-snug"
+          style={s("1.15s")}
         >
           רשימת הלקוחות שלך{" "}
           <span className="lit font-semibold">שווה יותר</span>{" "}
