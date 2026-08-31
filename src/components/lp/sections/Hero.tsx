@@ -18,27 +18,27 @@ export default function Hero() {
         >
           עברו אצלך בעסק{" "}
           <span className="whitespace-nowrap">
-            יותר מ־<span className="lit blink-glow">100</span>{" "}
+            יותר מ־<span className="lit">100</span>{" "}
             <span className="lit-soft">לקוחות?</span>
           </span>
         </h1>
 
-        {/* limited-time offer, right after the headline */}
-        <p
-          className="stage mt-7 inline-flex items-center gap-2.5 rounded-full border border-accent-bright/60 bg-accent/15 px-5 py-2 text-sm font-semibold text-accent-bright shadow-[0_0_35px_-8px_var(--accent-glow)] sm:text-[0.95rem]"
-          style={s("0.9s")}
-        >
-          <span aria-hidden className="pulse-ring h-2 w-2 rounded-full bg-accent-bright" />
-          לסוגרים עד ראש השנה — הנחה משמעותית
-        </p>
-
         <p
           className="stage mt-8 max-w-2xl text-xl text-text-soft sm:text-[1.6rem] sm:leading-snug"
-          style={s("1.15s")}
+          style={s("0.95s")}
         >
           רשימת הלקוחות שלך{" "}
           <span className="lit font-semibold">שווה יותר</span>{" "}
           מכל קמפיין חדש שתריץ.
+        </p>
+
+        {/* limited-time offer */}
+        <p
+          className="stage mt-7 inline-flex items-center gap-2.5 rounded-full border border-accent-bright/60 bg-accent/15 px-5 py-2 text-sm font-semibold text-accent-bright shadow-[0_0_35px_-8px_var(--accent-glow)] sm:text-[0.95rem]"
+          style={s("1.2s")}
+        >
+          <span aria-hidden className="pulse-ring h-2 w-2 rounded-full bg-accent-bright" />
+          לסוגרים עד ראש השנה — הנחה משמעותית
         </p>
 
         <div className="stage relative mt-11" style={s("1.4s")}>

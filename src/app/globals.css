@@ -582,23 +582,6 @@ h2 {
   animation-delay: var(--delay, 0s);
 }
 
-/* blinking emphasis (e.g. the "100" in the hero headline) */
-@keyframes lp-blink {
-  0%,
-  55%,
-  100% {
-    opacity: 1;
-    text-shadow: 0 0 24px rgba(110, 201, 232, 0.65), 0 0 65px rgba(43, 147, 201, 0.45);
-  }
-  28% {
-    opacity: 0.4;
-    text-shadow: none;
-  }
-}
-.blink-glow {
-  animation: lp-blink 1.5s ease-in-out infinite;
-}
-
 /* periodic sheen sweep across the primary CTA */
 @keyframes lp-cta-sheen {
   0% { transform: translateX(0) skewX(-18deg); }
@@ -650,7 +633,6 @@ h2 {
   .marquee-y,
   .pulse-ring,
   .cta-sheen,
-  .blink-glow,
   .stage,
   .stage-zoom {
     animation: none !important;

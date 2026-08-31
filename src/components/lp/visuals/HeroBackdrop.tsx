@@ -139,32 +139,6 @@ export default function HeroBackdrop() {
           </filter>
         </defs>
 
-        {/* slow orbit rings — a refined, futuristic signature */}
-        <g opacity="0.5" style={{ transformBox: "view-box", transformOrigin: "800px 440px" } as object}>
-          <circle
-            cx="800"
-            cy="440"
-            r="540"
-            fill="none"
-            stroke="var(--hairline-bright)"
-            strokeWidth="1.25"
-            strokeDasharray="760 3000"
-            className="spin-slow"
-            style={{ ["--dur" as string]: "240s", transformBox: "view-box", transformOrigin: "800px 440px" } as object}
-          />
-          <circle
-            cx="800"
-            cy="440"
-            r="700"
-            fill="none"
-            stroke="var(--hairline)"
-            strokeWidth="1"
-            strokeDasharray="520 4000"
-            className="spin-rev"
-            style={{ ["--dur" as string]: "320s", transformBox: "view-box", transformOrigin: "800px 440px" } as object}
-          />
-        </g>
-
         <g mask="url(#hb-clear)">
           {/* rising energy streams */}
           {STREAMS.map((d, i) => (
