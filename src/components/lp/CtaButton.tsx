@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { FORM_ID } from "@/lib/lp-config";
+import { TapIcon, useTapIcon } from "@/components/TapIcon";
 
 export function scrollToForm() {
   if (typeof document === "undefined") return;
@@ -77,19 +78,12 @@ export default function CtaButton({
   size?: Size;
   className?: string;
 }) {
-  // On every tap the arrow briefly flips to a check, then springs back —
-  // a small "got it" acknowledgement as the page scrolls to the form.
-  const [tapped, setTapped] = useState(false);
-  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => () => {
-    if (timer.current) clearTimeout(timer.current);
-  }, []);
+  // On every tap the arrow briefly turns into a pointing hand, then springs
+  // back — a small press acknowledgement as the page scrolls to the form.
+  const { tapped, tap } = useTapIcon();
 
   const handleClick = () => {
-    setTapped(true);
-    if (timer.current) clearTimeout(timer.current);
-    timer.current = setTimeout(() => setTapped(false), 650);
+    tap();
     scrollToForm();
   };
 
@@ -114,20 +108,7 @@ export default function CtaButton({
         </>
       )}
       <span className="relative">{children}</span>
-      <svg
-        aria-hidden
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={2.25}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className={`relative h-4 w-4 transition-all duration-300 ${
-          tapped ? "scale-110 rotate-[360deg]" : "-translate-x-0 group-hover:-translate-x-1"
-        }`}
-      >
-        <path d={tapped ? "M20 6L9 17l-5-5" : "M19 12H5M11 18l-6-6 6-6"} />
-      </svg>
+      <TapIcon tapped={tapped} className="h-4 w-4" />
     </button>
   );
 }

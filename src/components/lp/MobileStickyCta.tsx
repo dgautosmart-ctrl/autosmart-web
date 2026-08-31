@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { scrollToForm } from "@/components/lp/CtaButton";
+import { TapIcon, useTapIcon } from "@/components/TapIcon";
 
 export default function MobileStickyCta() {
   const [show, setShow] = useState(false);
+  const { tapped, tap } = useTapIcon();
 
   useEffect(() => {
     const onScroll = () => {
@@ -26,10 +28,14 @@ export default function MobileStickyCta() {
     >
       <button
         type="button"
-        onClick={scrollToForm}
-        className="w-full rounded-2xl bg-gradient-to-l from-accent to-accent-bright px-6 py-3.5 text-base font-bold text-navy shadow-[0_-8px_40px_-6px_rgba(43,147,201,0.6)]"
+        onClick={() => {
+          tap();
+          scrollToForm();
+        }}
+        className="group flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-l from-accent to-accent-bright px-6 py-3.5 text-base font-bold text-navy shadow-[0_-8px_40px_-6px_rgba(43,147,201,0.6)]"
       >
         אני רוצה לבדוק את הרשימה
+        <TapIcon tapped={tapped} className="h-4 w-4" />
       </button>
     </div>
   );

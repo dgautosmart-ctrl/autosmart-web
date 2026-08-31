@@ -2,6 +2,7 @@
 
 import { useId, useState, type FormEvent, type ReactNode } from "react";
 import { CONTACT } from "@/lib/lp-config";
+import { TapIcon, useTapIcon } from "@/components/TapIcon";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -55,9 +56,11 @@ const icons = {
 export default function LeadForm() {
   const [status, setStatus] = useState<Status>("idle");
   const uid = useId();
+  const { tapped, tap } = useTapIcon();
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    tap();
     setStatus("submitting");
 
     const form = event.currentTarget;
@@ -155,11 +158,7 @@ export default function LeadForm() {
         className="group relative mt-1 flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-l from-accent to-accent-bright px-6 py-4 text-base font-bold text-navy shadow-[0_20px_50px_-14px_var(--accent-glow)] transition-all hover:-translate-y-0.5 hover:shadow-[0_26px_70px_-12px_var(--accent-glow)] disabled:translate-y-0 disabled:opacity-60"
       >
         {status === "submitting" ? "שולח..." : "בדקו איתי את רשימת הלקוחות"}
-        {status !== "submitting" && (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="h-4 w-4 transition-transform group-hover:-translate-x-1">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19 12H5M11 18l-6-6 6-6" />
-          </svg>
-        )}
+        {status !== "submitting" && <TapIcon tapped={tapped} className="h-4 w-4" />}
       </button>
 
       <p className="flex items-center justify-center gap-1.5 text-center text-sm text-text-dim">

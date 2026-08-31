@@ -5,6 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { useContactModal } from "@/components/contact/ContactModalContext";
+import { TapIcon, useTapIcon } from "@/components/TapIcon";
 
 const NAV_LINKS = [
   { href: "/", label: "בית" },
@@ -45,6 +46,8 @@ export default function Header() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { open: openContactModal } = useContactModal();
+  const desktopCta = useTapIcon();
+  const mobileCta = useTapIcon();
 
   return (
     <header className="fixed inset-x-0 top-3 z-50 px-3 sm:top-4 sm:px-4">
@@ -82,10 +85,14 @@ export default function Header() {
         <div className="flex items-center gap-2">
           <button
             type="button"
-            onClick={openContactModal}
-            className="hidden rounded-full bg-gradient-to-l from-brand-blue to-brand-cyan px-4 py-2 text-sm font-semibold text-brand-navy shadow-md shadow-brand-blue/30 transition-transform hover:scale-105 sm:block"
+            onClick={() => {
+              desktopCta.tap();
+              openContactModal();
+            }}
+            className="group hidden items-center gap-2 rounded-full bg-gradient-to-l from-brand-blue to-brand-cyan px-4 py-2 text-sm font-semibold text-brand-navy shadow-md shadow-brand-blue/30 transition-transform hover:scale-105 sm:flex"
           >
             צרו קשר
+            <TapIcon tapped={desktopCta.tapped} className="h-4 w-4" />
           </button>
 
           <button
@@ -123,12 +130,14 @@ export default function Header() {
           <button
             type="button"
             onClick={() => {
+              mobileCta.tap();
               setIsMenuOpen(false);
               openContactModal();
             }}
-            className="mt-2 rounded-full bg-gradient-to-l from-brand-blue to-brand-cyan px-4 py-3 text-center text-sm font-semibold text-brand-navy"
+            className="group mt-2 flex items-center justify-center gap-2 rounded-full bg-gradient-to-l from-brand-blue to-brand-cyan px-4 py-3 text-center text-sm font-semibold text-brand-navy"
           >
             צרו קשר
+            <TapIcon tapped={mobileCta.tapped} className="h-4 w-4" />
           </button>
         </nav>
       )}

@@ -2,6 +2,7 @@
 
 import { useId, useState, type FormEvent, type ReactNode } from "react";
 import { CONTACT } from "@/lib/site-config";
+import { TapIcon, useTapIcon } from "@/components/TapIcon";
 
 const inputClasses =
   "w-full rounded-lg border border-white/20 bg-white/5 px-4 py-2.5 text-brand-offwhite placeholder:text-brand-offwhite/55 focus:border-brand-cyan focus:outline-none";
@@ -35,9 +36,11 @@ export default function ContactFormBody({
 }: ContactFormBodyProps) {
   const [status, setStatus] = useState<Status>("idle");
   const idPrefix = useId();
+  const { tapped, tap } = useTapIcon();
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    tap();
     setStatus("submitting");
 
     const form = event.currentTarget;
@@ -153,9 +156,10 @@ export default function ContactFormBody({
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="w-full rounded-full bg-brand-blue px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-blue/30 transition-all hover:scale-[1.02] hover:bg-brand-cyan hover:text-brand-navy hover:shadow-brand-cyan/40 disabled:cursor-not-allowed disabled:scale-100 disabled:opacity-60 sm:text-base"
+        className="group flex w-full items-center justify-center gap-2 rounded-full bg-brand-blue px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-blue/30 transition-all hover:scale-[1.02] hover:bg-brand-cyan hover:text-brand-navy hover:shadow-brand-cyan/40 disabled:cursor-not-allowed disabled:scale-100 disabled:opacity-60 sm:text-base"
       >
         {status === "submitting" ? "שולח..." : submitLabel}
+        {status !== "submitting" && <TapIcon tapped={tapped} className="h-4 w-4" />}
       </button>
     </form>
   );

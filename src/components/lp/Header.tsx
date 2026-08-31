@@ -3,9 +3,11 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { scrollToForm } from "@/components/lp/CtaButton";
+import { TapIcon, useTapIcon } from "@/components/TapIcon";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const { tapped, tap } = useTapIcon();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -42,10 +44,14 @@ export default function Header() {
 
         <button
           type="button"
-          onClick={scrollToForm}
-          className="rounded-full bg-gradient-to-l from-accent to-accent-bright px-6 py-2.5 text-sm font-bold text-navy shadow-[0_10px_30px_-10px_var(--accent-glow)] transition-all hover:-translate-y-0.5 hover:shadow-[0_14px_38px_-10px_var(--accent-glow)] sm:px-7 sm:py-3 sm:text-base"
+          onClick={() => {
+            tap();
+            scrollToForm();
+          }}
+          className="group flex items-center gap-2 rounded-full bg-gradient-to-l from-accent to-accent-bright px-6 py-2.5 text-sm font-bold text-navy shadow-[0_10px_30px_-10px_var(--accent-glow)] transition-all hover:-translate-y-0.5 hover:shadow-[0_14px_38px_-10px_var(--accent-glow)] sm:px-7 sm:py-3 sm:text-base"
         >
           בואו נדבר
+          <TapIcon tapped={tapped} className="h-4 w-4" />
         </button>
       </div>
     </header>
