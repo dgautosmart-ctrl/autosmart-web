@@ -8,7 +8,7 @@ import CoreMessageSection from "@/components/lp/sections/CoreMessageSection";
 import AlreadyKnowsYouSection from "@/components/lp/sections/AlreadyKnowsYouSection";
 import FormSection from "@/components/lp/sections/FormSection";
 
-const TITLE = "החזרת לקוחות ומכירות חוזרות | AutoSmart";
+const TITLE = "שומרים על קשר. מגדילים מכירות. | AutoSmart";
 const DESCRIPTION =
   "עברו אצלך בעסק יותר מ־100 לקוחות? AutoSmart מקימה ומנהלת עבורך מערכת מסודרת לשמירה על קשר עם לקוחות קיימים באמצעות דיוור, תוכן ואוטומציות.";
 
