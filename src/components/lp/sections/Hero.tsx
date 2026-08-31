@@ -1,7 +1,6 @@
 import { AUTOSMART_SITE } from "@/lib/lp-config";
 import CtaButton from "@/components/lp/CtaButton";
 import HeroBackdrop from "@/components/lp/visuals/HeroBackdrop";
-import FloatingCustomerCards from "@/components/lp/visuals/FloatingCustomerCards";
 
 const s = (delay: string) => ({ ["--delay" as string]: delay });
 
@@ -12,7 +11,6 @@ export default function Hero() {
       className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden pt-28 pb-20 sm:pt-32"
     >
       <HeroBackdrop />
-      <FloatingCustomerCards />
 
       <div className="relative z-10 mx-auto w-full max-w-4xl px-4 text-center sm:px-8">
         <p className="stage" style={s("0.15s")}>

@@ -374,26 +374,27 @@ h2 {
  * ========================================================================= */
 
 :root {
-  /* Lifted from near-black to a deep navy — still cinematic, less heavy. */
-  --bg: #0a141f;
-  --bg-2: #0e1b2a;
-  --navy: #16304c;
-  --navy-2: #1d3d5e;
+  /* A living blue navy — clearly coloured, not near-black. */
+  --bg: #122941;
+  --bg-2: #17324e;
+  --navy: #1f4269;
+  --navy-2: #295783;
 
-  --surface: rgba(255, 255, 255, 0.045);
-  --surface-2: rgba(255, 255, 255, 0.08);
-  --hairline: rgba(255, 255, 255, 0.13);
-  --hairline-bright: rgba(255, 255, 255, 0.22);
+  /* blue-tinted surfaces/lines rather than flat white alpha */
+  --surface: rgba(120, 190, 235, 0.06);
+  --surface-2: rgba(120, 190, 235, 0.11);
+  --hairline: rgba(150, 205, 240, 0.18);
+  --hairline-bright: rgba(150, 205, 240, 0.32);
 
-  --text: #f6f9fd;
-  --text-soft: #e2ebf5;
-  --text-dim: rgba(220, 231, 244, 0.74);
-  --text-faint: rgba(220, 231, 244, 0.5);
+  --text: #f7fafe;
+  --text-soft: #e6eef8;
+  --text-dim: rgba(224, 234, 246, 0.8);
+  --text-faint: rgba(224, 234, 246, 0.56);
 
   --accent: #2b93c9;
   --accent-bright: #6ec9e8;
-  --accent-deep: #123a5c;
-  --accent-glow: rgba(43, 147, 201, 0.45);
+  --accent-deep: #1c5075;
+  --accent-glow: rgba(60, 165, 220, 0.6);
 }
 
 @theme inline {
@@ -415,7 +416,11 @@ h2 {
 }
 
 .lp-root {
-  background: var(--bg);
+  /* coloured field: cyan-lit top, deep blue body, indigo base */
+  background:
+    radial-gradient(120% 70% at 50% -10%, rgba(60, 165, 220, 0.16), transparent 60%),
+    linear-gradient(180deg, #173a5c 0%, #122941 42%, #0f2036 100%);
+  background-attachment: fixed;
   color: var(--text);
   min-height: 100dvh;
   overflow-x: clip;
