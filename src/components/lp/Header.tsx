@@ -23,7 +23,7 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-8">
-        <a href="#top" className="flex items-center gap-2.5" aria-label="AutoSmart">
+        <a href="/" className="flex items-center gap-2.5" aria-label="AutoSmart">
           <Image
             src="/logo.png"
             alt="AutoSmart"
