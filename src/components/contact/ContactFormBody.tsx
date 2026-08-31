@@ -14,6 +14,8 @@ type ContactFormBodyProps = {
   onSuccess?: () => void;
   /** Prefix used to build the email subject, e.g. "פנייה חדשה מהאתר" -> "... מ-<שם>" */
   subjectPrefix?: string;
+  /** בוחר את נוסח המיילים ב-/api/lead. ברירת מחדל: טופס האתר הרגיל. */
+  variant?: "site" | "returning";
   messageLabel?: string;
   messagePlaceholder?: string;
   submitLabel?: string;
@@ -24,6 +26,7 @@ type ContactFormBodyProps = {
 export default function ContactFormBody({
   onSuccess,
   subjectPrefix = "פנייה חדשה מהאתר",
+  variant = "site",
   messageLabel = "קצת על העסק שלכם",
   messagePlaceholder = "במה אתם עוסקים, ומה תרצו לשפר או לקדם?",
   submitLabel = "שליחה",
@@ -50,6 +53,7 @@ export default function ContactFormBody({
           email: formData.get("email"),
           message: formData.get("message"),
           source: subjectPrefix,
+          variant,
         }),
       });
       const result = await response.json();
