@@ -19,7 +19,7 @@ export default function Hero() {
           עברו אצלך בעסק{" "}
           <span className="whitespace-nowrap">
             יותר מ־
-            <span className="inline-block bg-[linear-gradient(180deg,#bcdcec_0%,#3a93c2_52%,#175d8c_100%)] bg-clip-text font-extrabold text-transparent [filter:drop-shadow(0_0_26px_rgba(60,140,190,0.45))] sm:text-[1.08em]">
+            <span className="inline-block bg-[linear-gradient(180deg,#4f97c0_0%,#2c6a95_52%,#164a6e_100%)] bg-clip-text font-extrabold text-transparent [filter:drop-shadow(0_0_22px_rgba(45,110,160,0.4))] sm:text-[1.08em]">
               100 לקוחות?
             </span>
           </span>
