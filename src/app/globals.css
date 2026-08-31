@@ -582,6 +582,15 @@ h2 {
   animation-delay: var(--delay, 0s);
 }
 
+/* periodic sheen sweep across the primary CTA */
+@keyframes lp-cta-sheen {
+  0% { transform: translateX(0) skewX(-18deg); }
+  60%, 100% { transform: translateX(520%) skewX(-18deg); }
+}
+.cta-sheen {
+  animation: lp-cta-sheen 4.5s ease-in-out infinite;
+}
+
 /* headline "grows in" on load */
 @keyframes lp-zoom-in {
   0% { opacity: 0; transform: scale(0.8); }
@@ -623,9 +632,13 @@ h2 {
   .spin-rev,
   .marquee-y,
   .pulse-ring,
+  .cta-sheen,
   .stage,
   .stage-zoom {
     animation: none !important;
+  }
+  .cta-sheen {
+    display: none;
   }
   .stage,
   .stage-zoom {

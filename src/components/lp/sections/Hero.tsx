@@ -1,5 +1,4 @@
 import CtaButton from "@/components/lp/CtaButton";
-import { Marker } from "@/components/lp/primitives";
 import HeroBackdrop from "@/components/lp/visuals/HeroBackdrop";
 
 const s = (delay: string) => ({ ["--delay" as string]: delay });
@@ -13,49 +12,43 @@ export default function Hero() {
       <HeroBackdrop />
 
       <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-4 text-center sm:px-8">
-        <span className="stage" style={s("0.2s")}>
-          <Marker />
-        </span>
+        {/* offer ribbon — first thing the eye lands on */}
+        <p
+          className="stage inline-flex items-center gap-2.5 rounded-full border border-accent-bright/60 bg-accent/15 px-5 py-2 text-sm font-semibold text-accent-bright shadow-[0_0_35px_-8px_var(--accent-glow)] sm:text-[0.95rem]"
+          style={s("0.15s")}
+        >
+          <span aria-hidden className="pulse-ring h-2 w-2 rounded-full bg-accent-bright" />
+          לסוגרים עד ראש השנה — הנחה משמעותית
+        </p>
 
         <h1
-          className="stage-zoom display mt-7 text-[2.7rem] leading-[1.05] [text-shadow:0_0_60px_rgba(60,165,220,0.28)] sm:text-6xl lg:text-[5rem] lg:leading-[1.04]"
+          className="stage-zoom display mt-8 text-[2.7rem] leading-[1.05] [text-shadow:0_0_70px_rgba(60,165,220,0.35)] sm:text-6xl lg:text-[5rem] lg:leading-[1.04]"
           style={s("0.45s")}
         >
           עברו אצלך בעסק{" "}
-          <span className="lit-soft">יותר מ־100 לקוחות?</span>
+          <span className="whitespace-nowrap">
+            יותר מ־<span className="lit">100</span>{" "}
+            <span className="lit-soft">לקוחות?</span>
+          </span>
         </h1>
 
-        <span
-          aria-hidden
-          className="stage mt-8 h-px w-24 bg-gradient-to-l from-transparent via-accent-bright/70 to-transparent"
-          style={s("0.9s")}
-        />
-
         <p
-          className="stage mt-8 max-w-2xl text-xl text-text-soft sm:text-2xl"
-          style={s("1.05s")}
+          className="stage mt-9 max-w-2xl text-xl text-text-soft sm:text-[1.6rem] sm:leading-snug"
+          style={s("1s")}
         >
           רשימת הלקוחות שלך{" "}
           <span className="lit font-semibold">שווה יותר</span>{" "}
-          מכל קמפיין חדש.
+          מכל קמפיין חדש שתריץ.
         </p>
 
-        <div className="stage relative mt-12" style={s("1.5s")}>
+        <div className="stage relative mt-11" style={s("1.4s")}>
           <span
             aria-hidden
-            className="anim-breathe absolute -inset-8 -z-10 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,var(--accent-glow),transparent_70%)] opacity-60"
+            className="anim-breathe absolute -inset-10 -z-10 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,var(--accent-glow),transparent_70%)] opacity-70"
             style={{ ["--dur" as string]: "6s" }}
           />
           <CtaButton size="xl">אני רוצה לבדוק את רשימת הלקוחות שלי</CtaButton>
         </div>
-
-        <p
-          className="stage mt-6 inline-flex items-center gap-2 rounded-full border border-accent-bright/45 bg-accent/10 px-4 py-2 text-sm font-semibold text-accent-bright sm:text-[0.95rem]"
-          style={s("1.85s")}
-        >
-          <span aria-hidden className="pulse-ring h-1.5 w-1.5 rounded-full bg-accent-bright" />
-          לסוגרים עד ראש השנה — תינתן הנחה משמעותית!
-        </p>
       </div>
     </section>
   );

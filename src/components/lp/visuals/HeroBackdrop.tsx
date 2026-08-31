@@ -87,9 +87,15 @@ export default function HeroBackdrop() {
       <div className="absolute inset-0 bg-radial" />
       <div className="absolute inset-0 bg-grid bg-grid-fade opacity-40" />
 
+      {/* spotlight cone from the top, behind the headline */}
+      <div
+        className="absolute inset-x-0 top-0 h-[75%] bg-[linear-gradient(180deg,rgba(60,170,225,0.22),rgba(60,170,225,0.06)_40%,transparent_75%)]"
+        style={{ clipPath: "polygon(34% 0, 66% 0, 96% 100%, 4% 100%)" }}
+      />
+
       {/* lit stage behind the headline */}
       <div
-        className="anim-breathe absolute left-1/2 top-[40%] h-[34rem] w-[56rem] max-w-[120vw] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(60,165,220,0.13),transparent_70%)]"
+        className="anim-breathe absolute left-1/2 top-[40%] h-[36rem] w-[58rem] max-w-[120vw] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(60,165,220,0.2),transparent_70%)]"
         style={{ ["--dur" as string]: "9s" }}
       />
 
