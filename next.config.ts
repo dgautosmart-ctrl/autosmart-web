@@ -14,6 +14,19 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+
+  // דף הנחיתה יושב פנימית תחת /returning-customers, אבל הכתובת הציבורית
+  // היא בעברית. rewrite שומר על ה-URL היפה בלי תיקיית route בעברית
+  // (שגרמה ל-InvalidCharacterError ב-prerender).
+  async rewrites() {
+    return [
+      { source: "/לקוחות-חוזרים", destination: "/returning-customers" },
+      {
+        source: "/%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA-%D7%97%D7%95%D7%96%D7%A8%D7%99%D7%9D",
+        destination: "/returning-customers",
+      },
+    ];
+  },
 };
 
 export default nextConfig;

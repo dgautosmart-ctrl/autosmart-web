@@ -366,3 +366,249 @@ h2 {
     display: none;
   }
 }
+
+/* =========================================================================
+ * Landing page "/לקוחות-חוזרים" (<div class="lp-root">) — Dark Cinematic.
+ * Self-contained: its own near-black palette, tokens and motion utilities.
+ * Bare-element rules are scoped to .lp-root so the white site is untouched.
+ * ========================================================================= */
+
+:root {
+  --bg: #04060c;
+  --bg-2: #070b15;
+  --navy: #0a1a30;
+  --navy-2: #0c2138;
+
+  --surface: rgba(255, 255, 255, 0.028);
+  --surface-2: rgba(255, 255, 255, 0.05);
+  --hairline: rgba(255, 255, 255, 0.09);
+  --hairline-bright: rgba(255, 255, 255, 0.16);
+
+  --text: #f6f9fd;
+  --text-soft: #d7e2f0;
+  --text-dim: rgba(214, 226, 240, 0.6);
+  --text-faint: rgba(214, 226, 240, 0.36);
+
+  --accent: #2b93c9;
+  --accent-bright: #6ec9e8;
+  --accent-deep: #123a5c;
+  --accent-glow: rgba(43, 147, 201, 0.45);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-2: var(--bg-2);
+  --color-navy: var(--navy);
+  --color-navy-2: var(--navy-2);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-hairline: var(--hairline);
+  --color-hairline-bright: var(--hairline-bright);
+  --color-text: var(--text);
+  --color-text-soft: var(--text-soft);
+  --color-text-dim: var(--text-dim);
+  --color-text-faint: var(--text-faint);
+  --color-accent: var(--accent);
+  --color-accent-bright: var(--accent-bright);
+  --color-accent-deep: var(--accent-deep);
+}
+
+.lp-root {
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100dvh;
+  overflow-x: clip;
+}
+.lp-root * {
+  min-width: 0;
+}
+.lp-root ::selection {
+  background: rgba(110, 201, 232, 0.28);
+  color: #fff;
+}
+.lp-root :is(h1, h2, h3, h4) {
+  font-weight: 600;
+  letter-spacing: -0.028em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+.lp-root h1 {
+  letter-spacing: -0.043em;
+  line-height: 1;
+}
+
+.display {
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+}
+
+.lit {
+  color: var(--accent-bright);
+  text-shadow:
+    0 0 22px rgba(110, 201, 232, 0.45),
+    0 0 60px rgba(43, 147, 201, 0.3);
+}
+.lit-soft {
+  background: linear-gradient(180deg, #eaf7fc 0%, var(--accent-bright) 60%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 46px 46px;
+}
+.bg-grid-fade {
+  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 40%, #000 20%, transparent 80%);
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 40%, #000 20%, transparent 80%);
+}
+.bg-radial {
+  background-image:
+    radial-gradient(46% 55% at 22% 18%, rgba(43, 147, 201, 0.22), transparent 72%),
+    radial-gradient(40% 46% at 84% 10%, rgba(110, 201, 232, 0.16), transparent 70%),
+    radial-gradient(60% 65% at 70% 92%, rgba(18, 58, 92, 0.4), transparent 78%);
+}
+.beam {
+  background: conic-gradient(
+    from 90deg at 50% 0%,
+    transparent 0deg,
+    rgba(110, 201, 232, 0.14) 12deg,
+    transparent 26deg,
+    transparent 334deg,
+    rgba(43, 147, 201, 0.12) 348deg,
+    transparent 360deg
+  );
+}
+
+.glow {
+  background: radial-gradient(circle at center, var(--glow-c, rgba(43, 147, 201, 0.16)) 0%, transparent 70%);
+}
+.glow-strong {
+  --glow-c: rgba(43, 147, 201, 0.3);
+}
+.glow-soft {
+  --glow-c: rgba(43, 147, 201, 0.16);
+}
+.glow-faint {
+  --glow-c: rgba(43, 147, 201, 0.09);
+}
+
+.hairline-x {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--hairline-bright) 20%, var(--hairline-bright) 80%, transparent);
+}
+
+@keyframes lp-floaty {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -14px, 0); }
+}
+.anim-float {
+  animation: lp-floaty var(--dur, 7s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes lp-breathe {
+  0%, 100% { opacity: var(--o, 0.6); transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.06); }
+}
+.anim-breathe {
+  animation: lp-breathe var(--dur, 9s) ease-in-out infinite;
+}
+
+@keyframes lp-dash-flow {
+  to { stroke-dashoffset: -1000; }
+}
+.dash-flow {
+  stroke-dasharray: 5 9;
+  animation: lp-dash-flow var(--dur, 14s) linear infinite;
+}
+
+@keyframes lp-travel {
+  0% { offset-distance: 0%; opacity: 0; }
+  10% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+.travel {
+  offset-rotate: 0deg;
+  opacity: 0;
+  animation: lp-travel var(--dur, 6s) linear infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes lp-spin-slow {
+  to { transform: rotate(360deg); }
+}
+.spin-slow {
+  animation: lp-spin-slow var(--dur, 120s) linear infinite;
+}
+.spin-rev {
+  animation: lp-spin-slow var(--dur, 90s) linear infinite reverse;
+}
+
+@keyframes lp-marquee-y {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+.marquee-y {
+  animation: lp-marquee-y var(--dur, 40s) linear infinite;
+}
+
+@keyframes lp-pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(110, 201, 232, 0.5); }
+  70% { box-shadow: 0 0 0 14px rgba(110, 201, 232, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(110, 201, 232, 0); }
+}
+.pulse-ring {
+  animation: lp-pulse-ring 2.6s ease-out infinite;
+}
+
+@keyframes lp-fade-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.stage {
+  opacity: 0;
+  animation: lp-fade-rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+.card-glow::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(120px 120px at var(--mx, 50%) var(--my, 0%), rgba(110, 201, 232, 0.55), transparent 70%);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.card-glow:hover::before {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-float,
+  .anim-breathe,
+  .dash-flow,
+  .travel,
+  .spin-slow,
+  .spin-rev,
+  .marquee-y,
+  .pulse-ring,
+  .stage {
+    animation: none !important;
+  }
+  .stage {
+    opacity: 1 !important;
+  }
+}
