@@ -18,8 +18,8 @@ export default function Hero() {
         </span>
 
         <h1
-          className="stage display mt-7 text-[2.7rem] leading-[1.05] [text-shadow:0_0_60px_rgba(60,165,220,0.28)] sm:text-6xl lg:text-[5rem] lg:leading-[1.04]"
-          style={s("0.5s")}
+          className="stage-zoom display mt-7 text-[2.7rem] leading-[1.05] [text-shadow:0_0_60px_rgba(60,165,220,0.28)] sm:text-6xl lg:text-[5rem] lg:leading-[1.04]"
+          style={s("0.45s")}
         >
           עברו אצלך בעסק{" "}
           <span className="lit-soft">יותר מ־100 לקוחות?</span>
