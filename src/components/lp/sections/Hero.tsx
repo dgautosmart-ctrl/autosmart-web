@@ -40,7 +40,7 @@ export default function Hero() {
           מכל קמפיין חדש.
         </p>
 
-        <div className="stage relative mt-11" style={s("1.5s")}>
+        <div className="stage relative mt-12" style={s("1.5s")}>
           <span
             aria-hidden
             className="anim-breathe absolute -inset-8 -z-10 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,var(--accent-glow),transparent_70%)] opacity-60"
@@ -48,14 +48,6 @@ export default function Hero() {
           />
           <CtaButton size="xl">אני רוצה לבדוק את רשימת הלקוחות שלי</CtaButton>
         </div>
-
-        <p
-          className="stage mt-5 max-w-lg text-sm text-text-dim"
-          style={s("1.85s")}
-        >
-          פנייה זו אינה כרוכה בהתחייבות. בשיחה קצרה נבחן יחד האם השירות מתאים
-          לעסק שלך.
-        </p>
       </div>
     </section>
   );
