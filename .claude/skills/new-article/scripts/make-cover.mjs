@@ -132,10 +132,12 @@ const blockHeight = (titleLines.length - 1) * lineHeight;
 // baseline של השורה הראשונה, כך שכל בלוק הכותרת ממורכז אנכית.
 const startY = Math.round((H - blockHeight) / 2 + fontSize * 0.34);
 
+// עוטפים כל שורה ב-RLE/PDF (U+202B / U+202C) כדי שהיא תוצג בסדר RTL תקין
+// גם כשמעורבים בה מספרים או תווים לטיניים (למשל "10" או "AI").
 const titleTspans = titleLines
   .map(
     (line, idx) =>
-      `<tspan x="1120" y="${startY + idx * lineHeight}">${escapeXml(line)}</tspan>`,
+      `<tspan x="1120" y="${startY + idx * lineHeight}">‫${escapeXml(line)}‬</tspan>`,
   )
   .join("");
 
