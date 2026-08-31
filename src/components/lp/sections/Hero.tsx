@@ -50,10 +50,11 @@ export default function Hero() {
         </div>
 
         <p
-          className="stage mt-5 max-w-md text-sm text-text-dim"
+          className="stage mt-5 max-w-lg text-sm text-text-dim"
           style={s("1.85s")}
         >
-          שיחה קצרה, בלי התחייבות. קודם נבדוק אם זה בכלל מתאים לעסק שלך.
+          פנייה זו אינה כרוכה בהתחייבות. בשיחה קצרה נבחן יחד האם השירות מתאים
+          לעסק שלך.
         </p>
       </div>
     </section>
