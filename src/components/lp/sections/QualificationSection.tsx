@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Section, Container } from "@/components/lp/primitives";
 import CtaButton from "@/components/lp/CtaButton";
+import { TapIcon, useTapIcon } from "@/components/TapIcon";
 
 type Answer = "ask" | "yes" | "no";
 
@@ -23,6 +24,8 @@ const RESULT = {
 /** Section 14 — interactive qualification. */
 export default function QualificationSection() {
   const [answer, setAnswer] = useState<Answer>("ask");
+  const yesTap = useTapIcon();
+  const noTap = useTapIcon();
 
   return (
     <Section className="overflow-hidden bg-bg-2">
@@ -46,17 +49,25 @@ export default function QualificationSection() {
               <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <button
                   type="button"
-                  onClick={() => setAnswer("yes")}
-                  className="w-full rounded-full bg-gradient-to-l from-accent to-accent-bright px-10 py-4 text-lg font-bold text-navy shadow-[0_18px_50px_-12px_var(--accent-glow)] transition-transform hover:-translate-y-0.5 sm:w-auto"
+                  onClick={() => {
+                    yesTap.tap();
+                    setAnswer("yes");
+                  }}
+                  className="group flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-l from-accent to-accent-bright px-10 py-4 text-lg font-bold text-navy shadow-[0_18px_50px_-12px_var(--accent-glow)] transition-transform hover:-translate-y-0.5 sm:w-auto"
                 >
                   כן
+                  <TapIcon tapped={yesTap.tapped} className="h-4 w-4" />
                 </button>
                 <button
                   type="button"
-                  onClick={() => setAnswer("no")}
-                  className="w-full rounded-full border border-hairline-bright bg-surface px-10 py-4 text-lg font-semibold text-text-soft transition-colors hover:border-accent-bright/60 hover:text-white sm:w-auto"
+                  onClick={() => {
+                    noTap.tap();
+                    setAnswer("no");
+                  }}
+                  className="group flex w-full items-center justify-center gap-2 rounded-full border border-hairline-bright bg-surface px-10 py-4 text-lg font-semibold text-text-soft transition-colors hover:border-accent-bright/60 hover:text-white sm:w-auto"
                 >
                   לא בטוח
+                  <TapIcon tapped={noTap.tapped} className="h-4 w-4" />
                 </button>
               </div>
             </motion.div>
