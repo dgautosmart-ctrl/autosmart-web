@@ -126,8 +126,8 @@ export default function HeroBackdrop() {
 
           <linearGradient id="hb-stream" x1="0" y1="1" x2="0.15" y2="0">
             <stop offset="0%" stopColor="var(--accent)" stopOpacity="0" />
-            <stop offset="45%" stopColor="var(--accent)" stopOpacity="0.28" />
-            <stop offset="100%" stopColor="var(--accent-bright)" stopOpacity="0.55" />
+            <stop offset="45%" stopColor="var(--accent)" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="var(--accent-bright)" stopOpacity="0.8" />
           </linearGradient>
 
           <filter id="hb-soft" x="-80%" y="-80%" width="260%" height="260%">
@@ -147,21 +147,28 @@ export default function HeroBackdrop() {
                 d={d}
                 fill="none"
                 stroke="url(#hb-stream)"
-                strokeWidth={1.6 + (i % 2) * 0.8}
+                strokeWidth={2 + (i % 2) * 0.9}
                 className="dash-flow"
-                style={{ ["--dur" as string]: `${24 + i * 5}s` }}
+                style={{ ["--dur" as string]: `${16 + i * 3}s` }}
               />
-              <circle r="3.6" fill="var(--accent-bright)" className="hb-pulse" filter="url(#hb-soft)">
-                <animateMotion dur={`${10 + i * 2}s`} begin={`${i * 1.7}s`} repeatCount="indefinite" path={d} />
-                <animate
-                  attributeName="opacity"
-                  dur={`${10 + i * 2}s`}
-                  begin={`${i * 1.7}s`}
-                  repeatCount="indefinite"
-                  values="0;0.95;0.95;0"
-                  keyTimes="0;0.1;0.8;1"
-                />
-              </circle>
+              {[0, 0.5].map((frac, j) => (
+                <circle key={j} r="5" fill="var(--accent-bright)" className="hb-pulse" filter="url(#hb-soft)">
+                  <animateMotion
+                    dur={`${6 + i * 1.4}s`}
+                    begin={`${i * 0.9 + j * (3 + i * 0.7)}s`}
+                    repeatCount="indefinite"
+                    path={d}
+                  />
+                  <animate
+                    attributeName="opacity"
+                    dur={`${6 + i * 1.4}s`}
+                    begin={`${i * 0.9 + j * (3 + i * 0.7)}s`}
+                    repeatCount="indefinite"
+                    values="0;1;1;0"
+                    keyTimes="0;0.08;0.82;1"
+                  />
+                </circle>
+              ))}
             </g>
           ))}
 

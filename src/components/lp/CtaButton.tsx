@@ -93,7 +93,7 @@ export default function CtaButton({
           {/* sheen sweep */}
           <span
             aria-hidden
-            className="cta-sheen pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 skew-x-[-18deg] bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.55),transparent)]"
+            className="cta-sheen pointer-events-none absolute inset-y-0 -left-[40%] w-2/5 skew-x-[-18deg] bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.75),transparent)]"
           />
         </>
       )}

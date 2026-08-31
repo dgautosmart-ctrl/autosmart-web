@@ -582,13 +582,13 @@ h2 {
   animation-delay: var(--delay, 0s);
 }
 
-/* periodic sheen sweep across the primary CTA */
+/* continuous sheen sweep across the primary CTA */
 @keyframes lp-cta-sheen {
-  0% { transform: translateX(0) skewX(-18deg); }
-  60%, 100% { transform: translateX(520%) skewX(-18deg); }
+  0% { transform: translateX(-40%) skewX(-18deg); }
+  100% { transform: translateX(580%) skewX(-18deg); }
 }
 .cta-sheen {
-  animation: lp-cta-sheen 4.5s ease-in-out infinite;
+  animation: lp-cta-sheen 2.4s linear infinite;
 }
 
 /* headline "grows in" on load */

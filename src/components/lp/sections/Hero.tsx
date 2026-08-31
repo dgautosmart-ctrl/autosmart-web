@@ -47,7 +47,9 @@ export default function Hero() {
             className="anim-breathe absolute -inset-10 -z-10 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,var(--accent-glow),transparent_70%)] opacity-70"
             style={{ ["--dur" as string]: "6s" }}
           />
-          <CtaButton size="xl">אני רוצה לבדוק את רשימת הלקוחות שלי</CtaButton>
+          <div className="anim-float" style={{ ["--dur" as string]: "4s" }}>
+            <CtaButton size="xl">אני רוצה לבדוק את רשימת הלקוחות שלי</CtaButton>
+          </div>
         </div>
       </div>
     </section>
