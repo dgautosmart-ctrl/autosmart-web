@@ -16,7 +16,13 @@ import { CONTACT } from "@/lib/site-config";
  *  - LEAD_MAIL_FROM   כתובת שולח מאומתת, למשל: "AutoSmart <info@autosmartbiz.co.il>"
  */
 
-const FROM = process.env.LEAD_MAIL_FROM ?? "AutoSmart <onboarding@resend.dev>";
+// מנקה תקלות נפוצות בהגדרת המשתנה: מרכאות עוטפות, רווחים, וגרש-סוגר כפול (">>").
+function normalizeFrom(raw: string | undefined) {
+  const value = (raw ?? "AutoSmart <onboarding@resend.dev>").trim().replace(/^["']|["']$/g, "");
+  return value.replace(/>{2,}\s*$/, ">");
+}
+
+const FROM = normalizeFrom(process.env.LEAD_MAIL_FROM);
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 type Variant = "site" | "returning";
