@@ -18,7 +18,10 @@ export default function Hero() {
         >
           עברו אצלך בעסק{" "}
           <span className="whitespace-nowrap">
-            יותר מ־<span className="lit">100</span>{" "}
+            יותר מ־
+            <span className="text-[#3f9fe0] [text-shadow:0_0_26px_rgba(63,159,224,0.55),0_0_65px_rgba(43,120,190,0.4)]">
+              100
+            </span>{" "}
             <span className="lit-soft">לקוחות?</span>
           </span>
         </h1>
