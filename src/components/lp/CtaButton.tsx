@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { FORM_ID } from "@/lib/lp-config";
 
 export function scrollToForm() {
@@ -77,10 +77,26 @@ export default function CtaButton({
   size?: Size;
   className?: string;
 }) {
+  // On every tap the arrow briefly flips to a check, then springs back —
+  // a small "got it" acknowledgement as the page scrolls to the form.
+  const [tapped, setTapped] = useState(false);
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => () => {
+    if (timer.current) clearTimeout(timer.current);
+  }, []);
+
+  const handleClick = () => {
+    setTapped(true);
+    if (timer.current) clearTimeout(timer.current);
+    timer.current = setTimeout(() => setTapped(false), 650);
+    scrollToForm();
+  };
+
   return (
     <button
       type="button"
-      onClick={scrollToForm}
+      onClick={handleClick}
       className={`${base} ${variants[variant]} ${sizes[size]} ${className}`}
     >
       {variant === "primary" && (
@@ -106,9 +122,11 @@ export default function CtaButton({
         strokeWidth={2.25}
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="relative h-4 w-4 -translate-x-0 transition-transform duration-300 group-hover:-translate-x-1"
+        className={`relative h-4 w-4 transition-all duration-300 ${
+          tapped ? "scale-110 rotate-[360deg]" : "-translate-x-0 group-hover:-translate-x-1"
+        }`}
       >
-        <path d="M19 12H5M11 18l-6-6 6-6" />
+        <path d={tapped ? "M20 6L9 17l-5-5" : "M19 12H5M11 18l-6-6 6-6"} />
       </svg>
     </button>
   );
