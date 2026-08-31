@@ -616,4 +616,7 @@ h2 {
   .stage {
     opacity: 1 !important;
   }
+  .hb-pulse {
+    display: none;
+  }
 }

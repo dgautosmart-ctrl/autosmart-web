@@ -19,7 +19,7 @@ export default function LoopFlow() {
     <div className="relative w-full">
       {/* desktop / tablet: horizontal RTL chain */}
       <svg
-        viewBox="0 0 1200 340"
+        viewBox="0 0 1200 440"
         className="hidden w-full sm:block"
         role="img"
         aria-label="פרסום, ליד, שיחת מכירה, לקוח, שירות, סוף הקשר — ואז חזרה לפרסום"
@@ -30,7 +30,7 @@ export default function LoopFlow() {
             <stop offset="100%" stopColor="var(--accent)" />
           </linearGradient>
           <filter id="lf-glow" x="-60%" y="-60%" width="220%" height="220%">
-            <feGaussianBlur stdDeviation="6" result="b" />
+            <feGaussianBlur stdDeviation="9" result="b" />
             <feMerge>
               <feMergeNode in="b" />
               <feMergeNode in="SourceGraphic" />
@@ -39,44 +39,44 @@ export default function LoopFlow() {
         </defs>
 
         {/* base track */}
-        <path d="M1090 90 H110" fill="none" stroke="var(--hairline-bright)" strokeWidth="2" />
+        <path d="M1140 120 H60" fill="none" stroke="var(--hairline-bright)" strokeWidth="3.5" />
         {/* lit portion (right → toward the middle) */}
         <path
-          d="M1090 90 H520"
+          d="M1140 120 H540"
           fill="none"
           stroke="url(#lf-lit)"
-          strokeWidth="2.5"
+          strokeWidth="6"
           filter="url(#lf-glow)"
           className="dash-flow"
           style={{ ["--dur" as string]: "10s" }}
         />
 
         {/* travelling light that dies at the end */}
-        <circle r="5" fill="var(--accent-bright)" filter="url(#lf-glow)">
-          <animateMotion dur="4.5s" repeatCount="indefinite" keyPoints="0;0.72;0.78" keyTimes="0;0.8;1" calcMode="linear" path="M1090 90 H110" />
+        <circle r="9" fill="var(--accent-bright)" filter="url(#lf-glow)">
+          <animateMotion dur="4.5s" repeatCount="indefinite" keyPoints="0;0.72;0.78" keyTimes="0;0.8;1" calcMode="linear" path="M1140 120 H60" />
           <animate attributeName="opacity" dur="4.5s" repeatCount="indefinite" values="0;1;1;0.15;0" keyTimes="0;0.1;0.72;0.82;1" />
         </circle>
 
         {/* nodes */}
         {NODES.map((n, i) => {
-          const x = 1090 - i * 196;
+          const x = 1140 - i * 216;
           return (
-            <g key={n.label} transform={`translate(${x} 90)`}>
+            <g key={n.label} transform={`translate(${x} 120)`}>
               <circle
-                r="9"
+                r="18"
                 fill={n.dead ? "var(--bg-2)" : "var(--navy-2)"}
                 stroke={n.lit ? "var(--accent-bright)" : "var(--hairline-bright)"}
-                strokeWidth="2"
+                strokeWidth="3"
                 filter={n.lit ? "url(#lf-glow)" : undefined}
               />
               {n.dead && (
-                <path d="M-3.2 -3.2 L3.2 3.2 M3.2 -3.2 L-3.2 3.2" stroke="var(--text-faint)" strokeWidth="2" strokeLinecap="round" />
+                <path d="M-6 -6 L6 6 M6 -6 L-6 6" stroke="var(--text-faint)" strokeWidth="3" strokeLinecap="round" />
               )}
               <text
                 x="0"
-                y="42"
+                y="62"
                 textAnchor="middle"
-                fontSize="19"
+                fontSize="27"
                 fontWeight="600"
                 fill={n.lit ? "var(--text)" : "var(--text-faint)"}
               >
@@ -89,15 +89,15 @@ export default function LoopFlow() {
         {/* return arc: from סוף הקשר back to פרסום */}
         <path
           id="lf-return"
-          d="M110 90 C 110 300, 1090 300, 1090 96"
+          d="M60 120 C 60 400, 1140 400, 1140 130"
           fill="none"
           stroke="var(--hairline)"
-          strokeWidth="2"
-          strokeDasharray="7 8"
+          strokeWidth="3.5"
+          strokeDasharray="10 12"
         />
-        <polygon points="1090,84 1084,98 1096,98" fill="var(--text-faint)" />
-        <circle r="4" fill="var(--text-dim)">
-          <animateMotion dur="5s" repeatCount="indefinite" path="M110 90 C 110 300, 1090 300, 1090 96" />
+        <polygon points="1140,108 1131,128 1149,128" fill="var(--text-faint)" />
+        <circle r="7" fill="var(--text-dim)">
+          <animateMotion dur="5s" repeatCount="indefinite" path="M60 120 C 60 400, 1140 400, 1140 130" />
           <animate attributeName="opacity" dur="5s" repeatCount="indefinite" values="0;0.9;0.9;0" keyTimes="0;0.15;0.85;1" />
         </circle>
       </svg>

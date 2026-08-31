@@ -7,7 +7,7 @@ export default function ProblemSection() {
   return (
     <Section className="bg-navy-2/20">
       <div aria-hidden className="absolute inset-0 -z-10 bg-radial opacity-40" />
-      <Container>
+      <Container size="wide">
         <Reveal className="max-w-3xl">
           <Marker />
           <h2 className="mt-5 text-4xl sm:text-5xl lg:text-6xl">
@@ -19,8 +19,8 @@ export default function ProblemSection() {
           </p>
         </Reveal>
 
-        <Reveal delay={0.1} className="mt-16 sm:mt-20">
-          <div className="rounded-3xl border border-hairline bg-navy/30 p-5 backdrop-blur-sm sm:p-10">
+        <Reveal delay={0.1} className="mt-14 sm:mt-20">
+          <div className="rounded-3xl border border-hairline bg-navy/30 p-5 backdrop-blur-sm sm:p-12">
             <LoopFlow />
           </div>
         </Reveal>
