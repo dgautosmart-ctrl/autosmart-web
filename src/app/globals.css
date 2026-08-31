@@ -374,20 +374,21 @@ h2 {
  * ========================================================================= */
 
 :root {
-  --bg: #04060c;
-  --bg-2: #070b15;
-  --navy: #0a1a30;
-  --navy-2: #0c2138;
+  /* Lifted from near-black to a deep navy — still cinematic, less heavy. */
+  --bg: #0a141f;
+  --bg-2: #0e1b2a;
+  --navy: #16304c;
+  --navy-2: #1d3d5e;
 
-  --surface: rgba(255, 255, 255, 0.028);
-  --surface-2: rgba(255, 255, 255, 0.05);
-  --hairline: rgba(255, 255, 255, 0.09);
-  --hairline-bright: rgba(255, 255, 255, 0.16);
+  --surface: rgba(255, 255, 255, 0.045);
+  --surface-2: rgba(255, 255, 255, 0.08);
+  --hairline: rgba(255, 255, 255, 0.13);
+  --hairline-bright: rgba(255, 255, 255, 0.22);
 
   --text: #f6f9fd;
-  --text-soft: #d7e2f0;
-  --text-dim: rgba(214, 226, 240, 0.6);
-  --text-faint: rgba(214, 226, 240, 0.36);
+  --text-soft: #e2ebf5;
+  --text-dim: rgba(220, 231, 244, 0.74);
+  --text-faint: rgba(220, 231, 244, 0.5);
 
   --accent: #2b93c9;
   --accent-bright: #6ec9e8;

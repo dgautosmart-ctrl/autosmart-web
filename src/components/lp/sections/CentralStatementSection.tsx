@@ -5,7 +5,7 @@ import CustomerIdField from "@/components/lp/visuals/CustomerIdField";
 /** Section 12 — central full-screen statement. */
 export default function CentralStatementSection() {
   return (
-    <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-[#02040a] py-28">
+    <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-bg py-28">
       <CustomerIdField />
       <div aria-hidden className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(43,147,201,0.16),transparent_62%)]" />
       <Container size="narrow" className="relative text-center">
