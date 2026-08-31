@@ -19,9 +19,9 @@ export const metadata: Metadata = {
   // Landing page for direct/paid traffic — kept out of search and the sitemap.
   robots: { index: false, follow: false },
   openGraph: {
-    title: "הלקוחות שכבר קנו ממך יכולים לחזור שוב | AutoSmart",
+    title: "הלקוחות שכבר עבדו איתך יכולים לחזור שוב | AutoSmart",
     description:
-      "הופכים את רשימת הלקוחות הקיימת לערוץ תקשורת מסודר שעוזר לעסק להישאר בקשר ולייצר הזדמנויות לרכישות נוספות.",
+      "הופכים את רשימת הלקוחות הקיימת לערוץ תקשורת מסודר שעוזר לעסק להישאר בקשר ולהחזיר אנשים לעבוד איתך שוב.",
     locale: "he_IL",
     type: "website",
   },

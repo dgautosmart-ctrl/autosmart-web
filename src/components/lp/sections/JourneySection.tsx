@@ -3,7 +3,7 @@ import Reveal from "@/components/lp/Reveal";
 const LINES = [
   "השקעת כסף בפרסום.",
   "ענית ללידים.",
-  "מכרת.",
+  "סגרת.",
   "נתת שירות.",
 ];
 

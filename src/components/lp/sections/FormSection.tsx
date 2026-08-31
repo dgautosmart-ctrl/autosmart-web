@@ -26,7 +26,7 @@ export default function FormSection() {
             </h2>
             <p className="mt-5 max-w-md text-lg text-text-soft">
               השאר פרטים ונבדוק יחד האם יש אצלך בסיס למערכת שתעזור לשמור על קשר
-              עם לקוחות קיימים ולהחזיר אותם לרכישות נוספות.
+              עם לקוחות קיימים ולהחזיר אותם לעבוד איתך שוב.
             </p>
           </Reveal>
 
