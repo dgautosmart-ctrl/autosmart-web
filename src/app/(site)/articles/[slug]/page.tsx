@@ -8,6 +8,7 @@ import {
   getArticleSlugs,
   formatArticleDate,
 } from "@/lib/articles";
+import { SITE_URL } from "@/lib/site-config";
 import { getRelatedArticles } from "@/lib/related-articles";
 import Reveal from "@/components/Reveal";
 import RelatedArticles from "@/components/RelatedArticles";
@@ -28,13 +29,17 @@ export async function generateMetadata({
     return { title: "מאמר לא נמצא | AutoSmart" };
   }
 
+  const metaTitle = article.metaTitle ?? `${article.title} | AutoSmart`;
+  const metaDescription = article.metaDescription ?? article.excerpt;
+
   return {
-    title: `${article.title} | AutoSmart`,
-    description: article.excerpt,
+    title: metaTitle,
+    description: metaDescription,
     keywords: article.tags.length > 0 ? article.tags : undefined,
+    alternates: { canonical: `/articles/${article.slug}` },
     openGraph: {
-      title: `${article.title} | AutoSmart`,
-      description: article.excerpt,
+      title: metaTitle,
+      description: metaDescription,
       type: "article",
       images: article.image ? [article.image] : undefined,
     },
@@ -51,8 +56,31 @@ export default async function ArticlePage({ params }: PageProps<"/articles/[slug
 
   const related = getRelatedArticles(article, getAllArticles());
 
+  const articleUrl = `${SITE_URL}/articles/${encodeURIComponent(article.slug)}`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: article.title,
+    description: article.metaDescription ?? article.excerpt,
+    ...(article.image ? { image: `${SITE_URL}${encodeURI(article.image)}` } : {}),
+    ...(article.date ? { datePublished: article.date, dateModified: article.date } : {}),
+    inLanguage: "he-IL",
+    author: { "@type": "Organization", name: "AutoSmart", url: SITE_URL },
+    publisher: {
+      "@type": "Organization",
+      name: "AutoSmart",
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.png` },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
+    ...(article.tags.length > 0 ? { keywords: article.tags.join(", ") } : {}),
+  };
+
   return (
     <article className="relative overflow-hidden bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div
         aria-hidden
         className="pointer-events-none absolute -top-16 right-1/4 h-64 w-64 rounded-full bg-brand-blue/10 blur-3xl"

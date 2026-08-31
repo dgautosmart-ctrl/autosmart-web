@@ -22,6 +22,8 @@ function readArticleFile(fileName: string): Article {
     category: data.category ?? "",
     tags: Array.isArray(data.tags) ? data.tags : [],
     image: data.image ?? "",
+    metaTitle: data.metaTitle || undefined,
+    metaDescription: data.metaDescription || undefined,
     content,
   };
 }
