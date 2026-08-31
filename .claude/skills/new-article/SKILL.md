@@ -83,8 +83,12 @@ image: "/articles/<slug>/cover.svg"
    - `npm run dev` + טעינת `/articles/<slug>` בדפדפן הפנימי - סטטוס 200 (לא 404),
      תמונת נושא + כותרת + תאריך + תגיות + גוף + בלוק חתימה מוצגים. בדוק גם ש-`/articles`
      מציג את הכרטיס החדש עם התמונה.
-8. **Git** (כללי CLAUDE.md):
-   `git add -A && git commit -m "מאמרים: הוספת מאמר \"<title>\"" && git push`
+8. **אופטימיזציית SEO** - הרץ את מסלול א' של הסקיל `seo-optimize`
+   (`.claude/skills/seo-optimize/SKILL.md`) על המאמר החדש: `metaTitle`/`metaDescription`,
+   היררכיית כותרות, 2-5 קישורים פנימיים לעמודים קיימים, סעיף `## שאלות נפוצות`,
+   ואימות ה-`BlogPosting` schema. בלי keyword stuffing, בלי לשכתב את מה שנכתב.
+9. **Git** (כללי CLAUDE.md) - `git add` על הקבצים הספציפיים (לא `-A`):
+   `git commit -m "מאמרים: הוספת מאמר \"<title>\"" && git push`
 
 ## החלפת תמונת הנושא בתמונה אמיתית (אופציונלי, מאוחר יותר)
 
