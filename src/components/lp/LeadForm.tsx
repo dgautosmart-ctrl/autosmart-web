@@ -5,6 +5,11 @@ import { CONTACT } from "@/lib/lp-config";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
+// Web3Forms — נשלח ישירות מהדפדפן (התוכנית החינמית חוסמת שליחה מהשרת).
+// המפתח מיועד להיחשף בצד-לקוח; אפשר לעקוף דרך NEXT_PUBLIC_WEB3FORMS_KEY.
+const WEB3FORMS_KEY =
+  process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "17e4b9ff-d6a4-4d2e-988d-9ed07fba72e8";
+
 const inputClasses =
   "peer w-full rounded-xl border border-hairline-bright bg-white/[0.05] py-4 pr-12 pl-4 text-base text-text placeholder:text-text-faint transition-colors focus:border-accent-bright focus:bg-white/[0.08] focus:outline-none focus:ring-2 focus:ring-accent-bright/25";
 
@@ -64,14 +69,18 @@ export default function LeadForm() {
     const data = new FormData(form);
 
     try {
-      const res = await fetch("/api/lead", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          name: data.get("name"),
-          phone: data.get("phone"),
+          access_key: WEB3FORMS_KEY,
+          subject: `פנייה חדשה — דף מכירות חוזרות — ${data.get("name")}`,
+          from_name: "AutoSmart · דף מכירות חוזרות",
+          שם: data.get("name"),
+          טלפון: data.get("phone"),
+          מייל: data.get("email"),
           email: data.get("email"),
-          source: "דף מכירות חוזרות",
+          מקור: "דף נחיתה: מכירות חוזרות (/לקוחות-חוזרים)",
         }),
       });
       const json = await res.json();
