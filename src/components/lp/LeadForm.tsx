@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState, type FormEvent, type ReactNode } from "react";
-import { CONTACT, WEB3FORMS_ACCESS_KEY } from "@/lib/lp-config";
+import { CONTACT } from "@/lib/lp-config";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -67,14 +67,18 @@ export default function LeadForm() {
 
     const form = event.currentTarget;
     const data = new FormData(form);
-    data.append("access_key", WEB3FORMS_ACCESS_KEY);
-    data.append("subject", `בדיקת רשימת לקוחות מ-${data.get("name")}`);
-    data.append("from_name", "AutoSmart · דף מכירות חוזרות");
 
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
+      const res = await fetch("/api/lead", {
         method: "POST",
-        body: data,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.get("name"),
+          phone: data.get("phone"),
+          email: data.get("email"),
+          business: data.get("business"),
+          source: "דף מכירות חוזרות",
+        }),
       });
       const json = await res.json();
       if (json.success) {
@@ -105,13 +109,6 @@ export default function LeadForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
-      {!WEB3FORMS_ACCESS_KEY && (
-        <p className="rounded-xl bg-yellow-400/10 px-4 py-3 text-sm text-yellow-200">
-          ⚠ מפתח השליחה עדיין לא הוגדר - הטופס לא ישלח בפועל. יש להגדיר
-          NEXT_PUBLIC_WEB3FORMS_KEY בקובץ ‎.env.local
-        </p>
-      )}
-
       <Field id={`${uid}-name`} label="שם" icon={icons.user}>
         <input id={`${uid}-name`} name="name" type="text" autoComplete="name" required className={inputClasses} />
       </Field>

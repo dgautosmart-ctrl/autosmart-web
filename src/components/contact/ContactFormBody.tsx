@@ -6,8 +6,6 @@ import { CONTACT } from "@/lib/site-config";
 const inputClasses =
   "w-full rounded-lg border border-white/20 bg-white/5 px-4 py-2.5 text-brand-offwhite placeholder:text-brand-offwhite/55 focus:border-brand-cyan focus:outline-none";
 
-const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? "";
-
 type Status = "idle" | "submitting" | "success" | "error";
 
 const DEFAULT_SUCCESS_MESSAGE = "תודה! קיבלנו את הפנייה שלכם ונחזור אליכם בהקדם.";
@@ -41,13 +39,18 @@ export default function ContactFormBody({
 
     const form = event.currentTarget;
     const formData = new FormData(form);
-    formData.append("access_key", WEB3FORMS_ACCESS_KEY);
-    formData.append("subject", `${subjectPrefix} מ-${formData.get("name")}`);
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/lead", {
         method: "POST",
-        body: formData,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          phone: formData.get("phone"),
+          email: formData.get("email"),
+          message: formData.get("message"),
+          source: subjectPrefix,
+        }),
       });
       const result = await response.json();
 
@@ -73,13 +76,6 @@ export default function ContactFormBody({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      {!WEB3FORMS_ACCESS_KEY && (
-        <p className="rounded-lg bg-yellow-400/10 px-4 py-3 text-sm text-yellow-200">
-          ⚠ מפתח השליחה עדיין לא הוגדר - הטופס לא ישלח בפועל. פרטים בקובץ
-          .env.local
-        </p>
-      )}
-
       <div>
         <label htmlFor={`${idPrefix}-name`} className="mb-1 block text-sm font-medium">
           שם מלא
