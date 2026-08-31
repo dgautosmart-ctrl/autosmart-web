@@ -1,6 +1,5 @@
 import { Section, Container, Marker } from "@/components/lp/primitives";
 import Reveal from "@/components/lp/Reveal";
-import NewVsExistingFlows from "@/components/lp/visuals/NewVsExistingFlows";
 
 /** Section 5 — הלקוח שכבר מכיר אותך. */
 export default function AlreadyKnowsYouSection() {
@@ -16,10 +15,6 @@ export default function AlreadyKnowsYouSection() {
             הם כבר נתנו בך אמון — והרבה יותר קל ונכון לשמור איתם על קשר ולהחזיר
             אותם לקנייה נוספת.
           </p>
-        </Reveal>
-
-        <Reveal delay={0.1} className="mt-14 sm:mt-20">
-          <NewVsExistingFlows />
         </Reveal>
       </Container>
     </Section>
