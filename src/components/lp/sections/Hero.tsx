@@ -34,7 +34,7 @@ export default function Hero() {
 
         {/* limited-time offer */}
         <p
-          className="stage mt-7 inline-flex items-center gap-2.5 rounded-full border border-accent-bright/60 bg-accent/15 px-5 py-2 text-sm font-semibold text-accent-bright shadow-[0_0_35px_-8px_var(--accent-glow)] sm:text-[0.95rem]"
+          className="stage mt-7 inline-flex items-center gap-2.5 rounded-full border border-accent-bright/25 bg-navy-2/80 px-5 py-2 text-sm font-semibold text-text-soft sm:text-[0.95rem]"
           style={s("1.2s")}
         >
           <span aria-hidden className="pulse-ring h-2 w-2 rounded-full bg-accent-bright" />
