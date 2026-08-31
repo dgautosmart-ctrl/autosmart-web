@@ -1,4 +1,3 @@
-import { AUTOSMART_SITE } from "@/lib/lp-config";
 import CtaButton from "@/components/lp/CtaButton";
 import HeroBackdrop from "@/components/lp/visuals/HeroBackdrop";
 
@@ -38,15 +37,6 @@ export default function Hero() {
           <CtaButton size="lg">אני רוצה לבדוק את רשימת הלקוחות שלי</CtaButton>
           <p className="max-w-md text-sm text-text-dim">
             שיחה קצרה, בלי התחייבות. קודם נבדוק אם זה בכלל מתאים לעסק שלך.
-          </p>
-          <p className="text-sm text-text-dim">
-            רוצה קודם להכיר אותנו?{" "}
-            <a
-              href={AUTOSMART_SITE}
-              className="text-accent-bright underline underline-offset-4 transition-opacity hover:opacity-80"
-            >
-              לאתר AutoSmart
-            </a>
           </p>
         </div>
       </div>

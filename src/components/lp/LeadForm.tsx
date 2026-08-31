@@ -6,7 +6,7 @@ import { CONTACT } from "@/lib/lp-config";
 type Status = "idle" | "submitting" | "success" | "error";
 
 const inputClasses =
-  "peer w-full rounded-xl border border-hairline-bright bg-white/[0.04] py-3.5 pr-11 pl-4 text-[15px] text-text placeholder:text-text-faint transition-colors focus:border-accent-bright focus:bg-white/[0.06] focus:outline-none focus:ring-2 focus:ring-accent-bright/25";
+  "peer w-full rounded-xl border border-hairline-bright bg-white/[0.05] py-4 pr-12 pl-4 text-base text-text placeholder:text-text-faint transition-colors focus:border-accent-bright focus:bg-white/[0.08] focus:outline-none focus:ring-2 focus:ring-accent-bright/25";
 
 function Field({
   id,
@@ -50,11 +50,6 @@ const icons = {
       <path strokeLinecap="round" strokeLinejoin="round" d="M3 7l9 6 9-6M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
     </svg>
   ),
-  building: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} className="h-[18px] w-[18px]">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3 21h18M6 21V5a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v16M14 9h3a1 1 0 0 1 1 1v11M9 8h1m-1 4h1m-1 4h1" />
-    </svg>
-  ),
 };
 
 export default function LeadForm() {
@@ -76,7 +71,6 @@ export default function LeadForm() {
           name: data.get("name"),
           phone: data.get("phone"),
           email: data.get("email"),
-          business: data.get("business"),
           source: "דף מכירות חוזרות",
         }),
       });
@@ -123,7 +117,6 @@ export default function LeadForm() {
             autoComplete="tel"
             required
             className={inputClasses}
-            placeholder="050-0000000"
           />
         </Field>
 
@@ -136,14 +129,9 @@ export default function LeadForm() {
             autoComplete="email"
             required
             className={inputClasses}
-            placeholder="name@example.com"
           />
         </Field>
       </div>
-
-      <Field id={`${uid}-business`} label="שם העסק" icon={icons.building}>
-        <input id={`${uid}-business`} name="business" type="text" autoComplete="organization" required className={inputClasses} />
-      </Field>
 
       {status === "error" && (
         <p className="text-sm text-red-300">

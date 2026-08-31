@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { scrollToForm } from "@/components/lp/CtaButton";
-import { AUTOSMART_SITE } from "@/lib/lp-config";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -41,21 +40,13 @@ export default function Header() {
           </span>
         </a>
 
-        <div className="flex items-center gap-2 sm:gap-3">
-          <a
-            href={AUTOSMART_SITE}
-            className="hidden text-sm text-text-dim transition-colors hover:text-text sm:inline"
-          >
-            לאתר AutoSmart
-          </a>
-          <button
-            type="button"
-            onClick={scrollToForm}
-            className="rounded-full border border-hairline-bright bg-surface-2 px-4 py-2 text-sm font-semibold text-text-soft transition-all hover:border-accent-bright/60 hover:text-white"
-          >
-            בואו נדבר
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={scrollToForm}
+          className="rounded-full bg-gradient-to-l from-accent to-accent-bright px-6 py-2.5 text-sm font-bold text-navy shadow-[0_10px_30px_-10px_var(--accent-glow)] transition-all hover:-translate-y-0.5 hover:shadow-[0_14px_38px_-10px_var(--accent-glow)] sm:px-7 sm:py-3 sm:text-base"
+        >
+          בואו נדבר
+        </button>
       </div>
     </header>
   );

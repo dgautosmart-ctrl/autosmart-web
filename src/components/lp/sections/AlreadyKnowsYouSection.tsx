@@ -5,13 +5,13 @@ import Reveal from "@/components/lp/Reveal";
 export default function AlreadyKnowsYouSection() {
   return (
     <Section>
-      <Container>
-        <Reveal className="max-w-3xl">
+      <Container size="narrow">
+        <Reveal className="flex flex-col items-center text-center">
           <Marker />
-          <h2 className="mt-5 text-3xl sm:text-5xl lg:text-[3.5rem]">
+          <h2 className="mt-6 text-4xl sm:text-6xl lg:text-[4rem] lg:leading-[1.08]">
             הלקוחות שכבר קנו ממך הם האנשים שכבר מכירים את העסק שלך.
           </h2>
-          <p className="mt-6 text-lg text-text-soft sm:text-xl">
+          <p className="mt-7 max-w-2xl text-xl text-text-soft sm:text-2xl">
             הם כבר נתנו בך אמון — והרבה יותר קל ונכון לשמור איתם על קשר ולהחזיר
             אותם לקנייה נוספת.
           </p>

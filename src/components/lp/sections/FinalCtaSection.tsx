@@ -1,7 +1,6 @@
 import { Container } from "@/components/lp/primitives";
 import Reveal from "@/components/lp/Reveal";
 import CtaButton from "@/components/lp/CtaButton";
-import { AUTOSMART_SITE } from "@/lib/lp-config";
 
 /** Section 16 — dramatic closing CTA. */
 export default function FinalCtaSection() {
@@ -36,17 +35,8 @@ export default function FinalCtaSection() {
           </p>
         </Reveal>
         <Reveal delay={0.24}>
-          <div className="mt-10 flex flex-col items-center gap-5">
+          <div className="mt-10 flex justify-center">
             <CtaButton size="lg">אני רוצה לבדוק את זה</CtaButton>
-            <p className="text-sm text-text-dim">
-              רוצה קודם להכיר אותנו?{" "}
-              <a
-                href={AUTOSMART_SITE}
-                className="text-accent-bright underline underline-offset-4 transition-opacity hover:opacity-80"
-              >
-                לאתר AutoSmart
-              </a>
-            </p>
           </div>
         </Reveal>
       </Container>

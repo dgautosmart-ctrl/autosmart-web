@@ -16,24 +16,24 @@ export default function FormSection() {
         className="glow glow-strong anim-breathe absolute -top-40 left-1/2 -z-10 h-[30rem] w-[30rem] -translate-x-1/2 rounded-full"
       />
 
-      <Container size="wide">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+      <Container>
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
           {/* pitch */}
           <Reveal className="text-center lg:text-right">
             <div className="flex justify-center lg:justify-start">
               <Marker />
             </div>
-            <h2 className="mt-6 text-3xl sm:text-4xl lg:text-[2.9rem] lg:leading-[1.1]">
+            <h2 className="mt-6 text-4xl sm:text-5xl lg:text-[3.2rem] lg:leading-[1.08]">
               בוא נבדוק מה מסתתר ברשימת הלקוחות שלך.
             </h2>
-            <p className="mx-auto mt-6 max-w-md text-lg text-text-soft lg:mx-0">
+            <p className="mx-auto mt-6 max-w-md text-lg text-text-soft sm:text-xl lg:mx-0">
               השאר פרטים ונבדוק יחד האם יש אצלך בסיס למערכת שתעזור לשמור על קשר
               עם לקוחות קיימים ולהחזיר אותם לרכישות נוספות.
             </p>
           </Reveal>
 
-          {/* card */}
-          <Reveal delay={0.1}>
+          {/* card — pulled toward the centre on desktop */}
+          <Reveal delay={0.1} className="w-full lg:max-w-[27rem] lg:justify-self-start">
             <div className="relative">
               <div
                 aria-hidden
