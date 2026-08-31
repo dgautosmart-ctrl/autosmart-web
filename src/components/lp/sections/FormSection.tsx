@@ -6,7 +6,7 @@ import LeadForm from "@/components/lp/LeadForm";
 /** Section 15 — the lead form. Every primary CTA scrolls here. */
 export default function FormSection() {
   return (
-    <Section id={FORM_ID} className="scroll-mt-20 overflow-hidden bg-bg-2">
+    <Section id={FORM_ID} className="scroll-mt-20 overflow-hidden bg-navy-2/20">
       <div aria-hidden className="absolute inset-0 -z-10 bg-radial opacity-50" />
       <div
         aria-hidden

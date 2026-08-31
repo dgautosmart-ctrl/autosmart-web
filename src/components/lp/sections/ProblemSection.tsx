@@ -5,7 +5,7 @@ import LoopFlow from "@/components/lp/visuals/LoopFlow";
 /** Section 3 — הבעיה. */
 export default function ProblemSection() {
   return (
-    <Section className="bg-bg-2">
+    <Section className="bg-navy-2/20">
       <div aria-hidden className="absolute inset-0 -z-10 bg-radial opacity-40" />
       <Container>
         <Reveal className="max-w-3xl">
