@@ -51,6 +51,7 @@ const VARIANTS: Record<
     ownerSubject: (name: string) => string;
     confirmSubject: string;
     confirmParagraphs: (firstName: string) => string[];
+    signature: string;
   }
 > = {
   site: {
@@ -63,18 +64,22 @@ const VARIANTS: Record<
       "נעבור על מה ששלחת וניצור איתך קשר במהלך יום העסקים הקרוב.",
       `אם יש משהו שחשוב לך שנדע או שתרצה להוסיף — אפשר פשוט להשיב למייל הזה, או לפנות אלינו בוואטסאפ: <a href="https://wa.me/${CONTACT.whatsappNumber}" style="color:#0b5">${CONTACT.whatsappDisplay}</a>.`,
     ],
+    signature: "AutoSmart – פתרונות חכמים לעסק",
   },
   returning: {
     ownerHeading: "פנייה חדשה — החזרת לקוחות",
     ownerSubject: (name) => `פנייה חדשה — החזרת לקוחות — ${name}`,
     confirmSubject: "קיבלנו את הפרטים שלך — AutoSmart",
-    confirmParagraphs: (first) => [
-      `היי ${first},`,
-      "תודה שפנית אלינו, הפרטים שלך התקבלו בהצלחה.",
-      "נעבור על מה ששלחת וניצור איתך קשר במהלך יום העסקים הקרוב, כדי להבין קצת יותר על העסק שלך ולראות איך נוכל לעזור.",
-      "עד אז, אם יש משהו שחשוב לך שנדע או שתרצה להוסיף — אפשר פשוט להשיב למייל הזה.",
-      `או לפנות אלינו בוואטסאפ: <a href="https://wa.me/${CONTACT.whatsappNumber}" style="color:#0b5">${CONTACT.whatsappDisplay}</a>.`,
+    confirmParagraphs: () => [
+      "היי,",
+      "תודה שהשארת פרטים :)",
+      "יש לך כבר לקוחות שמכירים אותך?",
+      "אנחנו רוצים לעזור לך להחזיר אותם לעסק ולשמור איתם על קשר לאורך זמן.",
+      "לפני שנמשיך, שאלה קצרה:",
+      "האם יש לך כתובות מייל של הלקוחות שלך? ואם כן, איפה הן שמורות היום?",
+      "(זה יכול להיות באקסל, מערכת CRM, מערכת חשבוניות או בכל מקום אחר)",
     ],
+    signature: "בברכה,<br>צוות AutoSmart",
   },
 };
 
@@ -109,13 +114,13 @@ function ownerEmail(
   </div>`;
 }
 
-function confirmationEmail(paragraphs: string[]) {
+function confirmationEmail(paragraphs: string[], signature: string) {
   const body = paragraphs
     .map((p) => `<p style="margin:0 0 14px">${p}</p>`)
     .join("");
   return `<div dir="rtl" style="font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.7;color:#111">
     ${body}
-    <p style="margin-top:24px">AutoSmart – פתרונות חכמים לעסק</p>
+    <p style="margin-top:24px">${signature}</p>
   </div>`;
 }
 
@@ -165,7 +170,7 @@ export async function POST(request: NextRequest) {
       from: FROM,
       to: [email],
       subject: copy.confirmSubject,
-      html: confirmationEmail(copy.confirmParagraphs(firstName)),
+      html: confirmationEmail(copy.confirmParagraphs(firstName), copy.signature),
     })
     .catch(() => ({ error: true }));
 
