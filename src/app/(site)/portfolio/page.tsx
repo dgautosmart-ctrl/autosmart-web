@@ -5,8 +5,10 @@ import Reveal from "@/components/Reveal";
 import ContactModalTrigger from "@/components/contact/ContactModalTrigger";
 
 export const metadata: Metadata = {
-  title: "תיק עבודות | AutoSmart",
-  description: "קייסים אמיתיים של עסקים קטנים שליווינו בשיווק, מערכות ואוטומציה - הבעיה, הפתרון והתוצאה.",
+  title: "תיק עבודות: פרויקטים של אוטומציה ומערכות לעסקים | AutoSmart",
+  description:
+    "קייסים אמיתיים של עסקים קטנים שליווינו באוטומציה, מערכות חכמות ושיווק - הבעיה שאיתה הגיעו, הפתרון שבנינו, והתוצאה בפועל.",
+  alternates: { canonical: "/portfolio" },
 };
 
 export default function PortfolioPage() {

@@ -4,8 +4,10 @@ import { getAllTags } from "@/lib/articles";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "תגיות | AutoSmart",
-  description: "כל התגיות והנושאים שמכוסים במאמרים של AutoSmart.",
+  title: "כל הנושאים במאמרים | AutoSmart",
+  description:
+    "כל הנושאים שכתבנו עליהם - אוטומציה, AI לעסקים, מערכות ולידים. בחרו תגית כדי לראות את כל המאמרים בנושא.",
+  alternates: { canonical: "/tags" },
 };
 
 export default function TagsPage() {

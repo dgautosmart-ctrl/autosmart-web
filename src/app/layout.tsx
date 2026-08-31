@@ -10,9 +10,10 @@ const sans = IBM_Plex_Sans_Hebrew({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-const SITE_TITLE = "AutoSmart - יותר לקוחות עם שיווק מדויק, מערכות חכמות ואוטומציה";
+const SITE_TITLE =
+  "AutoSmart - אוטומציה, מערכות חכמות ו-AI שמביאים לעסק יותר לקוחות";
 const SITE_DESCRIPTION =
-  "AutoSmart עוזרת לעסקים קטנים ובינוניים להביא יותר לקוחות - בשילוב של שיווק דיגיטלי מדויק, מערכות חכמות ואוטומציה שעובדת בשבילכם.";
+  "AutoSmart בונה לעסקים קטנים ובינוניים אוטומציה, מערכות חכמות ופתרונות AI שחוסכים שעות עבודה ומביאים יותר לקוחות - יחד עם שיווק דיגיטלי מדויק.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

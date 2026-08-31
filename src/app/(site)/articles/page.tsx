@@ -4,8 +4,10 @@ import ArticleCard from "@/components/ArticleCard";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "מאמרים | AutoSmart",
-  description: "תובנות וטיפים על שיווק דיגיטלי, מערכות חכמות ואוטומציה מהצוות של AutoSmart.",
+  title: "מאמרים על אוטומציה, AI ומערכות לעסקים קטנים | AutoSmart",
+  description:
+    "מדריכים וטיפים מעשיים לבעלי עסקים קטנים - אוטומציה של תהליכי עבודה, AI לעסק, חיבור בין מערכות, לכידת לידים ודוחות שמתעדכנים לבד.",
+  alternates: { canonical: "/articles" },
 };
 
 export default function ArticlesPage() {

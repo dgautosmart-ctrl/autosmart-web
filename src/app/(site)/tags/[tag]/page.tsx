@@ -16,7 +16,8 @@ export async function generateMetadata({
 
   return {
     title: `מאמרים בנושא ${decodedTag} | AutoSmart`,
-    description: `כל המאמרים של AutoSmart בנושא ${decodedTag}.`,
+    description: `כל המאמרים של AutoSmart בנושא ${decodedTag} - מדריכים וטיפים מעשיים לבעלי עסקים קטנים.`,
+    alternates: { canonical: `/tags/${encodeURIComponent(decodedTag)}` },
   };
 }
 
