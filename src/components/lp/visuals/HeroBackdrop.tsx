@@ -87,6 +87,12 @@ export default function HeroBackdrop() {
       <div className="absolute inset-0 bg-radial" />
       <div className="absolute inset-0 bg-grid bg-grid-fade opacity-40" />
 
+      {/* lit stage behind the headline */}
+      <div
+        className="anim-breathe absolute left-1/2 top-[40%] h-[34rem] w-[56rem] max-w-[120vw] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(60,165,220,0.13),transparent_70%)]"
+        style={{ ["--dur" as string]: "9s" }}
+      />
+
       {/* the "source" — a broad soft glow rising from the lower field */}
       <div
         className="glow glow-strong anim-breathe absolute -bottom-56 left-1/2 h-[52rem] w-[80rem] max-w-[130vw] -translate-x-1/2 rounded-[50%]"
@@ -126,6 +132,32 @@ export default function HeroBackdrop() {
             </feMerge>
           </filter>
         </defs>
+
+        {/* slow orbit rings — a refined, futuristic signature */}
+        <g opacity="0.5" style={{ transformBox: "view-box", transformOrigin: "800px 440px" } as object}>
+          <circle
+            cx="800"
+            cy="440"
+            r="540"
+            fill="none"
+            stroke="var(--hairline-bright)"
+            strokeWidth="1.25"
+            strokeDasharray="760 3000"
+            className="spin-slow"
+            style={{ ["--dur" as string]: "240s", transformBox: "view-box", transformOrigin: "800px 440px" } as object}
+          />
+          <circle
+            cx="800"
+            cy="440"
+            r="700"
+            fill="none"
+            stroke="var(--hairline)"
+            strokeWidth="1"
+            strokeDasharray="520 4000"
+            className="spin-rev"
+            style={{ ["--dur" as string]: "320s", transformBox: "view-box", transformOrigin: "800px 440px" } as object}
+          />
+        </g>
 
         <g mask="url(#hb-clear)">
           {/* rising energy streams */}
@@ -189,8 +221,9 @@ export default function HeroBackdrop() {
         </g>
       </svg>
 
-      {/* keep the right edge calm + fade into the page */}
+      {/* cinematic framing: calm right edge, top + bottom vignette, page fade */}
       <div className="absolute inset-y-0 right-0 w-2/5 bg-gradient-to-l from-bg/60 via-bg/5 to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(130%_110%_at_50%_-10%,transparent_55%,rgba(0,0,0,0.55))]" />
       <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-b from-transparent to-bg" />
     </div>
   );

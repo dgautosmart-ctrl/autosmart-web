@@ -48,14 +48,14 @@ export function scrollToForm() {
 }
 
 type Variant = "primary" | "ghost";
-type Size = "md" | "lg";
+type Size = "md" | "lg" | "xl";
 
 const base =
-  "group relative inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-bright focus-visible:ring-offset-2 focus-visible:ring-offset-bg disabled:opacity-60";
+  "group relative inline-flex items-center justify-center gap-2.5 rounded-full font-bold tracking-tight transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-bright focus-visible:ring-offset-2 focus-visible:ring-offset-bg disabled:opacity-60";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-gradient-to-l from-accent to-accent-bright text-navy shadow-[0_0_0_1px_rgba(110,201,232,0.4),0_18px_50px_-12px_rgba(43,147,201,0.7)] hover:shadow-[0_0_0_1px_rgba(110,201,232,0.6),0_22px_70px_-10px_rgba(43,147,201,0.85)] hover:-translate-y-0.5",
+    "bg-gradient-to-l from-accent via-[#3fb0dd] to-accent-bright text-[#04121c] shadow-[0_0_0_1px_rgba(110,201,232,0.55),0_0_45px_-6px_rgba(60,165,220,0.65),0_22px_55px_-14px_rgba(43,147,201,0.8)] hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_rgba(110,201,232,0.8),0_0_70px_-4px_rgba(60,165,220,0.85),0_28px_70px_-12px_rgba(43,147,201,0.95)]",
   ghost:
     "border border-hairline-bright bg-surface text-text-soft hover:border-accent-bright/60 hover:text-white",
 };
@@ -63,6 +63,7 @@ const variants: Record<Variant, string> = {
 const sizes: Record<Size, string> = {
   md: "px-6 py-3 text-sm sm:text-base",
   lg: "px-8 py-4 text-base sm:text-lg",
+  xl: "px-9 py-[1.15rem] text-lg sm:px-11 sm:py-5 sm:text-xl",
 };
 
 export default function CtaButton({
@@ -85,8 +86,8 @@ export default function CtaButton({
       {variant === "primary" && (
         <span
           aria-hidden
-          className="pointer-events-none absolute inset-0 rounded-full opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-70"
-          style={{ background: "radial-gradient(60% 60% at 50% 50%, rgba(110,201,232,0.7), transparent)" }}
+          className="pointer-events-none absolute -inset-1 rounded-full opacity-40 blur-lg transition-opacity duration-300 group-hover:opacity-80"
+          style={{ background: "radial-gradient(60% 60% at 50% 50%, rgba(110,201,232,0.75), transparent 75%)" }}
         />
       )}
       <span className="relative">{children}</span>

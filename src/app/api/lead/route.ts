@@ -3,9 +3,9 @@ import { Resend } from "resend";
 import { CONTACT } from "@/lib/site-config";
 
 /**
- * מקבל פנייה מטופס באתר, שולח שני מיילים דרך Resend:
+ * מקבל פנייה מטופס באתר ושולח שני מיילים דרך Resend:
  *  1. התראה לבעל העסק (CONTACT.email) עם reply-to של הפונה.
- *  2. מייל אישור אוטומטי לפונה עצמו.
+ *  2. מייל אישור אוטומטי לפונה עצמו (לא חוסם — אם נכשל, הפנייה עדיין הצליחה).
  *
  * משתני סביבה נדרשים (צד שרת בלבד — לא NEXT_PUBLIC):
  *  - RESEND_API_KEY   מפתח API מ-resend.com
@@ -66,13 +66,6 @@ function confirmationEmail(name: string) {
 }
 
 export async function POST(request: NextRequest) {
-  if (!process.env.RESEND_API_KEY) {
-    return Response.json(
-      { success: false, error: "mail-not-configured" },
-      { status: 500 },
-    );
-  }
-
   let data: LeadPayload;
   try {
     data = await request.json();
@@ -86,6 +79,13 @@ export async function POST(request: NextRequest) {
 
   if (!name || !phone || !email || !EMAIL_RE.test(email)) {
     return Response.json({ success: false, error: "missing-fields" }, { status: 422 });
+  }
+
+  if (!process.env.RESEND_API_KEY) {
+    return Response.json(
+      { success: false, error: "mail-not-configured" },
+      { status: 500 },
+    );
   }
 
   const lead = { ...data, name, phone, email };
@@ -103,13 +103,17 @@ export async function POST(request: NextRequest) {
     return Response.json({ success: false, error: "send-failed" }, { status: 502 });
   }
 
-  // מייל האישור לפונה — לא חוסם את הצלחת הפנייה אם הוא נכשל.
-  const confirm = await resend.emails.send({
-    from: FROM,
-    to: [email],
-    subject: "קיבלנו את הפרטים שלך — AutoSmart",
-    html: confirmationEmail(name),
-  });
+  const confirm = await resend.emails
+    .send({
+      from: FROM,
+      to: [email],
+      subject: "קיבלנו את הפרטים שלך — AutoSmart",
+      html: confirmationEmail(name),
+    })
+    .catch(() => ({ error: true }));
 
-  return Response.json({ success: true, confirmationSent: !confirm.error });
+  return Response.json({
+    success: true,
+    confirmationSent: !("error" in confirm && confirm.error),
+  });
 }

@@ -13,8 +13,8 @@ export default function AlreadyKnowsYouSection() {
             <span className="lit-soft">כבר מכיר את העסק שלך.</span>
           </h2>
           <p className="mt-7 max-w-2xl text-xl text-text-soft sm:text-2xl">
-            הם כבר נתנו בך אמון — הרבה יותר קל ונכון לשמור איתם על קשר ולהחזיר
-            אותם לקנייה נוספת.
+            הם כבר עברו את השלב הקשה — ההיכרות, האמון, הרכישה הראשונה. כל מה
+            שנשאר הוא לא לתת להם לשכוח ממך.
           </p>
         </Reveal>
       </Container>
