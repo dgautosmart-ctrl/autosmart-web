@@ -19,9 +19,10 @@ export default function Hero() {
           עברו אצלך בעסק{" "}
           <span className="whitespace-nowrap">
             יותר מ־
-            <span className="inline-block bg-[linear-gradient(180deg,#4f97c0_0%,#2c6a95_52%,#164a6e_100%)] bg-clip-text font-extrabold text-transparent [filter:drop-shadow(0_0_22px_rgba(45,110,160,0.4))] sm:text-[1.08em]">
-              100 לקוחות?
+            <span className="mx-1 inline-block rounded-xl bg-gradient-to-b from-[#d7f1fd] to-[#7ad0ee] px-3 pb-2 pt-1 align-middle font-extrabold leading-none text-[#0a2236] shadow-[0_0_50px_-8px_rgba(110,201,232,0.75)]">
+              100 לקוחות
             </span>
+            ?
           </span>
         </h1>
 
