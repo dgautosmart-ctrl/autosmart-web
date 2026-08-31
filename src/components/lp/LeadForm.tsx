@@ -160,13 +160,6 @@ export default function LeadForm() {
           </svg>
         )}
       </button>
-
-      <p className="flex items-center justify-center gap-1.5 text-center text-sm text-text-dim">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} className="h-4 w-4 text-text-faint">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 3l7 4v5c0 4.4-3 8.5-7 9.5C8 20.5 5 16.4 5 12V7l7-4Z" />
-        </svg>
-        פנייה זו אינה כרוכה בהתחייבות. בשיחה קצרה נבחן יחד האם השירות מתאים לעסק שלך.
-      </p>
     </form>
   );
 }
