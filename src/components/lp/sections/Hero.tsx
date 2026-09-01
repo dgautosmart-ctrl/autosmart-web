@@ -32,11 +32,11 @@ export default function Hero() {
         </h1>
 
         <p
-          className="stage mt-8 max-w-2xl text-xl text-text-soft sm:text-[1.6rem] sm:leading-snug"
+          className="stage mt-8 max-w-2xl text-2xl font-bold text-text sm:text-[1.9rem] sm:leading-snug"
           style={s("0.95s")}
         >
           רשימת הלקוחות שלך{" "}
-          <span className="lit font-semibold">שווה יותר</span>{" "}
+          <span className="lit font-extrabold">שווה יותר</span>{" "}
           מכל קמפיין חדש שתריץ.
         </p>
 

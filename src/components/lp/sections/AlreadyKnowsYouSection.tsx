@@ -15,6 +15,9 @@ export default function AlreadyKnowsYouSection() {
           <p className="mt-7 max-w-2xl text-xl text-text-soft sm:text-2xl">
             הם כבר עבדו איתך פעם אחת. הדרך הקצרה ביותר לעבודה הבאה עוברת דרכם.
           </p>
+          <p className="mt-9 text-3xl font-extrabold text-text sm:text-4xl lg:text-5xl lg:leading-[1.12]">
+            רוצה להזניק את העסק? רוצה לראות את היומן מתמלא?
+          </p>
         </Reveal>
       </Container>
     </Section>
