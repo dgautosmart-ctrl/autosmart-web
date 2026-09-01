@@ -39,12 +39,10 @@ export default function Hero() {
         </p>
 
         <p
-          className="stage mt-4 max-w-2xl text-2xl font-bold text-text sm:text-[1.9rem] sm:leading-snug"
+          className="stage mt-4 whitespace-nowrap text-[clamp(0.82rem,3.7vw,1.6rem)] font-extrabold tracking-tight text-[#ffd27a] [text-shadow:0_0_28px_rgba(255,196,92,0.45)]"
           style={s("0.95s")}
         >
-          רשימת הלקוחות שלך{" "}
-          <span className="lit font-extrabold">שווה יותר</span>{" "}
-          מכל קמפיין חדש שתריץ.
+          רשימת הלקוחות שלך שווה יותר מכל קמפיין חדש שתריץ.
         </p>
 
         {/* limited-time offer */}
