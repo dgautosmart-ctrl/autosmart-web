@@ -21,7 +21,10 @@ export default function FormSection() {
           {/* pitch */}
           <Reveal className="flex flex-col items-center text-center lg:items-start lg:pt-4 lg:text-right">
             <Marker />
-            <h2 className="mt-5 text-3xl sm:text-4xl lg:text-[2.6rem] lg:leading-[1.12]">
+            <p className="mt-5 text-lg font-bold text-text sm:text-xl">
+              רוצה להזניק את העסק? רוצה לראות את היומן מתמלא?
+            </p>
+            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-[2.6rem] lg:leading-[1.12]">
               בוא נבדוק מה מסתתר ברשימת הלקוחות שלך.
             </h2>
             <p className="mt-5 max-w-md text-lg text-text-soft">
