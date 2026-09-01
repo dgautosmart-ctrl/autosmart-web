@@ -30,7 +30,10 @@ export default function ContactForm() {
             </svg>
             בואו נדבר
           </h2>
-          <p className="mt-3 text-brand-offwhite/85">
+          <p className="mt-3 text-lg font-bold text-brand-offwhite sm:text-xl">
+            רוצים להזניק את העסק? רוצים לראות את היומן מתמלא?
+          </p>
+          <p className="mt-2 text-brand-offwhite/85">
             ספרו לנו קצת על העסק שלכם ונחזור אליכם בהקדם
           </p>
         </div>
