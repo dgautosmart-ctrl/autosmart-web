@@ -39,7 +39,7 @@ export default function Hero() {
         </p>
 
         <p
-          className="stage mt-4 whitespace-nowrap text-[clamp(0.82rem,3.7vw,1.6rem)] font-extrabold tracking-tight text-[#ffd27a] [text-shadow:0_0_28px_rgba(255,196,92,0.45)]"
+          className="stage mt-4 whitespace-nowrap text-[clamp(0.82rem,3.7vw,1.6rem)] font-extrabold tracking-tight text-[#ff9d42] [text-shadow:0_0_28px_rgba(255,140,50,0.5)]"
           style={s("0.95s")}
         >
           רשימת הלקוחות שלך שווה יותר מכל קמפיין חדש שתריץ.
