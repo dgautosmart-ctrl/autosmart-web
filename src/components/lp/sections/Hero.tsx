@@ -32,7 +32,14 @@ export default function Hero() {
         </h1>
 
         <p
-          className="stage mt-8 max-w-2xl text-2xl font-bold text-text sm:text-[1.9rem] sm:leading-snug"
+          className="stage mt-8 max-w-2xl text-xl font-bold text-text-soft sm:text-2xl"
+          style={s("0.8s")}
+        >
+          רוצה להזניק את העסק? רוצה לראות את היומן מתמלא?
+        </p>
+
+        <p
+          className="stage mt-4 max-w-2xl text-2xl font-bold text-text sm:text-[1.9rem] sm:leading-snug"
           style={s("0.95s")}
         >
           רשימת הלקוחות שלך{" "}
