@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { useContactModal } from "@/components/contact/ContactModalContext";
 import ContactFormBody from "@/components/contact/ContactFormBody";
+import { isQuizPath } from "@/lib/site-config";
 
 // --- ניתן לערוך כאן את הטקסטים וזמן ההופעה ---
 const SHOW_AFTER_MS = 10_000; // כמה זמן לחכות לפני הופעה (אם אין Exit Intent קודם)
@@ -29,19 +31,26 @@ export default function LeadPopup() {
   const { isOpen: contactModalOpen } = useContactModal();
   const [isOpen, setIsOpen] = useState(false);
   const triggeredRef = useRef(false);
+  // The quiz page is a focused, multi-step flow - a popup interrupting it mid-way
+  // would wreck the experience and cost completions, so it never fires there.
+  const onQuizPage = isQuizPath(usePathname());
   // Kept in sync so the mount-only trigger effect below can read the latest
   // value from its timeout/event callbacks without re-subscribing.
   const contactModalOpenRef = useRef(contactModalOpen);
   useEffect(() => {
     contactModalOpenRef.current = contactModalOpen;
   }, [contactModalOpen]);
+  const onQuizPageRef = useRef(onQuizPage);
+  useEffect(() => {
+    onQuizPageRef.current = onQuizPage;
+  }, [onQuizPage]);
 
   // Hide the popup whenever the contact modal is open, so the two never overlap.
-  const visible = isOpen && !contactModalOpen;
+  const visible = isOpen && !contactModalOpen && !onQuizPage;
 
   useEffect(() => {
     function trigger() {
-      if (triggeredRef.current || contactModalOpenRef.current) return;
+      if (triggeredRef.current || contactModalOpenRef.current || onQuizPageRef.current) return;
       triggeredRef.current = true;
       setIsOpen(true);
     }

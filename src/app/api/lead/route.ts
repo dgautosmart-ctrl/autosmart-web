@@ -10,10 +10,16 @@ import { CONTACT } from "@/lib/site-config";
  * הנוסח (כותרת ההתראה + גוף מייל האישור) נבחר לפי `variant`:
  *  - "site"      טופס יצירת קשר רגיל באתר, הפופאפ והכפתור.
  *  - "returning" דף הנחיתה של החזרת לקוחות / מכירות חוזרות.
+ *  - "quiz"      שאלון פוטנציאל האוטומציה. מגיע עם אובייקט `quiz` מלא.
  *
  * משתני סביבה נדרשים (צד שרת בלבד — לא NEXT_PUBLIC):
  *  - RESEND_API_KEY   מפתח API מ-resend.com
  *  - LEAD_MAIL_FROM   כתובת שולח מאומתת, למשל: "AutoSmart <info@autosmartbiz.co.il>"
+ *
+ * אופציונלי:
+ *  - LEAD_WEBHOOK_URL  כתובת שאליה נשלח ה-payload המלא (כולל תשובות השאלון)
+ *                      כדי לחבר את הפניות ל-CRM. השליחה לא חוסמת ולא מפילה
+ *                      את הפנייה אם היא נכשלת.
  */
 
 // מנקה תקלות נפוצות בהגדרת המשתנה: מרכאות עוטפות, רווחים, וגרש-סוגר כפול (">>").
@@ -25,7 +31,22 @@ function normalizeFrom(raw: string | undefined) {
 const FROM = normalizeFrom(process.env.LEAD_MAIL_FROM);
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-type Variant = "site" | "returning";
+type Variant = "site" | "returning" | "quiz";
+
+/** תוצאות שאלון פוטנציאל האוטומציה, כפי שהן נשלחות מהדפדפן. */
+type QuizPayload = {
+  version?: number;
+  completedAt?: string;
+  score?: {
+    total?: number;
+    band?: string;
+    categories?: Record<string, number>;
+  };
+  estimate?: { weeklyHours?: number; monthlyLow?: number; monthlyHigh?: number; show?: boolean };
+  answers?: { id: string; question: string; value: string; label: string; points: number | null }[];
+  freeText?: string | null;
+  insights?: string[];
+};
 
 type LeadPayload = {
   name?: string;
@@ -35,6 +56,21 @@ type LeadPayload = {
   message?: string;
   source?: string;
   variant?: string;
+  quiz?: QuizPayload;
+};
+
+const BAND_LABELS: Record<string, string> = {
+  low: "בסיס מסודר",
+  medium: "פוטנציאל בינוני",
+  high: "פוטנציאל גבוה",
+  veryHigh: "פוטנציאל גבוה מאוד",
+};
+
+const CATEGORY_LABELS: Record<string, string> = {
+  leads: "ניהול לידים ומכירות",
+  manual: "עבודה ידנית וחזרתית",
+  systems: "חיבור בין מערכות ומידע",
+  tasks: "ניהול משימות ומעקב",
 };
 
 function esc(value: string) {
@@ -77,10 +113,82 @@ const VARIANTS: Record<
     ],
     signature: "<strong>בברכה,<br>צוות AutoSmart</strong>",
   },
+  quiz: {
+    ownerHeading: "ליד חדש מהשאלון",
+    ownerSubject: (name) => `ליד חדש מהשאלון — ${name}`,
+    confirmSubject: "התוצאות שלך התקבלו — AutoSmart",
+    confirmParagraphs: (first) => [
+      `היי ${first},`,
+      "תודה שמילאת את השאלון — הפרטים והתשובות שלך התקבלו.",
+      "אעבור על מה שענית לפני שנדבר, כך שנגיע לשיחה כשאני כבר מכיר את העסק ואת התהליכים שציינת.",
+      "אחזור אליך במהלך יום העסקים הקרוב.",
+    ],
+    signature: "<strong>בברכה,<br>צוות AutoSmart</strong>",
+  },
 };
 
 function toVariant(value: string | undefined): Variant {
-  return value === "returning" ? "returning" : "site";
+  if (value === "returning") return "returning";
+  if (value === "quiz") return "quiz";
+  return "site";
+}
+
+/** טבלת התשובות המלאה + הציונים, כדי להיכנס לשיחה עם תמונה מלאה של העסק. */
+function quizSection(quiz: QuizPayload) {
+  const total = quiz.score?.total;
+  const band = quiz.score?.band ? (BAND_LABELS[quiz.score.band] ?? quiz.score.band) : "";
+  const categories = Object.entries(quiz.score?.categories ?? {})
+    .map(([key, value]) => `${CATEGORY_LABELS[key] ?? key}: <strong>${value}</strong>`)
+    .join(" &nbsp;·&nbsp; ");
+
+  const estimate =
+    quiz.estimate?.show && quiz.estimate.monthlyLow !== undefined
+      ? `<p style="margin:0 0 14px">הערכת חיסכון: <strong>${quiz.estimate.monthlyLow}–${quiz.estimate.monthlyHigh} שעות בחודש</strong> (${quiz.estimate.weeklyHours} שעות עבודה ידנית בשבוע לפי דיווחו)</p>`
+      : "";
+
+  const answers = (quiz.answers ?? [])
+    .map(
+      (answer) =>
+        `<tr><td style="padding:5px 12px 5px 0;vertical-align:top;color:#555">${esc(
+          answer.question,
+        )}</td><td style="padding:5px 0;font-weight:700;vertical-align:top">${esc(answer.label)}${
+          answer.points === null ? "" : ` <span style="font-weight:400;color:#999">(${answer.points})</span>`
+        }</td></tr>`,
+    )
+    .join("");
+
+  const freeText = quiz.freeText
+    ? `<p style="margin:16px 0 0"><strong>המשימה שהוא היה מוריד:</strong><br>${esc(quiz.freeText).replace(
+        /\n/g,
+        "<br>",
+      )}</p>`
+    : "";
+
+  return `<hr style="margin:20px 0;border:none;border-top:1px solid #ddd">
+    <h3 style="margin:0 0 10px">תוצאות השאלון</h3>
+    <p style="margin:0 0 8px;font-size:17px">ציון כולל: <strong>${total ?? "—"}/100</strong>${
+      band ? ` — ${band}` : ""
+    }</p>
+    ${categories ? `<p style="margin:0 0 14px;color:#333">${categories}</p>` : ""}
+    ${estimate}
+    <table style="border-collapse:collapse;font-size:14px">${answers}</table>
+    ${freeText}`;
+}
+
+/**
+ * שליחת ה-payload המלא ליעד חיצוני (CRM) אם הוגדר. פועל ב-fire-and-forget:
+ * כישלון כאן לא נוגע בפנייה עצמה, שכבר נשלחה במייל.
+ */
+function forwardToWebhook(payload: unknown) {
+  const url = process.env.LEAD_WEBHOOK_URL;
+  if (!url) return;
+  fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  }).catch(() => {
+    // מכוון: הליד כבר נשמר במייל, אין טעם להכשיל את הבקשה בגלל ה-CRM.
+  });
 }
 
 function ownerEmail(
@@ -107,6 +215,7 @@ function ownerEmail(
   return `<div dir="rtl" style="font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#111">
     <h2 style="margin:0 0 12px">${heading}</h2>
     <table style="border-collapse:collapse">${body}</table>
+    ${lead.quiz ? quizSection(lead.quiz) : ""}
   </div>`;
 }
 
@@ -159,6 +268,8 @@ export async function POST(request: NextRequest) {
   if (owner.error) {
     return Response.json({ success: false, error: "send-failed" }, { status: 502 });
   }
+
+  forwardToWebhook({ ...lead, variant, receivedAt: new Date().toISOString() });
 
   const firstName = esc(name.split(/\s+/)[0] || name);
   const confirm = await resend.emails
