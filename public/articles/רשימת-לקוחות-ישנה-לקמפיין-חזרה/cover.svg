@@ -12,43 +12,7 @@
   </defs>
 
   <rect width="1200" height="630" fill="url(#bg)"/>
-
-  <!-- Geometric network -->
-  <g>
-    <line x1="200" y1="120" x2="420" y2="80" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.06"/>
-    <line x1="200" y1="120" x2="180" y2="300" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.05"/>
-    <line x1="420" y1="80" x2="680" y2="110" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.04"/>
-    <line x1="680" y1="110" x2="820" y2="60" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.07"/>
-    <line x1="820" y1="60" x2="1050" y2="140" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.05"/>
-    <line x1="1050" y1="140" x2="1100" y2="320" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.04"/>
-    <line x1="180" y1="300" x2="340" y2="420" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.06"/>
-    <line x1="340" y1="420" x2="560" y2="380" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.05"/>
-    <line x1="560" y1="380" x2="780" y2="440" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.04"/>
-    <line x1="780" y1="440" x2="1000" y2="390" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.06"/>
-    <line x1="1000" y1="390" x2="1100" y2="320" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.05"/>
-    <line x1="420" y1="80" x2="340" y2="420" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.03"/>
-    <line x1="680" y1="110" x2="560" y2="380" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.04"/>
-    <line x1="120" y1="500" x2="340" y2="420" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.05"/>
-    <line x1="120" y1="500" x2="180" y2="300" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.04"/>
-    <circle cx="200" cy="120" r="5" fill="#6ec9e8" fill-opacity="0.28"/>
-    <circle cx="420" cy="80" r="4" fill="#6ec9e8" fill-opacity="0.28"/>
-    <circle cx="680" cy="110" r="6" fill="#6ec9e8" fill-opacity="0.28"/>
-    <circle cx="820" cy="60" r="4" fill="#6ec9e8" fill-opacity="0.28"/>
-    <circle cx="1050" cy="140" r="5" fill="#6ec9e8" fill-opacity="0.28"/>
-    <circle cx="180" cy="300" r="3" fill="#6ec9e8" fill-opacity="0.28"/>
-    <circle cx="340" cy="420" r="5" fill="#6ec9e8" fill-opacity="0.28"/>
-    <circle cx="560" cy="380" r="4" fill="#6ec9e8" fill-opacity="0.28"/>
-    <circle cx="780" cy="440" r="6" fill="#6ec9e8" fill-opacity="0.28"/>
-    <circle cx="1000" cy="390" r="4" fill="#6ec9e8" fill-opacity="0.28"/>
-    <circle cx="1100" cy="320" r="5" fill="#6ec9e8" fill-opacity="0.28"/>
-    <circle cx="120" cy="500" r="4" fill="#6ec9e8" fill-opacity="0.28"/>
-  </g>
-
-  <!-- Funnel shape hint: 3 stacked bars narrowing -->
-  <rect x="860" y="170" width="200" height="28" rx="4" fill="#2b93c9" fill-opacity="0.18"/>
-  <rect x="880" y="218" width="160" height="28" rx="4" fill="#2b93c9" fill-opacity="0.22"/>
-  <rect x="900" y="266" width="120" height="28" rx="4" fill="#2b93c9" fill-opacity="0.28"/>
-  <rect x="920" y="314" width="80" height="28" rx="4" fill="#6ec9e8" fill-opacity="0.35"/>
+  <g><line x1="312" y1="48" x2="530" y2="22" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.049"/><line x1="312" y1="48" x2="118" y2="91" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.054"/><line x1="741" y1="318" x2="728" y2="104" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.050"/><line x1="741" y1="318" x2="931" y2="108" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.014"/><line x1="741" y1="318" x2="884" y2="572" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.000"/><line x1="741" y1="318" x2="967" y2="372" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.038"/><line x1="728" y1="104" x2="931" y2="108" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.055"/><line x1="728" y1="104" x2="530" y2="22" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.044"/><line x1="931" y1="108" x2="1074" y2="24" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.072"/><line x1="931" y1="108" x2="1172" y2="168" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.027"/><line x1="931" y1="108" x2="967" y2="372" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.018"/><line x1="884" y1="572" x2="967" y2="372" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.044"/><line x1="52" y1="284" x2="118" y2="91" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.047"/><line x1="52" y1="284" x2="112" y2="278" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.126"/><line x1="1159" y1="322" x2="1172" y2="168" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.078"/><line x1="1159" y1="322" x2="967" y2="372" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.054"/><line x1="1074" y1="24" x2="1172" y2="168" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.068"/><line x1="118" y1="91" x2="112" y2="278" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.056"/><line x1="1172" y1="168" x2="967" y2="372" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.006"/><circle cx="312" cy="48" r="5" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="741" cy="318" r="3" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="728" cy="104" r="6" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="931" cy="108" r="4" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="884" cy="572" r="5" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="530" cy="22" r="3" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="52" cy="284" r="5" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="1159" cy="322" r="5" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="1074" cy="24" r="5" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="498" cy="488" r="4" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="118" cy="91" r="6" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="112" cy="278" r="3" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="1172" cy="168" r="5" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="967" cy="372" r="5" fill="#6ec9e8" fill-opacity="0.28"/></g>
 
   <rect x="80" y="498" width="132" height="6" rx="3" fill="url(#accent)"/>
 
@@ -59,7 +23,7 @@
     <text x="1098" y="112" text-anchor="end" font-family="'IBM Plex Sans Hebrew','Rubik','Segoe UI',Arial,sans-serif" font-size="22" fill="#dff2fb">שיווק ולידים</text>
   </g>
 
-  <text text-anchor="end" font-family="'IBM Plex Sans Hebrew','Rubik','Segoe UI',Arial,sans-serif" font-size="62" font-weight="700" fill="#ffffff">
-    <tspan x="1120" y="240">יש לכם רשימת לקוחות</tspan><tspan x="1120" y="318">ישנה — כך הופכים אותה</tspan><tspan x="1120" y="396">לקמפיין חזרה שעובד</tspan>
+  <text text-anchor="end" font-family="'IBM Plex Sans Hebrew','Rubik','Segoe UI',Arial,sans-serif" font-size="66" font-weight="700" fill="#ffffff">
+    <tspan x="1120" y="255">רשימת לקוחות ישנה:</tspan><tspan x="1120" y="337">כך הופכים אותה לקמפיין</tspan><tspan x="1120" y="419">חזרה שעובד</tspan>
   </text>
 </svg>

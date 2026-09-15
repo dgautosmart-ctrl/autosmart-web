@@ -12,44 +12,7 @@
   </defs>
 
   <rect width="1200" height="630" fill="url(#bg)"/>
-
-  <!-- Geometric network -->
-  <g>
-    <line x1="150" y1="100" x2="380" y2="60" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.05"/>
-    <line x1="380" y1="60" x2="600" y2="110" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.06"/>
-    <line x1="600" y1="110" x2="840" y2="70" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.04"/>
-    <line x1="840" y1="70" x2="1100" y2="130" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.07"/>
-    <line x1="150" y1="100" x2="200" y2="320" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.05"/>
-    <line x1="200" y1="320" x2="160" y2="520" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.04"/>
-    <line x1="380" y1="60" x2="440" y2="350" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.04"/>
-    <line x1="600" y1="110" x2="580" y2="400" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.05"/>
-    <line x1="840" y1="70" x2="820" y2="360" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.04"/>
-    <line x1="1100" y1="130" x2="1080" y2="370" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.05"/>
-    <line x1="200" y1="320" x2="440" y2="350" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.04"/>
-    <line x1="440" y1="350" x2="580" y2="400" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.05"/>
-    <line x1="580" y1="400" x2="820" y2="360" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.04"/>
-    <line x1="820" y1="360" x2="1080" y2="370" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.04"/>
-    <circle cx="150" cy="100" r="5" fill="#6ec9e8" fill-opacity="0.28"/>
-    <circle cx="380" cy="60" r="4" fill="#6ec9e8" fill-opacity="0.28"/>
-    <circle cx="600" cy="110" r="6" fill="#6ec9e8" fill-opacity="0.28"/>
-    <circle cx="840" cy="70" r="4" fill="#6ec9e8" fill-opacity="0.28"/>
-    <circle cx="1100" cy="130" r="5" fill="#6ec9e8" fill-opacity="0.28"/>
-    <circle cx="200" cy="320" r="5" fill="#6ec9e8" fill-opacity="0.28"/>
-    <circle cx="440" cy="350" r="4" fill="#6ec9e8" fill-opacity="0.28"/>
-    <circle cx="580" cy="400" r="6" fill="#6ec9e8" fill-opacity="0.28"/>
-    <circle cx="820" cy="360" r="4" fill="#6ec9e8" fill-opacity="0.28"/>
-    <circle cx="1080" cy="370" r="5" fill="#6ec9e8" fill-opacity="0.28"/>
-    <circle cx="160" cy="520" r="4" fill="#6ec9e8" fill-opacity="0.28"/>
-  </g>
-
-  <!-- Step progression: 3 circles connected -->
-  <circle cx="910" cy="190" r="22" fill="#2b93c9" fill-opacity="0.22" stroke="#6ec9e8" stroke-width="1.5" stroke-opacity="0.4"/>
-  <line x1="932" y1="190" x2="958" y2="190" stroke="#6ec9e8" stroke-width="1.5" stroke-opacity="0.4"/>
-  <circle cx="980" cy="190" r="22" fill="#2b93c9" fill-opacity="0.22" stroke="#6ec9e8" stroke-width="1.5" stroke-opacity="0.4"/>
-  <line x1="1002" y1="190" x2="1028" y2="190" stroke="#6ec9e8" stroke-width="1.5" stroke-opacity="0.4"/>
-  <circle cx="1050" cy="190" r="22" fill="#6ec9e8" fill-opacity="0.30" stroke="#6ec9e8" stroke-width="1.5" stroke-opacity="0.55"/>
-  <!-- checkmark in last step -->
-  <polyline points="1041,190 1047,197 1059,182" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-opacity="0.8"/>
+  <g><line x1="187" y1="342" x2="231" y2="428" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.112"/><line x1="187" y1="342" x2="94" y2="602" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.016"/><line x1="187" y1="342" x2="274" y2="154" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.052"/><line x1="187" y1="342" x2="414" y2="440" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.031"/><line x1="889" y1="358" x2="638" y2="516" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.005"/><line x1="889" y1="358" x2="756" y2="112" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.012"/><line x1="889" y1="358" x2="1014" y2="258" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.076"/><line x1="889" y1="358" x2="764" y2="522" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.052"/><line x1="889" y1="358" x2="1028" y2="142" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.025"/><line x1="348" y1="608" x2="231" y2="428" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.045"/><line x1="348" y1="608" x2="94" y2="602" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.028"/><line x1="348" y1="608" x2="414" y2="440" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.066"/><line x1="638" y1="516" x2="764" y2="522" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.094"/><line x1="638" y1="516" x2="576" y2="228" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.008"/><line x1="638" y1="516" x2="414" y2="440" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.032"/><line x1="756" y1="112" x2="1014" y2="258" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.004"/><line x1="756" y1="112" x2="576" y2="228" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.047"/><line x1="756" y1="112" x2="596" y2="96" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.076"/><line x1="756" y1="112" x2="1028" y2="142" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.017"/><line x1="1014" y1="258" x2="1028" y2="142" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.099"/><line x1="231" y1="428" x2="94" y2="602" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.043"/><line x1="231" y1="428" x2="274" y2="154" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.018"/><line x1="231" y1="428" x2="414" y2="440" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.063"/><line x1="576" y1="228" x2="596" y2="96" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.088"/><line x1="576" y1="228" x2="414" y2="440" stroke="#6ec9e8" stroke-width="1.25" stroke-opacity="0.018"/><circle cx="187" cy="342" r="4" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="889" cy="358" r="4" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="348" cy="608" r="3" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="638" cy="516" r="5" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="756" cy="112" r="3" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="1014" cy="258" r="3" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="231" cy="428" r="5" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="94" cy="602" r="5" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="274" cy="154" r="3" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="764" cy="522" r="2" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="576" cy="228" r="5" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="596" cy="96" r="5" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="1028" cy="142" r="2" fill="#6ec9e8" fill-opacity="0.28"/><circle cx="414" cy="440" r="3" fill="#6ec9e8" fill-opacity="0.28"/></g>
 
   <rect x="80" y="498" width="132" height="6" rx="3" fill="url(#accent)"/>
 
@@ -60,7 +23,7 @@
     <text x="1098" y="112" text-anchor="end" font-family="'IBM Plex Sans Hebrew','Rubik','Segoe UI',Arial,sans-serif" font-size="22" fill="#dff2fb">אוטומציה</text>
   </g>
 
-  <text text-anchor="end" font-family="'IBM Plex Sans Hebrew','Rubik','Segoe UI',Arial,sans-serif" font-size="58" font-weight="700" fill="#ffffff">
-    <tspan x="1120" y="248">לא נותנים ל-AI לשלוח</tspan><tspan x="1120" y="324">ביום הראשון: איך משיקים</tspan><tspan x="1120" y="400">אוטומציה רגישה בשלבים</tspan>
+  <text text-anchor="end" font-family="'IBM Plex Sans Hebrew','Rubik','Segoe UI',Arial,sans-serif" font-size="66" font-weight="700" fill="#ffffff">
+    <tspan x="1120" y="255">לא נותנים ל-AI לשלוח</tspan><tspan x="1120" y="337">ביום הראשון: כך משיקים</tspan><tspan x="1120" y="419">אוטומציה בשלבים</tspan>
   </text>
 </svg>
